@@ -1,2 +1,0 @@
-Book,ProductName,Counterparty,Status,PayCurrency,ReceiveCurrency,PayAmount,ReceiveAmount,TradeDate,SpotDate,FxQuotation
-Interest Rate,FxSpot,RBC,Active,USD,CAD,10000,12800,6/26/2018,6/27/2018,USD/CAD

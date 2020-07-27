@@ -1,2 +1,0 @@
-Book,ProductName,ExchangeName,Status,BuySell,BaseCurrency,BaseNotional,UnderlyingCurrency,UnderlyingNotional,FutureSymbol,FutureMaturityLabel,NumOfContracts,SpotQuotation,TradeDate,MaturityDate,SettlementDate,Price
-Mike,FxFuture,CME,Active,Buy,USD,1000000,CAD,1300000,CME CADUSD,MAR-19T,10,USD/CAD,2/17/2018,3/13/2019,3/15/2019,0.76

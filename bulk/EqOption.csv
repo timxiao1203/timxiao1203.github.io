@@ -1,3 +1,0 @@
-Book,ProductName,Status,BrokerName,ExchangeName,UnderlyingTicker,Currency,Strike,BuySell,CallPut,ExerciseType,SettlementType,Quantity,TradeDate,MaturityDate,Premium
-Mike,EqOption,Active,CITI,NYSE,.CSEARC5E,USD,150.4292,Buy,Call,European,Cash,1000,2/23/2017,2/24/2022,10
-Mike,EqOption,Active,JPM,NYSE,AA,USD,56.5,Buy,Call,American,Cash,1000,5/12/2018,5/12/2021,25
