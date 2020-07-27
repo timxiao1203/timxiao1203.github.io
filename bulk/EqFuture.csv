@@ -1,0 +1,2 @@
+Book,ProductName,Status,BrokerName,ExchangeName,BuySell,Currency,FutureSymbol,UnderlyingTicker,Quantity,TradeDate,MaturityDate,Price
+Mike,EqFuture,Active,CITI,CME,Buy,USD,ESH7,.SPX,1000,6/23/2018,12/23/2018,9

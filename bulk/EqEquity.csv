@@ -1,0 +1,2 @@
+Book,ProductName,BrokerName,Status,ExchangeName,BuySell,Currency,Ticker,Quantity,PurchasePrice,TradeDate,Type
+Mike,EqEquity,TD,Active,TSE,Buy,CAD,RBC,1000,56.35,8/9/2018,Equity

@@ -1,0 +1,368 @@
+<html>
+
+<title>Interest Rate Caps and Floors Pricing and Valuation Practical Guide - FinPricing</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="An interest rate cap is an OTC derivative where the buyer receives payments at the end of each period 
+				when the interest rate exceeds the strike, whereas an interest rate floor is a similar contract where the buyer receives 
+				payments at the end of each period when the interest rate is below the strike. Caps and floors are widely used to hedge 
+				against interest rate fluctuations. FinPricing platform provides a simple interface to price caps and floors and calculate 
+				sensitivities. This presentation gives an overview of interest rate cap products and valuation model.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+              <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/productList.html">
+			Back To Product List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Interest Rate Caps and Floors Introduction and Valuation</font></I></p>
+				
+			<br>
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An interest rate cap is an OTC derivative where the buyer receives payments at the end of each period when the interest rate 
+			exceeds the strike, whereas an interest rate floor is a similar contract where the buyer receives payments at the end of each 
+			period when the interest rate is below the strike.
+			</font></p>
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	Interest Rate Caps and Floors Introduction</strong></td></tr></table><br></a> 
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An interest rate cap is an OTC derivative where the buyer receives payments at the end of each period when the interest rate exceeds 
+			the strike. It actually consists of a series of European call options (caplets) on interest rates.  The buyer receives payments 
+			at the end of each period when the interest rate exceeds the strike.  In return, the buyer needs to pay an up-front premium to 
+			the seller.
+			</font></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+ 			Interest rate caps are frequently purchased by issuers of floating rate debt who wish to protect themselves from the increased 
+			financing costs that would result from a rise in interest rates. Investors use caps to hedge against the risk associated with 
+			floating interest rate and will benefit from any risk in interest rates above the strike. The holder gets a payment when the 
+			underlying interest rate exceeds a specified strike rate. 
+			</font></p>
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An interest rate floor consists of a series of European put options (floorlets) on interest rates.  The buyer receives payments 
+			at the end of each period when the interest rate falls below the strike.  The payment frequency could be monthly, quarterly 
+			or semiannually. The exercise is done automatically that is different from any types of options. For example, let the strike 
+			be 2.0%. The buyer would get paid if LIBOR fell below 2.0%; otherwise, he would receive nothing if LIBOR rose above it.
+			</font></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+ 			Floors are frequently purchased by purchasers of floating rate debt who wish to protect themselves from the loss of income 
+			that would result from a decline in interest rates. A floor is a guarantee of a future interest rate. Investors use floor 
+			to hedge against the risk associated with floating interest rate. Investors will benefit from any risk in interest rates 
+			below the strike. 
+			</font></p>
+		
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2.	Interest Rate Caps and Floors Valuation</strong></td></tr></table><br></a> 
+		
+		
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			A cap consists of a series of cash flows, i.e., caplets. Each cash flow is a call option on a floating rate 
+			index level at a specified date in future. The price of a caplet is valued using the Back formula. 
+			Whereas, A floor consists of a series of cash flows, i.e., floorlets. Each cash flow is a put option on a floating rate 
+			index level at a specified date in future. The price of a flootlet is valued using the Back formula.
+			</font></p>
+
+
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                	The present value of a cap is given by</font></B></I></p>			
+			<p><img SRC="/images/cap.JPG"></p>	
+
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                	The present value of a floor is given by</font></B></I></p>			
+			<p><img SRC="/images/floor.JPG"></p>
+			
+
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                	Practical Notes</font></I></p>			
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				The pricing model for pricing caps/floors is the Black formula in the market.
+                  		</font> 
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				The forward rate is simply compounded.
+                  		</font> 
+         
+				<li><font face="Arial, Helvetica, sans-serif">
+				The first key is to generate the cash flows of a cap/floor. The cash flow generation is based on the start time, end time 
+				and payment frequency, plus calendar (holidays), business convention (e.g., modified following, following, etc.) and whether 
+				sticky month end.
+                  		</font> 
+
+			   <li><font face="Arial, Helvetica, sans-serif">
+				Then you need to construct interest zero rate curve by bootstrapping the most liquid interest rate instruments
+				in the market. FinPricing provides useful tools to build various curves, such as interest rate base curve, basis curve, 
+				OIS curve, bond curve, treasury curve, etc. <a href="/curveVolList.html">Go to the list of the tools</a>
+                  </font>  
+				  
+                		<li><font face="Arial, Helvetica, sans-serif">
+				Another key for accurately pricing an outstanding cap/floor is to construct an arbitrage-free volatility surface. 
+				FinPricing is using SABR model to construct cap volatility surface. 
+				<a href="/curveVolList.html">Go to the list of volatility construction tools</a> 
+                  		</font> 
+
+	               		<li><font face="Arial, Helvetica, sans-serif">
+				The accrual period is calculated according to the start date and end date of a cash flow plus day count convention 
+                  		</font> 
+         
+                		<li><font face="Arial, Helvetica, sans-serif">
+				Any compounded interest zero rate curves can be used to compute discount factor, of course the formulas will be 
+				slightly different. The most common used one is continuously compounded zero rates.
+                  		</font> 
+          
+                		<li><font face="Arial, Helvetica, sans-serif">
+				The formula above doesn’t contain the last live reset cash flow whose reset date is less than valuation date but payment date 
+				is greater than valuation date. The reset value is
+				<br/>
+				&nbsp&nbsp&nbsp PVreset = max( r – K, 0)N&tau;D		for cap
+				<br/>
+				&nbsp&nbsp&nbsp PVreset = max (k – r, 0)N&tau;D		for floor
+				<br/>
+
+				that should be added into the above present value.
+
+                  		</font>  			
+			</ul>
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	More Details</strong></td></tr></table><br></a> 		
+		
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>	
+				
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/IrCap.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/IrCap.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/IrCap.wmv">Download video file</a>
+				</font> 			
+			</ul>
+			
+			
+			<br>
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides a simple interface to price a cap or floor and calculate its sensitivities. <a href="/download.html">
+			Download the platform now</a>
+			</font></I></p>
+
+
+                  <p></p>
+                  <p> 			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

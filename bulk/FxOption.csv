@@ -1,0 +1,2 @@
+Book,ProductName,Counterparty,ExchangeName,Status,ReportingCurrency,BaseCurrency,BaseNotional,UnderlyingCurrency,UnderlyingNotional,CallPut,BuySell,Quotation,Strike,Instrument,TradeDate,MaturityDate,SettlementDate,OptionMaturityLabel,NumOfContracts,OptionType,Premium
+Mike,FxOption,RBC,CME,Active,USD,USD,1000000,CAD,1300000,Call,Buy,USD/CAD,0.765,CME CADUSD,11/23/2017,6/9/2019,6/9/2019,19-Jun,10,European,6420

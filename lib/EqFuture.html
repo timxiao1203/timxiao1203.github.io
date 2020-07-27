@@ -1,0 +1,349 @@
+<html>
+
+<title>Equity Future and Equity Forward Pricing and Valuation Practical Guide</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="An equity future or equity forward is a contract between two parties to exchange a number of stocks at 
+								predetermined future date and price. Futures are traded in exchanges while forwards in OTC. Futures are 
+								standardized in terms of quantity, delivery date, delivery place. This presentation provides an overview of equity future
+								and forward product and valuation. FinPricing provides a simple interface to price an equity future/forward 
+								and calculate its sensitivities.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+              <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/productList.html">
+			Back To Product List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Equity Future and Forward Introduction and Pricing Practical Guide</font></I></p>
+				
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	Equity Future and Forward Introduction</strong></td></tr></table><br></a> 				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An Equity Forward contract is an agreement between two counterparties to buy a specific number of equity stocks, stock index 
+			or basket at a given price (called strike price) at a given date. For any forward contract no cash changes hands until the 
+			maturity of the contract. Equity forward contracts are cash settled in most cases. At maturity, the two counterparties exchange 
+			a cashflow equivalent to the difference between the stock closing price and the strike price. Equity forward contract is traded 
+			over the counter (OTC) instead of exchange market.  
+			</font></p>
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Unlike Equity Forward, an Equity Futures contract traded over the organized exchange. In this contract parties commit to buy or 
+			sell a specified amount of an individual equity or a basket of equities or an equity index at an agreed contract price on a specified 
+			date. Generally there are two types of Equity Futures: Index Future and Stock Future. Stock markets Index Futures are futures contracts 
+			used to replicate the performance of an underlying stock market index. They can be used for hedging against an existing equity position, 
+			or speculating on future movements of the index. Indices for futures include well-established indices such as S&P 500, FTSE 100, DAX, 
+			CAC 40 and other G12 country indices. Indices for OTC products are broadly similar, but offer more flexibility.
+			</font></p>
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Single-stock futures are exchange-traded futures contracts based on an individual underlying security rather than a stock index. 
+			Their performance is similar to that of the underlying equity itself, although as futures contracts they are usually traded with 
+			greater leverage. Another difference is that holders of long positions in single stock futures typically do not receive dividends 
+			and holders of short positions do not pay dividends. Single-stock futures may be cash-settled or physically settled by the transfer 
+			of the underlying stocks at expiration, although in the United States only physical settlement is used to avoid speculation in 
+			the market.
+			</font></p>			
+		
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			A future takes place on an organized exchange where the all of the contract's terms and conditions, except price, are formalized. 
+			The future's standardization helps to create liquidity in the marketplace enabling participants to close out positions before 
+			expiration. Equity forward contract is traded over the counter (OTC).  They are customized to meet the user's special needs. 
+			Forwards have credit risk, but futures do not because a clearing house guarantees against default risk.
+			</font></p>		
+
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2.	Equity Future and Forward Valuation</strong></td></tr></table><br></a> 				
+			
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+            Equity futures prices are usually quoted in the same way as equity prices quoted in the underlying cash market by exchanges.
+			A pricing model is mainly used to calculate risk for a future contract, although it is utilized for computing both price and 
+			risk for a forward.
+			</font></p>	
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+            The theoretical value of a future/forward depends on the dividend model assumption. There are two types of dividends: 
+			dividend yield (continuous dividend) or discrete dividend.
+			</font></p>						
+				
+ 
+			 <br>
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+            The future/forward price under dividend yield assumption is given by
+			</font></p>				
+					
+			<p><img SRC="/images/eqFuture.JPG"></p>
+
+			<br>		
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                	Discrete Dividend</font></B></I></p>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+            The future/forward price under discrete dividend assumption can be expressed as
+			</font></p>				
+					
+			<p><img SRC="/images/eqFuture2.JPG"></p>
+
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	Practical Guide </strong></td></tr></table><br></a> 				
+			
+			<ul>
+			
+				<li><font face="Arial, Helvetica, sans-serif">
+				Equity future/forward price formula is very simple under dividend yield assumption. Unfortunately there is no or almost no dividend 
+				yield existing in the market, although sometimes people may convert discrete dividends into dividend yields for analytic 
+				tractability purpose. 
+                  		</font> 
+         
+                		<li><font face="Arial, Helvetica, sans-serif">
+				Almost all dividends in the market are discrete.</font> 
+						
+				<li><font face="Arial, Helvetica, sans-serif">
+				One key factor for pricing any equity products is to correctly calculate equity forward taking all discrete dividends into account.
+                  		</font> 			
+			</ul>
+
+			<br>			
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	More Details</strong></td></tr></table><br></a> 
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>						
+				
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqFuture.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqFuture.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqFuture.wmv">Download video file</a>
+				</font> 			
+			</ul>
+
+				
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides a simple interface to price an equity future/forward and calculate its sensitivities. <a href="/download.html">
+			Download the platform now</a>
+			</font></I></p>
+			<br>			
+                  <p></p>
+                  <p> 
+	
+			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

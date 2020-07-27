@@ -1,0 +1,624 @@
+<html>
+
+<title>Credit Valuation Adjustment (CVA) and Funding Valuation Adjustment (FVA) Methodology Implementation Introduction - FinPricing</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="Credit valuation adjustment (CVA) is the market price of counterparty credit risk while Funding Valuation 
+								Adjustment (FVA) is the funding cost of transacting OTC derivatives. This presentation elaborates an integrated 
+								framework for calculating both CVA and FVA. We also discuss the pros and cons of 
+								comparing the popular credit exposure approach and the more accurate least square Monte Carlo approach. ">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+              <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+          
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/paperList.html">
+			Back To Article List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+               Credit Valuation Adjustment (CVA) and Funding Valuation Adjustment (FVA) Methodology and Implementation</font></I></p>
+				
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	CVA and FVA Introduction </strong></td></tr></table><br></a> 					
+				
+			<br>
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Credit value adjustment (CVA) is the market price of counterparty credit risk that has become a central part of counterparty 
+			credit risk management.  By definition, CVA is the difference between the risk-free portfolio value and the true/risky portfolio 
+			value. In practice, CVA should be computed at portfolio level. That means calculation should take Master agreement and CSA 
+			agreement into account.
+			</font></p>
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			CVA not only allows institutions to quantify counterparty risk as a single measurable P&L number, but also offers an opportunity 
+			for banks to dynamically manage, price, and hedge counterparty risk. The benefits of CVA are widely acknowledged. Many banks have 
+			set up internal credit risk trading desks to manage counterparty risk on derivatives.
+			</font></p>			
+			
+			<br>			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Funding Valuation Adjustment (FVA) is the cost of funding that is considered in the valuation of uncollateralized derivatives. It is introduced to quantify 
+			the adjustment to the value of derivatives in order to ensure that a trader recovers funding costs that are consistent with the 
+			market's view of the funding costs associated with the same trade.
+			</font></p>
+			
+			<br>			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			FVA is introduced to capture the incremental costs of funding uncollateralized derivatives. 
+			It can be referred to as the difference between the rate paid for the collateral to the bank's treasury and rate paid by the 
+			clearinghouse. Also FVA can be thought of as a hedging cost or benefit arising from the mismatch between an uncollateralized 
+			client trade and a collateralized hedge in the interdealer market. FVA should be also calculated at portfolio level.
+			</font></p>			
+		
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			This presentation elaborates an integrated framework for calculating both CVA and FVA. We also discuss the pros and cons of 
+			comparing the popular credit exposure approach and the more accurate least square Monte Carlo approach. Click the links 
+			below for details.
+			</font></p>
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2`.	CVA Valuation </strong></td></tr></table><br></a> 					
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Credit Exposure Approach</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The CVA under the credit exposure approach can be expresses as
+			</font></p>			
+			<p><img SRC="/images/cvaFva1.JPG"></p>				
+			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The pros of the credit exposure approach
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Simple and intuitive
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Make best reuse of the existing counterparty credit exposure system
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Relatively easy to implement
+				</font> 			
+			</ul>
+			
+<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The cons of the credit exposure approach
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Theoretically unsound
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Inaccurate
+				</font> 
+			</ul>			
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Least Square Monte Carlo Approach</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The least square Monte Carlo approach was introduced by Xiao(1)
+			</font></p>				
+			<p><img SRC="/images/cvaFva3.JPG"></p>
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The CVA under the least square Monte Carlo approach can be expresses as
+			</font></p>			
+			<p><img SRC="/images/cvaFva2.JPG"></p>				
+			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The pros of the least square Monte Carlo approach
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Theoretically sound: it can be rigorously proved. 
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Accurate valuation
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Valuation is performed by Longstaff-Schwartz least squares Monte Carlo approach.
+				</font> 			
+			</ul>
+			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The cons of the credit exposure approach
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Calculation procedure is different from credit exposure computation.
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Hardly reuse the existing credit exposure system
+				</font> 
+			</ul>						
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Master Agreement</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Since both CVA and FVA are computed at a portfolio level, we need to incorporate with Master Agreement. 
+			Master agreement is a document agreed between two parties, which applies to all transactions between them.
+			Close out and netting agreement is part of the Master Agreement.
+			</font></p>						
+			
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The netting or nonnetting rule under a Master agreement can be represneted as
+			</font></p>	
+			<p><img SRC="/images/cvaFva4.JPG"></p>	
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                CSA Agreement</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			CSA (or Margin Agreement or Collateral Agreement) is a legal document that regulates collateral posting.
+			Trades under a CSA should be also under a netting agreement, but not vice verse. It defines a variety of terms related 
+			to collateral posting: threshold, minimum transfer amount (MTA) and independent amount (or initial margin or haircut)
+			</font></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			In the derivatives world, collateral posting is a risk reduction tool that mitigates risk by reducing credit exposure. 
+			It allows financial institutions to reduce economic capital and credit risk, free up lines of credit, and expand the range of 
+			counterparties. All of these factors contribute to the growth of financial markets. The benefits are broadly acknowledged and 
+			affect dealers and end users, as well as the financial system generally. 
+			</font></p>	
+
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	Risk Neutral Simulation </strong></td></tr></table><br></a> 					
+			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Both CVA and FVA are a topic of valuation. Therefore, simulation should be conducted under the risk neutral measure.
+			</font></p>	
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Interest Rate and FX Simulation</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			If one factor model is good enough for a company, we recommend 1-factor Hull White given below to simulate interest rates, 
+			because it is simple and easy to implement.
+			</font></p>			
+			<p><img SRC="/images/cvaFva5.JPG"></p>	
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			If a company has a demand to use multi-factor models, one can choose 2-factor Hull White or LIBOR Market Model (LMM).
+			</font></p>			
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Forward FX rate can be derived using interest rate parity
+			</font></p>	
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Equity Price Simulation</font></I></p>				
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			One popular simulation model for equity is the Geometric Brownian Motion (GBM).
+			</font></p>			
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The pros of the GBM:
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Simple and easy
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Non-negative stock price
+				</font> 	
+			</ul>
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The cons of the GBM:
+			</font></p>	
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Simulated values could be extremely large for a longer horizon, so it may be better to incorporate with a reverting draft.
+				</font> 
+			</ul>
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Commodity Simulation</font></I></p>	
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			To simulate commodity spot, future and forward prices as well as pipeline spreads
+			</font></p>		
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The 2-factor model is recommended as follows
+			</font></p>		
+			<p><img SRC="/images/cvaFva5.JPG"></p>	
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The model leads to a closed form solution of forward prices and thus forward term structure.
+			</font></p>			
+			
+			
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Implied Volatility Simulation</font></I></p>	
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			In risk neutral world, the volatility is embedded in the price simulation. Thus, there is no need to simulate implied volatility.
+			</font></p>					
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	Implementation </strong></td></tr></table><br></a> 					
+
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                Credit Exposure Approach Implementation Guide</font></I></p>
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				This solution is based on existing credit exposure framework.
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Switch simulation from the real-world measure to the risk neutral measure.
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Calculate risk-neutral credit exposures (EEs) taking master agreement and CSA into account.
+				</font> 	
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				Compute CVA using the following formula
+				</font> 
+				<p><img SRC="/images/cvaFva7.JPG"></p>	
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Or compute the risk-free value V_f of a counterparty portfolio that should be reported by trading systems.
+				</font> 				
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Compute the risky value V_r of the portfolio via discounting positive EEs by counterparty's CDS spread + risk-free 
+				interest rate as the positive EEs flows bearing counterparty risk and negative EEs by the bank's own CDS spread + 
+				risk-free interest rate as the negative EEs bearing the bank's credit risk.
+				</font>
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				CVA = V_f - V_r
+				</font> 
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				Furthermore, you can compute the funding value V_F of the portfolio via discounting positive EEs by  
+				counterparty's bond spread + risk-free interest rate and negative EEs by the bank's own bond spread + risk-free 
+				interest rate.
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				FVA = V_f - V_F - CVA = V_r - V_F
+				</font> 				
+			</ul>
+				
+				
+
+			<br>
+			<p align="left"><I><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                12.	Least Square Monte Carlo Approach Implementation Guide</font></I></p>
+
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				Compute the risk-free value V_f of a counterparty portfolio that should be reported by trading systems.
+				</font> 				
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Simulate market risk factors in the risk-neutral measure.
+				</font>
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Generate payoffs for all trades based on Monte Carlo simulation.
+				</font>
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Aggregate payoffs based on the Master agreement and CSA.
+				</font>
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Compute the risky value V_r of the portfolio using Longstaff-Schwartz approach.
+				Positive cash flows should be discounted by counterparty's CDS spread + risk-free interest rate while 
+				negative cash flows should be discounted by the bank's own CDS spread + risk-free interest rate.
+				</font>				
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				CVA = V_f - V_r
+				</font> 
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				Moreover, you can compute the funding value V_F (t) of the portfolio using Longstaff-Schwartz approach as well.
+				Positive cash flows should be discounted by counterparty's bond spread + risk-free interest rate while negative cash 
+				flows should be discounted by the bank's own bond spread + risk-free interest rate.
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				FVA = V_f - V_F - CVA = V_r - V_F
+				</font> 				
+			</ul>				
+			
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="5"><table bgColor="#C6E2FF"><tr><td><strong>
+				5.	More Details</strong></td></tr></table><br></a> 
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>									
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/cvaFva.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/cvaFva.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/cvaFva.wmv">Download video file</a>
+				</font> 			
+			</ul>
+
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides investment management software for the financial industry. <a href="/download.html">
+			Download the platform now</a>
+			</fond></I></p>
+
+
+					<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	Related Topics </strong></td></tr></table><br></a> 	
+			
+					
+              <ul>
+                <li style="LINE-HEIGHT:25px"><font face="Arial, Helvetica, sans-serif"> <a href="/lib/cva.html">CVA Introduction </a>
+                  </font> 
+				  
+				<li style="LINE-HEIGHT:25px"><font face="Arial, Helvetica, sans-serif"> <a href="/lib/ccr.html">Counterparty Credit Risk Introduction </a>
+                  </font> 
+				  
+				<li style="LINE-HEIGHT:25px"><font face="Arial, Helvetica, sans-serif"> <a href="/lib/ccrSimulation.html">Counterparty Credit Risk Simulation Guide </a>
+                  </font> 		  
+              </ul>						
+                  <p></p>
+                  <p> 
+	
+			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

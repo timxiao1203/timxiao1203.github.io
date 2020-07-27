@@ -1,0 +1,419 @@
+<html>
+
+<title>Pricing Asian Equity Option and Asian Stock Option Pricing and Valuation Practical Guide - FinPricing</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="Asian options allow the buyer to purchase (or sell) the underlying asset at the average price instead of the 
+		spot price. Asian options are commonly seen options over the OTC markets. Average price options are less expensive than regular options 
+		and are arguably more appropriate than regular options for meeting some of the needs of corporate treasurers. 
+		This presentation gives an introduction to Asian equity option product and valuation. FinPricing provides a simple interface to price 
+		an Asian equity option and calculate its sensitivities.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+              <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/productList.html">
+			Back To Product List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Asian Equity Option or Asian Stock Option Definition and Valuation </font></I></p>
+				
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	Asian Equity Option Introduction</strong></td></tr></table><br></a> 	
+
+				<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An Asian option or average option is a special type of option contract  where the payoff depends on the average price of the 
+			underlying asset over a certain period of time. The payoff is different from the case of a European option or American option, 
+			where the payoff of the option contract depends on the price of the underlying stcok at exercise date.
+			</font></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			 Asian options allow the buyer to purchase (or sell) the underlying asset at the average price instead of the spot price. 
+			 Asian options are commonly seen options over the OTC markets. Average price options are less expensive than regular options 
+			 and are arguably more appropriate than regular options for meeting some of the needs of corporate treasurers. Average can be 
+			 calculated in a number of ways (daily, weekly, monthly, etc.).
+			</font></p>				
+				
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			One advantage of Asian options is that they reduce the risk of market manipulation of the underlying instrument at maturity. 
+			Another advantage of Asian options involves the relative cost of Asian options compared to European or American options. 
+			Because of the averaging feature, Asian options reduce the volatility inherent in the option; therefore, Asian options are 
+			typically cheaper than European or American options.
+			</font></p>	
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Asian options have relatively low volatility due to the averaging mechanism. They are used by traders who are exposed to the 
+			underlying asset over a period of time. The Asian option can be used for hedging and trading Equity Linked Notes issuance. 
+			The arithmetic average price options are generally used to smooth out the impact from high volatility periods or prevent price 
+			manipulation near the maturity date, which makes the options less expensive.
+			</font></p>	
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2.	Asian Equity Option Valuation </strong></td></tr></table><br></a> 
+				
+				
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The payoff of an average price call is max(0, Savg - K) and that of an average price put is max(0, K- Savg), where Savg  is the 
+			average value of the underlying asset calculated over a predetermined averaging period. 
+			</font></p>					
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			If the underlying asset price, S, is assumed to be lognormally distributed and Savg is a geometric average of the S’s, analytic 
+			formulas are available for valuing European average price options. This is because the geometric average of a set of lognormally 
+			distributed variables is also lognormal. 
+			</font></p>					
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			When, as is nearly always the case, Asian options are defined in terms of arithmetic averages, exact analytic pricing formulas 
+			are not available. This is because the distribution of the arithmetic average of a set of lognormal distributions does not have 
+			analytically tractable properties. 
+			</font></p>					
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			However, the distribution of arithmetic average can be approximated to be lognormal by moment matching technical, which leads to 
+			a good analytic approximation for valuing average price options. One calculates the first two moments of the probability 
+			distribution of the arithmetic average in a risk-neutral world exactly and then fit a lognormal distribution to the moments.
+			</font></p>							
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Consider a newly issued Asian option that provides a payoff at time T based on the arithmetic average between time zero and time T. 
+			The first moment, M1 and the second moment, M2, of the average in a risk-neutral world can be shown to be
+			</font></p>
+			<p><img SRC="/images/eqAsian1.JPG"></p>
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			By assuming that the average asset price is lognormal, you can use Black's model to price an Asian option.
+			</font></p>			
+				
+			 <br>
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+               The present value of an Asian call option is given by</font></B></I></p>					
+			<p><img SRC="/images/eqAsian2.JPG"></p>
+			
+			 <br>
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+               The present value of an Asian put option is given by</font></B></I></p>					
+			<p><img SRC="/images/eqAsian3.JPG"></p>			
+			
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			We can modify the analysis to accommodate the situation where the option is not newly issued and some prices used to determine 
+			the average have already been observed. 
+			</font></p>			
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Suppose that the averaging period is composed of a period of length T1 over which prices have already been observed and a future 
+			period of length T2 (the remaining life of the option). Suppose that the average asset price during the first time period is S. 
+			The payoff from an average price call is
+			</font></p>						
+			<p><img SRC="/images/eqAsian4.JPG"></p>			
+			
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			When K* > 0, the option can be valued in the same way as a newly issued Asian option provided that we change the strike price 
+			from K to K* and multiply the result by T_2/(T_1+T_2) 
+			</font></p>						
+			<p><img SRC="/images/eqAsian5.JPG"></p>				
+			
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			When K* < 0 the option is certain to be exercised and can be valued as a forward contract. The value is
+			</font></p>						
+			<p><img SRC="/images/eqAsian6.JPG"></p>					
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	Practical Guide </strong></td></tr></table><br></a> 			
+			
+			<br>
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				First calculate the spent average based on realized spot price.
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				Then compute the adjusted strike using the spent average
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				After that obtain the first and second moments.
+				</font> 
+
+ 				<li><font face="Arial, Helvetica, sans-serif">
+				Use the moments to get the adjusted volatility.
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				Finally calculate the present value via BlackScholes formula.
+				</font> 	
+
+				<li><font face="Arial, Helvetica, sans-serif">
+				FinPricing is using the Turnbull-Wakeman model. Another well-known model is the Levy Model
+				</font> 					
+			</ul>
+			
+
+			
+			
+			<br>			
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	More Details</strong></td></tr></table><br></a> 
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>						
+				
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAsian.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAsian.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAsian.wmv">Download video file</a>
+				</font> 			
+			</ul>
+
+				
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides a simple interface to price an Asian equity option and calculate its sensitivities. <a href="/download.html">
+			Download the platform now</a>
+			</font></I></p>			
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="5"><table bgColor="#C6E2FF"><tr><td><strong>
+				5.	Related Topics </strong></td></tr></table><br></a> 	
+			
+              <ul>
+         
+                <li><font face="Arial, Helvetica, sans-serif"> <a href="/lib/EqOption.html">Equity Option </a>
+                  </font> 
+
+              </ul>
+			<br>
+
+			<br>
+
+
+			
+                  <p></p>
+                  <p> 
+	
+			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

@@ -1,0 +1,388 @@
+<html>
+
+<title>Equity Option and Stock Option Pricing and Valuation Practical Guide - FinPricing</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="Equity options or stock options are the most common type of equity derivatives. They provide the right, 
+		but not the obligation, to buy (call option) or sell (put option)  a number of stocks at a set price by a certain future time. 
+		This presentation gives an introduction to equity option product and valuation. FinPricing provides a simple interface to price 
+		an equity option and calculate its sensitivities.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+              <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/productList.html">
+			Back To Product List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Equity Option or Stock Option Definition and Valuation </font></I></p>
+				
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	Equity Option Introduction</strong></td></tr></table><br></a> 	
+
+				<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Equity options, which are the most common type of equity derivatives, give an investor the right but not the obligation to 
+			buy a call or sell a put at a set strike price prior to the contract's expiry date. Equity options are derivatives that means 
+			their value is derived from the value of an underlying equity. Investors and traders can use equity options to take a long or 
+			short position in a stock without actually buying or shorting the stock. This is advantageous because taking a position with 
+			options allows the investor/trader more leverage in that the amount of capital needed is much less than a similar outright long 
+			or short position on margin. Investors/traders can therefore profit more from a price movement in the underlying stock.
+			</font></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Equity options or stock options provide investors a way to hedge risk or speculate.  Also option trading can limit an investor's 
+			risk and leverage investing potential. Option investors have a number of strategies they can utilize, depending on risk tolerance 
+			and expected return. 
+			</font></p>				
+				
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Buying call options allows you to benefit from an upward price movement (by either selling the option at a profit or buying 
+			the stock at a discount relative to its current market value) while limiting losses to the premium paid if the price declines 
+			or remains constant. The right to buy stock at a fixed price becomes more valuable as the price of the underlying stock increases. 
+			An option seller earns the premium if the underlying stock price would not change much.
+			</font></p>	
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Put options may provide a more attractive method than shorting stock for profiting on stock price declines, in that, with 
+			purchased puts, you have a known and predetermined risk. The most you can lose is the cost of the option. If you short stock, 
+			the potential loss, in the event of a price upturn, is unlimited. If you have an established profitable long stock position, 
+			you can buy puts to protect this position against short-term stock price declines. 
+			</font></p>	
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			You can limit the risk of stock ownership by simultaneously buying a put on that stock, a hedging strategy commonly referred to 
+			as a "married put." This strategy establishes a minimum selling price for the stock during the life of the put and limits your 
+			loss to the cost of the put plus the difference, if any, between the purchase price of the stock and the strike price of the put, 
+			no matter how far the stock price declines. This strategy will yield a profit if the stock appreciation is greater than the cost 
+			of the put option.
+			</font></p>	
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2.	Equity Option Payoffs </strong></td></tr></table><br></a> 
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The payoff of a call option is given by
+			<br/>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Payoff=N*max(S-K,0)
+			<br/>
+			where N - the notional; S - the stock price; K - the strike.
+			</font></p>				
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The payoff diagram of a call option is shown below
+			</font></p>						
+ 
+ 			<p><img SRC="/images/eqOption1.JPG"></p>
+
+ 			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The payoff of a put option is given by
+			<br/>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp  Payoff=N*max(K-S,0)
+			<br/>
+			where N - the notional; S - the stock price; K - the strike.
+			</font></p>				
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The payoff diagram of a put option is shown below
+			</font></p>						
+ 
+ 			<p><img SRC="/images/eqOption2.JPG"></p>
+ 
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	Equity Option Valuation </strong></td></tr></table><br></a>  
+				
+			 <br>
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+               The present value of a call option is given by</font></B></I></p>
+					
+			<p><img SRC="/images/eqCall.JPG"></p>
+
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+                	The present value of a put option is given by</font></B></I></p>
+					
+			<p><img SRC="/images/eqPut.JPG"></p>
+			
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			where all notations are the same as (1)
+			</font></p>	
+
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	Practical Guide </strong></td></tr></table><br></a>  			
+	
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				We consider discrete dividends only for the reasons described in <a href="/lib/EqFuture.html">equity future</a>
+                  		</font> 
+         
+
+                		<li><font face="Arial, Helvetica, sans-serif">
+				First, you need to construct an interest rate curve based on the most liquid interest rate instruments. 
+				FinPricing provides useful tools to construct <a href="/curveVolList.html">various curves and volatility surfaces.</a>
+                  		</font> 
+
+						<li><font face="Arial, Helvetica, sans-serif">
+				Second, you need to construct an arbitrage-free volatility surface. FinPricing is using SVI model to construct equity 
+				volatility surface. <a href="/curveVolList.html">See more information.</a>
+                  		</font> 
+                  		</font> 	
+						
+                		<li><font face="Arial, Helvetica, sans-serif">
+				Then, you need to compute equity forward prices correctly by accounting for all discrete dividends. 
+				This is a key factor for all equity related valuation.
+                  		</font> 		
+
+ 
+
+                		<li><font face="Arial, Helvetica, sans-serif">
+				Finally, you can get the price by calling the Black formula.
+                  		</font> 								
+			</ul>
+			
+			
+			<br>			
+			<font face="Arial, Helvetica, sans-serif"><a name="5"><table bgColor="#C6E2FF"><tr><td><strong>
+				5.	More Details</strong></td></tr></table><br></a> 
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>						
+				
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqOption.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqOption.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqOption.wmv">Download video file</a>
+				</font> 			
+			</ul>
+
+				
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides a simple interface to price an equity option and calculate its sensitivities. <a href="/download.html">
+			Download the platform now</a>
+			</font></I></p>			
+			
+
+			<br>
+
+
+			
+                  <p></p>
+                  <p> 
+	
+			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

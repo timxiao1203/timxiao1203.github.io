@@ -1,0 +1,422 @@
+	<html>
+
+<title>Pricing American Equity Option, American Stock Option and Valuation Practical Guide - FinPricing</title>
+
+<style>
+p {
+    line-height: 2.0;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+ 
+
+<META name="description" content="An American option give an investor the right but not the obligation to buy a call or sell a put at a set 
+		strike price at any time prior to the contract's expiry date. American options provide investors a way to hedge risk or speculate.  
+		In general, American options do not have a closed-form solution. 
+		This presentation gives an introduction to American equity option product and valuation. FinPricing provides a simple interface to price 
+		an American equity option and calculate its sensitivities.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META http-equiv="content-type" content="text/html; charset=iso-8859-1">
+<META http-equiv="FinPricing - valuation, data, risk, analytical solution for small to medium size companies and individual financial market players" 
+name="FinPricing" content="Capital Market, Financial Market, Data, Pricing Model, Valuation, Risk Management, bond, forward, future, option, swap, cap, floor, callable, 
+cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT lanugage="JavaScript">
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+<link href="style.css" rel="stylesheet" type="text/css">
+</HEAD>
+<BODY text=#000000 vLink=#666666 aLink=#333333 link=#cc0000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+onload="javascript:MM_preloadImages('../../content/external/images/home/black_arrow.gif','images/navigation_01-over.gif','images/navigation_01.gif','images/navigation_02-over.gif','images/navigation_02.gif','images/navigation_03-over.gif','images/navigation_03.gif','images/navigation_04-over.gif','images/navigation_04.gif','images/navigation_05-over.gif','images/navigation_05.gif','images/navigation_06-over.gif','images/navigation_06.gif','images/navigation_07-over.gif','images/navigation_07.gif','images/partner_over.gif','images/partner.gif')" 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+              <td width=290><a name="top"></a><a href="http://www.finpricing.com">
+			  <img src="/images/logo5.svg" width=288 height=87 border=0></a></td>
+
+
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Innovation, Excellence, Simplicity in Financial Markets </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+             <TD> <A HREF="/index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="/images/navigation_01.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/product.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="/images/navigation_03.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            <TD> <A HREF="/download.html"
+				ONMOUSEOVER="MM_swapImage('navigation_04','','/images/navigation_04-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_04','','/images/navigation_04.gif',1)"> 
+              <IMG NAME="navigation_04" SRC="/images/navigation_04.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			  <TD> <A HREF="/productList.html"
+				ONMOUSEOVER="MM_swapImage('catalogue','','/images/catalogue.gif',1)"
+				ONMOUSEOUT="MM_swapImage('catalogue','','/images/catalogue.gif',1)"> 
+              <IMG NAME="catalogue" SRC="/images/catalogue.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+			<TD> <A HREF="/curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 		
+			<TD> <A HREF="/paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  <TD> <A HREF="/faq.html"
+				ONMOUSEOVER="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_07','','/images/navigation_05.gif',1)"> 
+              <IMG NAME="navigation_07" SRC="/images/navigation_05.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 	
+			  
+		<TD> <A HREF="/contactus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_06','','/images/navigation_06-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_06','','/images/navigation_06.gif',1)"> 
+              <IMG NAME="navigation_06" SRC="/images/navigation_06.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+            
+		<TD> <A HREF="/aboutus.html"
+				ONMOUSEOVER="MM_swapImage('navigation_02','','/images/navigation_02-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_02','','/images/navigation_02.gif',1)"> 
+              <IMG NAME="navigation_02" SRC="/images/navigation_02.gif" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+
+          
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+     <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=60> </td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 valign="top"> <table width="100%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			<p align="right" class="subheader"><font size="2" face="Arial, Helvetica, sans-serif"><a href="/productList.html">
+			Back To Product List</a><font size="2" face="Arial, Helvetica, sans-serif"></p>
+			
+			<br>
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                American Equity Option or American Stock Option Definition and Valuation </font></I></p>
+				
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="1"><table bgColor="#C6E2FF"><tr><td><strong>
+				1.	American Equity Option Introduction</strong></td></tr></table><br></a> 	
+
+				<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			An American option give an investor the right but not the obligation to buy a call or sell a put at a set strike price at any 
+			time prior to the contract's expiry date. Since investors have the freedom to exercise their American options at any point 
+			during the life of the contract, they are more valuable than European options, which can only be exercised at maturity. 
+			An investor holding an American-style option and seeking optimal value prefer to sell it on, rather than exercise it before 
+			maturity under certain circumstances. 
+			</font></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Investors and traders can use equity options to take a long or short position in a stock without actually buying or shorting 
+			the stock. This is advantageous because taking a position with options allows the investor/trader more leverage in that the 
+			amount of capital needed is much less than a similar outright long or short position on margin. Investors/traders can therefore 
+			profit more from a price movement in the underlying stock.
+			</font></p>				
+				
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			American options provide investors a way to hedge risk or speculate.  Also option trading can limit an investor's risk and 
+			leverage investing potential. Option investors have a number of strategies they can utilize, depending on risk tolerance and 
+			expected return.Buying call options allows you to benefit from an upward price movement. The right to buy stock at a fixed 
+			price becomes more valuable as the price of the underlying stock increases. Put options may provide a more attractive method 
+			than shorting stock for profiting on stock price declines. If you have an established profitable long stock position, you can 
+			buy puts to protect this position against short-term stock price declines. An option seller earns the premium if the 
+			underlying stock price would not change much.
+			</font></p>	
+
+
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="2"><table bgColor="#C6E2FF"><tr><td><strong>
+				2.	American Equity Option Valuation </strong></td></tr></table><br></a> 
+				
+				
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			In general, American options do not have a closed-form solution. There are several methods to approximate the price of an 
+			American option: Roll-Geske-Whaley, Barone-Adesi and Whaley, Bjerksund and Stensland. Those approximations are quite inaccurate 
+			in dealing with discrete dividends.
+			</font></p>					
+
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			To accurately value an American option, one needs to use a numerical approach. The most popular numerical methods are tree, 
+			lattice, partial differential equation (PDE) and Monte Carlo. FinPricing is using the Black-Scholes PDE plus finite difference 
+			method to price an American equity option. The finite difference model is one of the most widely used methods of approximation 
+			to solve the PDE equation for American options.
+			</font></p>					
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The three finite difference approximations most widely used for pricing American options are the Explicit, Fully Implicit and 
+			Crank-Nicolson models. Among these three, the last is unconditionally stable with respect to domain discretization and is the 
+			most accurate. Compared with the binomial tree method or the Whaley model, Crank-Nicolson has obvious advantages of computation 
+			speed and accuracy. 
+			</font></p>					
+			
+			<br>
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The Black-Scholes PDE describes the evolution of any derivative whose underlying asset satisfies the Black-Scholes assumptions, 
+			and can be used to price American options. The main difference between European and American options is that the latter can be 
+			executed any time prior to the expiry date. The European option under Black-Scholes assumptions has an analytical solution for 
+			the fair price. The American option, in general, does not have an analytical solution so the PDE has to be solved using other 
+			techniques such as finite difference numerical methods.
+			</font></p>							
+			
+		
+				
+			 <br>
+			<p align="left"><I><B><font color="#0000cc" size="3" face="Arial, Helvetica, sans-serif">
+               The Black-Scholes PDE for American option is:</font></B></I></p>
+					
+			<p><img SRC="/images/eqAmerican1.JPG"></p>
+			
+ 			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The Crank-Nicolson finite difference model converts a differential equation into a set of difference equations and then solves 
+			it iteratively. It is computationally more efficient to use finite difference with ln(S) than to use S as the underlying variable. 
+			Let's define Z = ln(S), then the above PDE becomes 
+			</font></p>						
+					
+			<p><img SRC="/images/eqAmerican2.JPG"></p>
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="3"><table bgColor="#C6E2FF"><tr><td><strong>
+				3.	Practical Guide </strong></td></tr></table><br></a> 			
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			To solve the equation using the finite difference method, we need to define the grid as follows: 
+				Divide the time span into N equally spaced intervals of length &Delta;t=T/N where T is the option expiry date. 
+				Define Z into a total of M + 1 equally spaced values with <img SRC="/images/eqAmerican3.JPG">. 
+				The points &Delta;t and &Delta;Z define a grid consisting of 
+				a total of (M+1)(N+1) points. 
+			</font></p>	
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			On this grid, the point (i,j) corresponds to time i&Delta;t and stock price j&Delta;Z. Let the value of the option at (i,j) 
+			be denoted by f_(i,j). Values for N and M are chosen based on the life of the option and the desired level of accuracy.
+			</font></p>	
+			
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			The Crank-Nicolson finite difference model replaces the space and time derivatives with finite differences centered at an 
+			imaginary time step at (i+1/2). Therefore, we obtain the following formula:
+			</font></p>	
+
+			<p><img SRC="/images/eqAmerican4.JPG"></p>
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Since American options can be exercised at any time, we must add an extra condition at each point on the grid to verify if 
+			it is optimal to do so. Therefore, there is an extra verification for the put option 
+			</font></p>		
+
+			<p><img SRC="/images/eqAmerican5.JPG"></p>		
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			and one for the call option
+			</font></p>		
+
+			<p><img SRC="/images/eqAmerican6.JPG"></p>					
+
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			One of the uncertainties in the finite difference method is the definition of the grid, especially in the case of discrete 
+			dividends. When the dividend date does not fall on one of the discretized time steps, the price should be interpolated or 
+			an extra grid point inserted. Also, if the underlying asset step and time step for the grid construction are chosen ambiguously, 
+			then the price of the option might significantly differ from the fair value. 
+			</font></p>		
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			For the case when the underlying stock pays discrete dividends, it might be optimal to exercise the option right before the 
+			dividend date, only if 
+			</font></p>		
+
+			<p><img SRC="/images/eqAmerican7.JPG"></p>	
+
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Therefore, at time t_d the new asset price and option price have to be calculated on the grid discounted with D. FinPricing 
+			system dynamically adds an extra step to the grid, if necessary, to ensure that discrete dividends dates are mapped on the grid.
+			</font></p>		
+			
+			<br>
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+			Some Greeks, in particular delta (&Delta;), gamma (&Gamma;) and theta (&Theta;), can be calculated directly from the f_(i,j) values 
+			on the grid. To calculate Vega (V), it is necessary to slightly change the volatility and recalculate the option price using 
+			the same grid. FinPricing platform calculates option prices as well as Greeks for the call and put options for the underlying stocks 
+			with no dividends, continuous yield dividends and discrete dividends. 
+			</font></p>					
+			
+			
+			<br>			
+			<font face="Arial, Helvetica, sans-serif"><a name="4"><table bgColor="#C6E2FF"><tr><td><strong>
+				4.	More Details</strong></td></tr></table><br></a> 
+			<p align="left"><font face="Arial, Helvetica, sans-serif">
+                Click the following links for more details.
+				</font></p>						
+				
+			<ul>
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAmerican.pdf">Browse the PDF file</a>
+				</font> 
+         
+  				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAmerican.pptx">Download PowerPoint file</a>
+				</font> 
+				
+				<li><font face="Arial, Helvetica, sans-serif">
+				<a href="/lib/EqAmerican.wmv">Download video file</a>
+				</font> 			
+			</ul>
+
+				
+			<p align="left"><I><font face="Arial, Helvetica, sans-serif">
+			FinPricing provides a simple interface to price an American equity option and calculate its sensitivities. <a href="/download.html">
+			Download the platform now</a>
+			</font></I></p>			
+			
+			<br>
+			<font face="Arial, Helvetica, sans-serif"><a name="5"><table bgColor="#C6E2FF"><tr><td><strong>
+				5.	Related Topics </strong></td></tr></table><br></a> 	
+			
+              <ul>
+         
+                <li><font face="Arial, Helvetica, sans-serif"> <a href="/lib/EqOption.html">Equity Option </a>
+                  </font> 
+
+              </ul>
+			<br>
+
+
+			
+                  <p></p>
+                  <p> 
+	
+			  
+			  
+              <p align="right" class="subheader"><a href="#top"><img src="/images/backtotop.gif" width="70" height="23" border="0"></a><font size="2" face="Arial, Helvetica, sans-serif"> 
+                </font></p>
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" colspan="3">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#999999 colspan=3 height=10><img height=8 
+      src="images/transparent.gif" width=8></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#000000 colspan="3" valign="top"> <div align=center><font face="Verdana, Arial, Helvetica, sans-serif" 
+      color=#ffffff size=2><br>
+          <font size="1">©2018 FinPricing</font>. <font size="1">All 
+          rights reserved.</font><br><br>
+          </a> </font></div></td>
+    </tr>
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

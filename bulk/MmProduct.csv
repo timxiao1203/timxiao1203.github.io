@@ -1,0 +1,2 @@
+Book,IssuerName,BrokerName,CounterpartyName,ProductName,BuySell,PayReceive,Nominal,Interest,Type,TradeDate,SettleDate,MaturityDate,Currency,Status
+Interest Rate,RBC,RBC,RBC,MmProduct,Buy,Pay,100000,0,Loan,3/2/2017,3/2/2017,2/8/2019,USD,Active

@@ -1,0 +1,4 @@
+Book,ProductName,BuySell,PayReceive,CouponType,Spread,Coupon,Notional,PaymentFraq,Currency,SettlementDate,DayCount,FirstCouponDate,LastCouponDate,IssueDate,InterestAccrualDate,MaturityDate,SettlementLag,Calendar,Isin,Optionality,BondCurveName
+Interest Rate,FiBond,Buy,Receive,Floating,0.0019,0,1000000,3M,USD,5/2/2016,dcAct365,7/31/2016,1/31/2020,5/2/2016,4/30/2016,4/30/2020,1,NYC,912828XN5,,USD_TCURVE
+Interest Rate,FiBond,Buy,Receive,Fixed,0,0.09125,1000000,6M,USD,5/17/2008,dcActAct,11/15/2008,11/15/2027,5/16/2008,5/15/2008,5/15/2028,1,NYC,912810RV2,,
+Interest Rate,FiBond,Buy,Receive,Zero,0,0,1000000,,USD,3/2/2018,,1/1/1900,1/1/1900,3/2/2018,1/1/1900,8/31/2030,1,NYC,912810XX2,,
