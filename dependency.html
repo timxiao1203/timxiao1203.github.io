@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Impact of Default Dependency</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Default Dependency Impact</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This page presents a comprehensive framework for valuing financial instruments subject to credit risk. 
+			In particular, we focus on the impact of default dependence on asset pricing, as correlated default risk 
+			is one of the most pervasive threats in financial markets. We analyze how swap rates are affected by 
+			bilateral counterparty credit risk, and how CDS spreads depend on the trilateral credit risk of the buyer, 
+			seller, and reference entity in a contract. Moreover, we study the effect of collateralization on valuation, 
+			since the majority of OTC derivatives are collateralized. The model shows that a fully collateralized 
+			swap is risk-free, whereas a fully collateralized CDS is not equivalent to a risk-free one.	
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			A broad range of financial instruments bear credit risk. Credit risk may be unilateral, bilateral, 
+			or multilateral. Some instruments such as, loans, bonds, etc, by nature contain only unilateral credit 
+			risk because only the default risk of one party appears to be relevant, whereas some other instruments, 
+			such as, over the counter (OTC) derivatives, securities financing transactions (SFT), and credit 
+			derivatives, bear bilateral or multilateral credit risk because two or more parties are susceptible 
+			to default risk. This paper mainly discusses bilateral and multilateral credit risk modeling, with a 
+			particular focus on default dependency, as correlated credit risk is one of the greatest threats to 
+			global financial markets.
+			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			There are two primary types of models that attempt to describe default processes in the literature: 
+			structural models and reduced-form (or intensity) models. Many practitioners in the credit trading 
+			arena have tended to gravitate toward the reduced-from models given their mathematical tractability. 
+			They can be made consistent with the risk-neutral probabilities of default backed out from corporate 
+			bond prices or credit default swap (CDS) spreads/premia. 
+			</font></p>					
+			<br>			
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This article presents a new valuation framework for pricing financial instruments subject to credit 
+			risk. In particular, we focus on modeling default relationships. Some well-known risky valuation 
+			models in the market can be viewed as special cases of this framework, when the default dependencies 
+			are ignored.
+			</font></p>					
+			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			To capture the default relationships among more than two defaultable entities, we introduce a new 
+			statistic: comrelation, an analogue to correlation for multiple variables, to exploit any multivariate 
+			statistical relationship. Our research shows that accounting for default correlations and comrelations 
+			becomes important, especially under market stress. The existing valuation models in the credit 
+			derivatives market, which take into account only pair-wise default correlations, may underestimate 
+			credit risk and may be inappropriate.
+			</font></p>					
+			<br>							
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We study the sensitivity of the price of a defaultable instrument to changes in the joint credit 
+			quality of the parties. For instance, our analysis shows that the effect of default dependence on 
+			CDS premia from large to small is the correlation between the protection seller and the reference 
+			entity, the comrelation, the correlation between the protection buyer and the reference entity, 
+			and the correlation between the protection buyer and the protection seller.
+			</font></p>					
+			<br>						
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The model shows that a fully collateralized swap is risk-free, while a fully collateralized CDS is 
+			not equivalent to a risk-free one. Therefore, we conclude that collateralization designed to mitigate 
+			counterparty risk works well for financial instruments subject to bilateral credit risk, but fails 
+			for ones subject to multilateral credit risk. 
+			</font></p>					
+			<br>					
+			
+			<br>
+
+               <font face="Arial, Helvetica, sans-serif"><b>Impact of Default Dependency</b></font>
+			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/mt637/download">FrenXiv Dependency</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/96dy5/download">ArabiXiv Dependency</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/337157228_The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/links/5ef0a4fc299bf1faac6cada3/The-Impact-of-Default-Dependency-and-Collateralization-on-Asset-Pricing-and-Credit-Risk-Modeling.pdf">ResearchGate Dependency</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336884039_The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/links/5edfb828a6fdcc47689413aa/The-Impact-of-Default-Dependency-and-Collateralization-on-Asset-Pricing-and-Credit-Risk-Modeling.pdf">ResearchGate Dependency PDF</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336854001_The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/links/5ef0a57a299bf1faac6cae1f/The-Impact-of-Default-Dependency-and-Collateralization-on-Asset-Pricing-and-Credit-Risk-Modeling.pdf">ResearchGate Dependency Info</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336261360_The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/links/5edfb934299bf1d20bde9560/The-Impact-of-Default-Dependency-and-Collateralization-on-Asset-Pricing-and-Credit-Risk-Modeling.pdf">ResearchGate Dependency Approach</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/255697181_The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/links/5edfbaa2a6fdcc4768941c5b/The-Impact-of-Default-Dependency-and-Collateralization-on-Asset-Pricing-and-Credit-Risk-Modeling.pdf">ResearchGate Dependency Solution</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/download/pdf/223056287.pdf">Core Dependency</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/reader/223056287">Core Dependency PDF</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/default-dependency-collateralization-7-data.pdf">Community Dependency Load</a></li>
+
+					<li style="font-size:16px"><a href="https://ia801501.us.archive.org/12/items/default-dependency-collateralization-7/default-dependency-collateralization-7.pdf">Archive Dependency Load</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/The_Impact_of_Default_Dependency_and_Collateralization_on_Asset_Pricing_and_Credit_Risk_Modeling/8956958/files/16378208.pdf">FigShare Dependency Load</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamYTO0gzN2ITPkl0av9mY">FlipHtm5 Dependency Load</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:30116/CONTENT/default-dependency-collateralization-7.pdf">Hcommons Dependency Load</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/3zyvnoue/61595162846140.pdf">Pubpub Dependency</a></li>
+					<li style="font-size:16px"><a href="https://www.infona.pl//resource/bwmeta1.element.ID-7a30e29f-536d-4769-87c2-7858ba539d40/content/partDownload/content/full-text/1edccc5c-b33b-4d49-8932-77e400fdd446">Infona Dependency</a></li>
+					<li style="font-size:16px"><a href="default-dependency-collateralization-7.pdf">Dependency PDF</a></li>
+				</ul>				
+
+
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

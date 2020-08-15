@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Jump Diffusion for Convertible Valuation</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Jump Diffusion Convertible Bond Valuation</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This page argues that the reduced-form jump diffusion model may not be appropriate for credit risk modeling. 
+			To correctly 			value hybrid defaultable financial instruments, e.g., convertible bonds, we present a 
+			new framework that relies on the probability distribution of a default jump rather than the default jump itself, 
+			as the default jump is usually inaccessible. As such, the model can back out the market prices of convertible 
+			bonds. A prevailing belief in the market is that convertible arbitrage is mainly due to convertible underpricing. 
+			Empirically, however, we do not find evidence supporting the underpricing hypothesis. Instead, we find that 
+			convertibles have relatively large positive gammas. As a typical convertible arbitrage strategy employs 
+			delta-neutral hedging, a large positive gamma can make the portfolio highly profitable, especially for a large 
+			movement in the underlying stock price.	
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			A company can raise capital in financial markets either by issuing equities, bonds, or hybrids (such as convertible 
+			bonds). From an investor’s perspective, convertible bonds with embedded optionality offer certain benefits of both 
+			equities and bonds – like the former, they have the potential for capital appreciation and like the latter, they 
+			offer interest income and safety of principal. The convertible bond market is of primary global importance.
+ 			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This page aims to value hybrid financial instruments (e.g., convertible bonds) whose values may simultaneously 
+			depend on different assets subject to credit risk in a proper and consistent way. The motivation for our model 
+			is that if a company goes bankrupt, all the securities (including the equity) of the company default. The recovery 
+			is realized in accordance with the priority established by the Bankruptcy Code. In other words, different 
+			securities have the same probability of default, but different recovery rates.
+ 			</font></p>					
+			<br>			
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Our study shows that risky asset pricing is quite different from risk-free asset pricing. In fact, the expectation 
+			of a defaultable asset actually grows at a risky rate rather than the risk-free rate. This conclusion is very 
+			important for risky valuation.
+ 			</font></p>					
+			<br>				
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We propose a hybrid framework to value risky equities and debts in a unified way. The model relies on the 
+			probability distribution of the default jump rather than the default jump itself. The model is quite accurate 
+			for pricing convertible bonds.
+ 			</font></p>					
+			<br>				
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Empirically, we do not find evidence supporting a systematic underpricing hypothesis. We also find that 
+			convertible bonds have relatively large positive gammas, implying that convertible arbitrage can make a profit 
+			on a large upside and downside movement in the underlying stock price.
+ 			</font></p>					
+			<br>		
+			
+               <font face="Arial, Helvetica, sans-serif"><b>Jump diffusion for pricing convertibles</b></font>
+			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/j32fu/download">FrenXiv Jump</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/ez659/download">ArabiXiv Jump</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336546366_Is_the_Jump-Diffusion_Model_a_Good_Solution_for_Credit_Risk_Modeling_The_Case_of_Convertible_Bonds/links/5eee95c8299bf1faac68fcb5/Is-the-Jump-Diffusion-Model-a-Good-Solution-for-Credit-Risk-Modeling-The-Case-of-Convertible-Bonds.pdf">ResearchGate Jump Info</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/272236603_Is_the_Jump-Diffusion_Model_a_Good_Solution_for_Credit_Risk_Modeling_The_Case_of_Convertible_Bonds/links/5edfbae1299bf1d20bde9ce8/Is-the-Jump-Diffusion-Model-a-Good-Solution-for-Credit-Risk-Modeling-The-Case-of-Convertible-Bonds.pdf">ResearchGate Jump Approach</a></li>
+					<li style="font-size:16px"><a href="https://pdfs.semanticscholar.org/7061/5b2cffb195da7c4e9319681d73a152a0b108.pdf">Semantic Scholar Trade Jump</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/pricingConvertibleBondJumpDiffusion-5-data.pdf">Community Research Jump</a></li>
+					<li style="font-size:16px"><a href="https://www.mysciencework.com/publication/download/c28622ff3bf5ef44280c648cc0b3cf57/bcea9fb0f17e0bcc2ef38b07774245ea">MyScienceWork Jump</a></li>
+
+					<li style="font-size:16px"><a href="https://ia801504.us.archive.org/8/items/pricingConvertibleBondJumpDiffusion-5/pricingConvertibleBondJumpDiffusion-5.pdf">Archive Trade Jump</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/Is_the_Jump-Diffusion_Model_a_Good_Solution_for_Credit_Risk_Modeling_The_Case_of_Convertible_Bonds/8378858/files/23064137.pdf">FigShare Trade Jump</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamkDMwUzN2ITPkl0av9mY">FlipHtml5 Trade Jump</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:30002/CONTENT/pricingconvertiblebondjumpdiffusion-5.pdf">Hcommons Trade Jump</a></li>
+					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/9ou2sezn/release/1">Pubpub Jump</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/09wen1jy/61594918810703.pdf">Pubpub Jump PDF</a></li>
+					<li style="font-size:16px"><a href="http://spz.socionet.ru/~timxiao/files/pricingConvertibleBondJumpDiffusion-5-data.pdf">Socionet Jump</a></li>
+					<li style="font-size:16px"><a href="https://spz.socionet.ru/archives/users-docs/timxiao/xml/pcbbbq/timxiao5.xml?lang=english">Socionet Jump Info</a></li>
+					<li style="font-size:16px"><a href="https://www.infona.pl//resource/bwmeta1.element.ID-cf428b9b-1239-48fa-a732-98e3fbf43252/content/partDownload/content/full-text/acb8beb9-1dde-4bed-9097-91a3cdd325ca">Infona Jump</a></li>
+					<li style="font-size:16px"><a href="pricingConvertibleBondJumpDiffusion-5.pdf">Jump PDF</a></li>
+				</ul>				
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

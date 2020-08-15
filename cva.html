@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Credit Valuation Adjustment Solution</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                CVA Solution</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This page presents a Least Square Monte Carlo approach for accurately calculating credit value adjustment (CVA). 
+			In contrast to previous studies, the model relies on the probability distribution of a default time/jump rather 
+			than the default time itself, as the default time is usually inaccessible. As such, the model can achieve a high 
+			order of accuracy with a relatively easy implementation. We find that the valuation of a defaultable derivative is 
+			normally determined via backward induction when their payoffs could be positive or negative. Moreover, the model 
+			can naturally capture wrong or right way risk.		
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			CVA not only allows institutions to move beyond the traditional control mindset of credit risk limits and to 
+			quantify counterparty risk as a single measurable P&L number, but also offers an opportunity for banks to dynamically 
+			manage, price and hedge counterparty risk. The benefits of CVA are widely acknowledged. Many banks have set up 
+			internal credit risk trading desks to manage counterparty risk on derivatives.
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The earlier works on CVA are mainly focused on unilateral CVA that assumes that only one counterparty is defaultable 
+			and the other one is default-free. The unilateral treatment neglects the fact that both counterparties may default, i.e., 
+			counterparty risk can be bilateral. A trend that has become increasingly relevant and popular has been to consider 
+			the bilateral nature of counterparty credit risk. Although most institutions view bilateral considerations as 
+			important in order to agree on new transactions, Hull and White (2013) argue that bilateral CVA is more controversial 
+			than unilateral CVA as the possibility that a dealer might default is in theory a benefit to the dealer.
+			</font></p>							
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			CVA, by definition, is the difference between the risk-free portfolio value and the true (or risky or defaultable) 
+			portfolio value that takes into account the possibility of a counterparty’s default. The risk-free portfolio value is 
+			what brokers quote or what trading systems or models normally report. The risky portfolio value, however, is a 
+			relatively less explored and less transparent area, which is the main challenge and core theme for CVA. In other words, 
+			central to CVA is risky valuation.
+			</font></p>							
+			<br>				
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We present a framework for pricing risky contracts and their CVAs. The model relies on the probability distribution 
+			of the default jump rather than the default jump itself, because the default jump is normally inaccessible. We find 
+			that the valuation of risky assets and their CVAs, in most situations, has a backward recursive nature and requires 
+			a backward induction valuation. An intuitive explanation is that two counterparties implicitly sell each other an 
+			option to default when entering into an OTC derivative transaction. If we assume that a default may occur at any time, 
+			the default options are American style options. If we assume that a default may only happen on the payment dates, 
+			the default options are Bermudan style options. Both Bermudan and American options require backward induction valuations. 
+			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Based on our theory, we propose a novel cash-flow-based framework (see appendix) for calculating bilateral CVA at 
+			the counterparty portfolio level. This framework can easily incorporate various credit mitigation techniques, such as 
+			netting agreements and margin agreements, and can capture wrong/right way risk. Numerical results show that these
+			credit mitigation techniques and wrong/right way risk have significant impacts on CVA.
+ 			</font></p>					
+			<br>			
+			
+			
+			<br>
+               <font face="Arial, Helvetica, sans-serif"><b>Credit Valuation Adjustment (CVA) and Wrong Way Risk</b></font>
+			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/2rtya/download">FrenXiv CVA</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/2cqbg/download">ArabiXiv CVA</a></li>
+					<li style="font-size:16px"><a href="https://d197for5662m48.cloudfront.net/documents/publicationstatus/28208/preprint_pdf/14b40e22ed6f71f1ea6d618ae909fd0d.pdf">CloudFront CVA</a></li>
+
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/256063881_An_Accurate_Solution_for_Credit_Value_Adjustment_CVA_and_Wrong_Way_Risk/links/5b19a170aca272021cf215e8/An-Accurate-Solution-for-Credit-Value-Adjustment-CVA-and-Wrong-Way-Risk.pdf">ResearchGate CVA Analytics</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/335941098_An_Accurate_Solution_for_Credit_Valuation_Adjustment_CVA_and_Wrong_Way_Risk/links/5edfb9a4a6fdcc47689417bc/An-Accurate-Solution-for-Credit-Valuation-Adjustment-CVA-and-Wrong-Way-Risk.pdf">ResearchGate CVA Analytics PDF</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/335895896_An_Accurate_Solution_for_Credit_Valuation_Adjustment_CVA_and_Wrong_Way_Risk/links/5eecf716a6fdcc73be8ab8af/An-Accurate-Solution-for-Credit-Valuation-Adjustment-CVA-and-Wrong-Way-Risk.pdf">ResearchGate CVA Analytics Info</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/335895466_An_Accurate_Solution_for_Credit_Valuation_Adjustment_CVA_and_Wrong_Way_Risk/links/5eecf7ab92851ce9e7f1e542/An-Accurate-Solution-for-Credit-Valuation-Adjustment-CVA-and-Wrong-Way-Risk.pdf">ResearchGate CVA Analytics Approach</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/download/pdf/214006625.pdf">Core CVA</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/reader/214006625">Core CVA PDF</a></li>					
+					<li style="font-size:16px"><a href="https://core.ac.uk/reader/211627838">Core CVA Info</a></li>					
+					<li style="font-size:16px"><a href="https://pdfs.semanticscholar.org/efe3/ad356ad730697d9a7b88e2b32a1285927833.pdf">Semantic Scholar CVA</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/cva-solution-2-data.pdf">Community Research CVA</a></li>
+					<li style="font-size:16px"><a href="https://www.mysciencework.com/publication/download/c59cc17d8cbc398331755ca504d8dd48/70792609444fbd6801d9f5ddafcb3ba1">MyScienceWork CVA</a></li>
+
+					<li style="font-size:16px"><a href="https://ia903104.us.archive.org/22/items/cva-solution-fp-new/cva-solution-2.pdf">Archive CVA</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/An_Accurate_Solution_for_Credit_Valuation_Adjustment_CVA_and_Wrong_Way_Risk/8259077/files/22974764.pdf">FigShare CVA</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamEDNwcjN2ITPkl0av9mY">FlipHtml5 CVA</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/1285363/files/cva-solution-fp-new.pdf">Zenodo CVA</a></li>
+					<li style="font-size:16px"><a href="http://spz.socionet.ru/~timxiao/files/cva-solution-2.pdf">Socionet CVA PDF</a></li>
+					<li style="font-size:16px"><a href="https://spz.socionet.ru/archives/users-docs/timxiao/xml/pcbbbq/timxiao2.xml?lang=english">Socionet CVA</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/2yysfif3/41594910700651.pdf">Pubpub CVA</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/812pqk5h/01590248015299.pdf">Pubpub CVA PDF</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:26962/CONTENT/cva-solution-2.pdf">Hcommons CVA</a></li>
+					<li style="font-size:16px"><a href="https://www.infona.pl//resource/bwmeta1.element.ID-78019ae1-398d-4172-8c1f-5ed28716ac3b/content/partDownload/content/full-text/4f4ec444-0812-4b6f-ab61-4f6d3b98a721">Infona CVA</a></li>
+					<li style="font-size:16px"><a href="cva-solution-2.pdf">CVA PDF</a></li>
+					<li style="font-size:16px"><a href="https://github.com/timxiao1203/cva/releases/download/1/cva-solution-2.pdf">GitHub CVA PDF</a></li>			
+				 </ul>
+				 
+					<br>				 
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

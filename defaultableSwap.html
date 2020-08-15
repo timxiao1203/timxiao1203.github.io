@@ -8,7 +8,7 @@
 
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
-<title>Risk Management Knowledge</title>
+<title>Pricing Defaultable Swap</title>
 
 <style>
 p {
@@ -158,80 +158,86 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 
 			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-                Risk Management Knowledge</font></I></p>
+                Pricing Defaultable Swap</font></I></p>
 			
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			One of the central tenets of financial economics is the necessity of some trade off between risk and 
-			expected return. Because high risk is associated with high reward, investor may potentially obtain higher 
-			profits only if he is willing to accept a higher chance of losses. Risk-return trade-off is one trading 
-			principal in financial markets.			
+			This pape presents an analytical model for valuing interest rate swaps, subject to bilateral counterparty 
+			credit risk. The counterparty defaults are modeled by the reduced-form model as the first jump of a 
+			time-inhomogeneous Poisson process. All quantities modeled are market-observable. The closed-form 
+			solution gives us a better understanding of the impact of the credit asymmetry on swap value, credit 
+			value adjustment, swap rate and swap spread.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Risk management is a process to identify and measure risk. The goal of risk management solution is to 
-			ensure that risk is under limit and there is no surprise in future. In capital markets, risk management 
-			is accountable for oversighting and monitoring the profit and loss, market risk, credit risk, liquidity 
-			risk and valuation risk activities of a firm. We provide some valuation and risk mangement research results.
+			Interest rate swap (IRS) is one of the most popular financial derivatives. In the market, IRS’s are 
+			quoted irrespective of credit ratings of counterparties. In another words, they are considered as 
+			default-free. The valuation of default-free IRS’s under a term structure of interest rates is a 
+			classical exercise. However, swap contracts are traded over-the-counter (OTC) and are not backed 
+			by the guarantee of a clearing corporation or an exchange. As a consequence, each party is exposed 
+			to the credit risk (default risk). Historical experience shows that credit risk often leads to 
+			significant losses. Therefore, one should incorporate the cost of the counterparty risk into the 
+			swap price. Also, regulatory issues related to the Basel II framework encourage the inclusion 
+			of default risk into valuation.
+			</font></p>					
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The object modeled under the market models is risk-observable. It is also consistent with the 
+			market standard approach for pricing caps/floors using Black’s formula. The market models have 
+			now become some of the most popular models for pricing such derivatives. They are generally 
+			considered to have more desirable theoretical calibration properties than short rate or 
+			instantaneous forward rate models.
+			</font></p>					
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Unlike structural models, reduced-form models do not condition default explicitly on the value 
+			of the firm, and parameters related to the firm’s value need not be estimated to implement the 
+			model. For pricing and hedging, reduced-form models are the preferred methodology.
+			</font></p>					
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Our closed-form solution shows that the value of a bilateral defaultable IRS is the sum of the 
+			values of individual bilateral defaultable swaplets. Each bilateral defaultable swaplet can be 
+			replicated by buying a risk-adjusted call option and selling a risk-adjusted put option. The 
+			risk-adjusting factors depend on hazard rates, recovery rates and settlement rules.
+			</font></p>					
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In the case where the floating-rate payer is a LIBOR party, we confirm findings that the swap 
+			spreads are relatively less sensitive to credit quality comparing to the bond spreads or the 
+			CDS spreads. The credit impact on swap rates is approximately linear. In the case where both 
+			parties have spreads against the LIBOR that was not studied closely before, we find that the 
+			credit impact on swap rates is not linear any more. The swap funding spreads have a 
+			significantly impact on swap spreads as well.
 			</font></p>					
 			<br>
 			
 			<br>
-               <font face="Arial, Helvetica, sans-serif"><a href="pricingCollateral.html"><b>Pricing Collateralized OTC Derivatives</b></a></font>
-				<br>
-				
+               <font face="Arial, Helvetica, sans-serif"><b>Pricing Defaultable Swap</b></font>
 			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="cva.html"><b>Credit Valuation Adjustment (CVA) and Wrong Way Risk</b></a></font>
-			   <br>
-				 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="convertible.html"><b>Pricing Convertible Bond</b></a></font>
-			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/8b9p4/download">FrenXiv Swap</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/rb6md/download">ArabiXiv Swap</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:31388/CONTENT/defaultable-swap-valuation-11-data.pdf">Hcommons Swap</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/FinPricing-defaultable-swap-valuation.pdf">Community Swap</a></li>
 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="lattice.html"><b>Lattice Algorith for LMM</b></a></font>
-			   <br>		 
+					<li style="font-size:16px"><a href="https://osf.io/mkw6a/download">OSF Swap Valuation</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/The_Valuation_of_Interest_Rate_Swap_with_Bilateral_Counterparty_Risk/12493673/files/23173376.pdf">FigShare Swap Valuation</a></li>
+					<li style="font-size:16px"><a href="https://ia601508.us.archive.org/28/items/defaultable-swap-valuation-11-data/defaultable-swap-valuation-11-data.pdf">Archive Swap Valuation</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3834245/files/defaultable-swap-valuation-11.pdf">Zenodo Swap Valuation</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamEDMzYTO2ITPkl0av9mY">FlipHtml5 Swap Valuation</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/cbx30pvd/21595266580319.pdf">Pubpub Swap</a></li>
 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="jump.html"><b>Jump diffusion for pricing convertibles</b></font>
-			   <br>	
+					<li style="font-size:16px"><a href="defaultable-swap-valuation-11">Swap PDF</a></li>
+				</ul>								 
 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="examine.html"><b>Collateralization examination</b></a></font>
-			   <br>
 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="dependency.html"><b>Impact of Default Dependency</b></a></font>
-			   <br>
-
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="irc.html"><b>IRC Approach</b></a></font>
-			   <br>
- 
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="creditRisk.html"><b>Multilateral Credit Risk</b></a></font>
-			   <br>
-
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="bilateral.html"><b>Bilateral Defaultable</b></a></font>
-			   <br>		
-
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="defaultableSwap.html"><b>Pricing Defaultable Swap</b></a></font>
-			   <br>						 
-
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="cds.html"><b>Pricing CDS with Counterparty Risk</b></a></font>
-			   <br>		 
-
-			   <br>
-               <font face="Arial, Helvetica, sans-serif"><a href="derivativeCVA.html"><b>Derivatives CVA</b></font>
-			   <br>
- 
-
-			  
                </td>
           </tr>
         </table>

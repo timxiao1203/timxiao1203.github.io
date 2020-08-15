@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Bilateral Credit Risk Valuation</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Bilateral Credit Risk Valuation</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The one-side defaultable financial derivatives valuation problems have been studied extensively, but 
+			the valuation of bilateral derivatives with asymmetric credit qualities is still lacking convincing 
+			mechanism. This paper presents an analytical model for valuing derivatives subject to default by both 
+			counterparties. The default-free interest rates are modeled by the Market Models, while the default 
+			time is modeled by the reduced-form model as the first jump of a time-inhomogeneous Poisson process. 
+			All quantities modeled are market-observable. The closed-form solution gives us a better understanding 
+			of the impact of the credit asymmetry on swap value, credit value adjustment, swap rate and swap spread.	
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The object modeled under the market models is market-observable. It is also consistent with the market 
+			standard approach for pricing caps/floors using Black’s formula. The market models have now become some 
+			of the most popular models for pricing such derivatives. They are generally considered to have more 
+			desirable theoretical calibration properties than short rate or instantaneous forward rate models.
+			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Unlike structural models, reduced-form models do not condition default explicitly on the value of the 
+			firm, and parameters related to the firm’s value need not be estimated to implement the model. For 
+			pricing and hedging, reduced-form models are the preferred methodology.
+			</font></p>					
+			<br>			
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Our closed-form solution shows that the value of a bilateral defaultable IRS is the sum of the values 
+			of individual bilateral defaultable swaplets. Each bilateral defaultable swaplet can be replicated by 
+			buying a risk-adjusted call option and selling a risk-adjusted put option. The risk-adjusting factors 
+			depend on hazard rates, recovery rates and settlement rules.
+			</font></p>					
+			<br>	
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In the case where the floating-rate payer is a LIBOR party, we confirm findings that the swap spreads 
+			are relatively less sensitive to credit quality comparing to the bond spreads or the CDS spreads. 
+			The credit impact on swap rates is approximately linear. In the case where both parties have spreads 
+			against the LIBOR that was not studied closely before, we find that the credit impact on swap rates 
+			is not linear any more. The swap funding spreads have a significantly impact on swap spreads as well.
+			</font></p>					
+			<br>				
+			
+			<br>
+
+               <font face="Arial, Helvetica, sans-serif"><b>Bilateral Defaultable Valuation</b></font>
+			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/5hf4b/download">FrenXiv Bilateral</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/5uxef/download">ArabiXiv Bilateral</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/337402359_Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment/links/5edfb69aa6fdcc47689412af/Bilateral-Defaultable-Financial-Derivatives-Pricing-and-Credit-Valuation-Adjustment.pdf">ResearchGate Bilateral</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/337401380_Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment/links/5ef8a14292851c52d6041c61/Bilateral-Defaultable-Financial-Derivatives-Pricing-and-Credit-Valuation-Adjustment.pdf">ResearchGate Bilateral PDF</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/337308453_Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment/links/5edfb74145851516e665691c/Bilateral-Defaultable-Financial-Derivatives-Pricing-and-Credit-Valuation-Adjustment.pdf">ResearchGate Bilateral Info</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/download/pdf/214013024.pdf">Core Bilateral PDF</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/reader/211630875">Core Bilateral Info</a></li>
+					<li style="font-size:16px"><a href="https://core.ac.uk/reader/214013024">Core Bilateral Solution</a></li>
+					
+					
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/derivativeCVA.pdf">Community Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/valuing-defaultable-derivatives-10-data.pdf">Community Bilateral Valuation PDF</a></li>
+	
+					<li style="font-size:16px"><a href="https://ia801504.us.archive.org/5/items/valuing-defaultable-derivatives-10/valuing-defaultable-derivatives-10.pdf">Archive Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment/12491990/files/23170082.pdf">FigShare Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3612199/files/valuing-defaultable-derivatives-10.pdf">Zenodo Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamETMyYTO2ITPkl0av9mY">FlipHtml5 Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/rtpc9/download">OSF Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:31386/CONTENT/valuing-defaultable-derivatives-10-data.pdf">Hcommons Bilateral Valuation</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/4z0r2obq/31595166820708.pdf">Pub Bilateral Valuation</a></li>
+
+					<li style="font-size:16px"><a href="valuing-defaultable-derivatives-10.pdf">Bilateral PDF</a></li>
+				</ul>				
+
+
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>

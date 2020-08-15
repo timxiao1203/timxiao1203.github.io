@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>LIBOR Market Model Lattice Solution</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                LIBOR Market Model Lattice Approach</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The LIBOR Market Model has become one of the most popular models for pricing interest rate products. It is commonly believed 
+			that Monte-Carlo simulation is the only viable method available for the LIBOR Market Model. In this article, however, 
+			we propose a lattice approach to price interest rate products within the LIBOR Market Model by introducing a shifted forward 
+			measure and several novel fast drift approximation methods. This model should achieve the best performance without losing 
+			much accuracy. Moreover, the calibration is almost automatic and it is simple and easy to implement. Adding this model to 
+			the valuation toolkit is actually quite useful; especially for risk management or in the case there is a need for a 
+			quick turnaround.
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The LIBOR Market Model (LMM) is an interest rate model based on evolving LIBOR market forward rates under a risk-neutral 
+			forward probability measure. In contrast to models that evolve the instantaneous short rates (e.g., Hull-White, Black-Karasinski 
+			models) or instantaneous forward rates (e.g., Heath-Jarrow-Morton (HJM) model), which are not directly observable in the market, 
+			the objects modeled using the LMM are market observable quantities. The explicit modeling of market forward rates allows for a 
+			natural formula for interest rate option volatility that is consistent with the market practice of using the formula of Black 
+			for caps. It is generally considered to have more desirable theoretical calibration properties than short rate or instantaneous 
+			forward rate models.
+			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In general, it is believed that Monte Carlo simulation is the only viable numerical method available for the LMM. The Monte 
+			Carlo simulation is computationally expensive, slowly converging, and notoriously difficult to use for calculating 
+			sensitivities and hedges. Another notable weakness is its inability to determine how far the solution is from optimality 
+			in any given problem.
+ 			</font></p>					
+			<br>			
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We proposed a lattice model in the LMM to price interest rate products. Conclusions can be drawn, supported by the previous 
+			sections. First, the model is quite stable. The fast convergence behavior requires fewer discretization nodes. Second, 
+			this model has almost equivalent accuracy to the current pricing models in the market. Third, the implementation of the 
+			model is relatively easy. The calibration is very simple and straightforward. Finally, the performance of the model is 
+			probably the best among all known approaches at the time of writing.
+ 			</font></p>					
+			<br>						
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We use the following techniques in our model: shifted forward measure, drift approximation, probability distribution 
+			structure exploitation, long jump, numerical integration, incomplete information handling, and calibration. Combining 
+			these techniques, the model achieves sufficient accuracy in relatively few time steps and discrete nodes, which makes 
+			it a very efficient method.
+ 			</font></p>					
+			<br>						
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			For ease of illustration, we present the lattice model based on the Trapezoidal Rule integration. A better but slightly 
+			more complicated solution is to spline the payoff functions. The cubic spline of the option payoffs can achieve higher 
+			accuracy, especially for Greeks calculations, and higher speed. Although cubic spline takes some time, the lattice will 
+			require much fewer nodes (23 ~ 28 nodes are good enough) and can perform a much faster integration. In general, the 
+			spline method can provide a speedup factor around 3 ~ 5 times.
+ 			</font></p>					
+			<br>						
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We have implemented the lattice model to price a variety of interest rate exotics. The algorithm can always achieve a 
+			fast convergence rate. The accuracy, however, is a bit trickier, depending on many factors: drift approximation approaches, 
+			numerical integration schemes, volatility selections, and calibration, etc. Some work, such as calibration, is more of 
+			an art than a science.
+ 			</font></p>					
+			<br>	
+
+			
+			<br>
+               <font face="Arial, Helvetica, sans-serif"><b>Lattice Algorith for LMM</b></font>
+			   <br>
+                  <ul>
+					<li style="font-size:16px"><a href="https://frenxiv.org/dxvnw/download">FrenXiv LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://arabixiv.org/fvtxd/download">ArabiXiv LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/228205436_An_Efficient_Lattice_Algorithm_for_the_Libor_Market_Model/links/567968b008ae40c0e27dbf74/An-Efficient-Lattice-Algorithm-for-the-Libor-Market-Model.pdf">ResearchGate LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336341140_AN_EFFICIENT_LATTICE_ALGORITHM_FOR_THE_LIBOR_MARKET_MODEL/links/5ee39ff292851ce9e7dd088d/AN-EFFICIENT-LATTICE-ALGORITHM-FOR-THE-LIBOR-MARKET-MODEL.pdf">ResearchGate LMM Valuation Info</a></li>
+					<li style="font-size:16px"><a href="https://www.researchgate.net/profile/Tim_Xiao/publication/336282946_AN_EFFICIENT_LATTICE_ALGORITHM_FOR_THE_LIBOR_MARKET_MODEL/links/5ee3a021458515814a58721d/AN-EFFICIENT-LATTICE-ALGORITHM-FOR-THE-LIBOR-MARKET-MODEL.pdf">ResearchGate LMM Valuation Approach</a></li>
+					<li style="font-size:16px"><a href="http://www.communityresearch.org.nz/wp-content/uploads/formidable/8/Lattice-in-LMM-4-data.pdf">Community Research LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://www.mysciencework.com/publication/download/e18756ecbccce8dfb1a17faf161a2ad8/b28779ffea39134b8844341c3c4c2ff7">MyScienceWork LMM Valuation</a></li>
+
+					<li style="font-size:16px"><a href="https://ia801403.us.archive.org/29/items/lattice-in-lmm-4/Lattice-in-LMM-4.pdf">Archive LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="https://figshare.com/articles/AN_EFFICIENT_LATTICE_ALGORITHM_FOR_THE_LIBOR_MARKET_MODEL/8323430/files/23026811.pdf">FigShare LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamgDMzMzN2ITPkl0av9mY">FlipHtml5 LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/2572020/files/Lattice%20in%20LMM.pdf">Zenodo LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/4a4hsvfw/51594919765057.pdf">Pub LMM Trade Valuation PDF</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:28370/CONTENT/lattice-in-lmm-4.pdf">Hcommons LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="http://spz.socionet.ru/~timxiao/files/Lattice-in-LMM-4-data.pdf">Socionet LMM Trade Valuation PDF</a></li>
+					<li style="font-size:16px"><a href="https://spz.socionet.ru/archives/users-docs/timxiao/xml/pcbbbq/timxiao4.xml?lang=english">Socionet LMM Trade Valuation</a></li>
+					<li style="font-size:16px"><a href="https://www.infona.pl//resource/bwmeta1.element.ID-79335f11-813a-48b2-9d78-5f00c077986b/content/partDownload/content/full-text/16c45d7d-660e-46e9-9ed0-eb198feb9dfa">Infona LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://github.com/timxiao1203/lmm/releases/download/2/Lattice-in-LMM-4.pdf">GitHub LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="lattice-in-LMM-4.pdf">LMM Valuation PDF</a></li>
+
+
+				</ul>				 
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
