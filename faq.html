@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Market Data Knowledge and Analytics</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 14px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="curve construction and volatility construction tools to bootstrap interest rate 
+				curves, interest rate curves based on OIS discounting, bond curves, treasury curve, FX forward curves, interest rate cap 
+				volatility surfaces, interest rate swaption surfaces, and CDS curves">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="images/tool.jpg" 
+	  Alt="data knowledge" width="150" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/tools2.gif" 
+	  Alt="data tool" width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Trade Life Cycle</font></I></p>
+				
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+
+
+
+			</font></p>				
+			
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Account Management</b></font>	
+
+				<p>Account management is a function to manage client information and controls the accessibility and roles of user 
+				accounts.</p>
+				
+                  <ul>
+
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/account/raw/main/AccountLicense-1.pdf">Github account</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamYDO0MTM3ITPkl0av9mY">Fliphtml5 account</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/zsjsig2m/download/pdf">Pubpub account</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3929818/files/AccountLicense-1.pdf">Zenodo account</a></li>
+
+				 </ul>
+				 
+				 <br>
+				<font face="Arial, Helvetica, sans-serif"><b>Batch Process</b></font>
+				
+				<p>Financial institutions have to perform Start of Day (SOD) process before it can carry out transactions 
+				for a specific date. Similarly, the End of Day (EOD) job must be run to process the transaction created 
+				during the day. When the scheduled EOD job completes, the system is advanced to the next date automatically.</p>
+				
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/eod/raw/main/BatchJob-2.pdf">Github batch</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamcDO0MTM3ITPkl0av9mY">FlipHtml5 batch</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/fqgr4qtg/download/pdf">Pubpub batch</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3929826/files/BatchJob-2.pdf">Zenodo batch</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Curve Bootstrap</b></font>
+				 
+				 <p>The term structure of interest rates, also known as yield curve, is defined as the relationship between 
+				 the yield-to-maturity on a zero coupon bond and the bond's maturity. Zero yield curves play an essential role 
+				 in the valuation of all financial products. The current methodology in capital markets for marking to market 
+				 securities and derivatives is to estimate and discount future cash flows using rates derived from the 
+				 appropriate term structure. The yield term structure is increasingly used as the foundation for deriving 
+				 relative term structures and as a benchmark for pricing and hedging.</p>
+
+                  <ul>
+
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/curve/raw/main/CurveConstruction-3.pdf">Github curve</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamgTO0MTM3ITPkl0av9mY">FlipHtml5 curve</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/mfw66cuv/download/pdf">Pubpub curve</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3929831/files/CurveConstruction-3.pdf">Zenodo curve</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Installation Guide</b></font>		
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/download/raw/main/DownloadInstall-4.pdf">Github download</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamcTN1MTM3ITPkl0av9mY">Fliphtml5 download</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/784ng851/download/pdf">Pubpub download</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3929835/files/DownloadInstall-4.pdf">Zenodo download</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Back Office</b></font>
+				 
+				 <p>A back office is the portion of a company made up of administration and support personnel who are 
+				 behind-the-scenes and not client-facing, while front office staffs are the folks in contact with the 
+				 consumers or clients. Back office functions include settlements, clearances, record maintenance, regulatory 
+				 compliance, accounting, and IT services.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/backoffice/raw/main/ManageBackofficeEntity-5.pdf">Github back</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamQzN1MTM3ITPkl0av9mY">Fliphtml5 back</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/sovvbl8h/download/pdf">Pubpub back</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3929839/files/ManageBackofficeEntity-5.pdf">Zenodo back</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Back Office Process</b></font>
+				 
+				 <p>The back office is the supporting department of a company that carries out administrative functions 
+				 that assist the front office to facilitate the course of work and the business transactions. Back office 
+				 functions include settlements, clearances, record maintenance, regulatory compliance, accounting, and IT 
+				 services.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/backOfficeFunction/raw/main/ManageBackofficeFunction-6.pdf">Github back office</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamETMxYTM3ITPkl0av9mY">Fliphtml5 back office</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/jmmakvm5/download/pdf">Pubpub back office</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3930859/files/ManageBackofficeFunction-6.pdf">Zenodo back office</a></li>
+	
+				  </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Market Data</b></font>
+				 
+				 <p>Trading venues provide reports on various assets and financial instruments, which are then distributed 
+				 to traders and firms. Market data is available across thousands of global markets, including stocks, indices, 
+				 fixed-income, interest rates, derivatives, forex and commodities. The aim of using market data is to get as 
+				 much information about the asset you are planning to trade, in order to calculate risk and the impact of 
+				 live news releases.</p>
+				 
+                  <ul>
+                    
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/marketData/raw/main/ManageData-7.pdf">Github data</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamQTMxYTM3ITPkl0av9mY">Fliphtml5 data</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/hrhclczr/download/pdf">Pubpub data</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3930863/files/ManageData-7.pdf">Zenodo data</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Trade Life Cycle</b></font>	
+				 
+				 <p>A trade, also called a deal, is an exchange of financial products from one entity to another. The life cycle 
+				 of a trade is the fundamental activity of exchanges, investment banks, hedge funds, pension funds and many other 
+				 financial companies.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/tradeLifeCycle1/raw/main/TradeLifecycle1-8.pdf">Github life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamEjMyYTM3ITPkl0av9mY">Fliphtml5 life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/7e8lxrd0/download/pdf">Pubpub life cycle</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3930936/files/TradeLifecycle1-8.pdf">Zenodo life cycle</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Trade Life Steps</b></font>	
+				 
+				 <p>All the steps involved in a trade, from the point of pre-negotiations and trade execution through to 
+				 settlement of the trade, are commonly referred to as the trade life cycle. Trade life cycle consists of 
+				 a series of logical stages and steps. This presentation gives an overview of trade life cycle process.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/tradeLifeCycle2/raw/main/TradeLifecycle2-9.pdf">Github life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamUjMyYTM3ITPkl0av9mY">Fliphtml5 life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/kaz5jvfi/download/pdf">Pubpub life cycle</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3930943/files/TradeLifecycle2-9.pdf">Zenodo life cycle</a></li>
+
+				 </ul>
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Trade Life Stages</b></font>	
+				 
+				 <p>Trade life cycle has different stages, by which a trade flows through. These detail steps are from the 
+				 point of order, receipt, execution through to settlement of the trade in a systematic manner. In other words, 
+				 it is regarded as a series of logical steps which are represented in such a manner where the trade is allowed 
+				 to go through keeping track of its related objective and importance. This presentation gives an overview 
+				 of trade life cycle process.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/tradeLifeCycle3/raw/main/TradeLifecycle3-10.pdf">Github life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamEDNyYTM3ITPkl0av9mY">Fliphtml5 life cycle</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/vqm85i3n/download/pdf">Pubpub life cycle</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3930947/files/TradeLifecycle3-10.pdf">Zenodo life cycle</a></li>
+
+				 </ul>	
+
+
+
+				 <br>		
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
