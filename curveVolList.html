@@ -172,7 +172,13 @@ marginwidth="0" marginheight="0">
 			</font></p>				
 			
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Swap Curve</b></font>		
+				<font face="Arial, Helvetica, sans-serif"><b>Swap Curve</b></font>	
+				
+				<p>The swap rate curve consists of a set of the most liquid and dominant interest rate products for certain 
+				time horizons. Normally the curve is divided into three parts. The short end of the term structure is 
+				determined by deposit rates. The middle part of the curve uses Eurodollar futures or FRAs. The far end is 
+				given by mid swap rates.</p>
+				
                   <ul>				  
                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928440/files/IrCurveIntroduction-1.pdf">Zenodo swap curve</a></li>
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamUTNyITM2ITPkl0av9mY">FlipHtml5 swap curve</a></li>
@@ -187,6 +193,12 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				<font face="Arial, Helvetica, sans-serif"><b>Yield Curve</b></font>
+				
+				<p>Yield curve is defined as the term structure of interest rate yields-to-maturity. Yield curves are not market 
+				observable and need to constructed from market observable curves, such as bond curves or swap curves. Given swap 
+				market is much more liquid than bond market with narrow bid-ask spreads and a wide selection of maturities, yield 
+				curves are mainly bootstrapped from swap curves.</p>
+				
                   <ul>
                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928459/files/IrCurve-2.pdf">Zenodo yield curve</a></li>
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamkDO1kzM2ITPkl0av9mY">FlipHtml5 yield curve</a></li>
@@ -202,6 +214,10 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Basis Curve</b></font>
+				 
+				 <p>The market quote of a basis spread is the spread over the associated 3 month reference rate.Typical basis 
+				 curves are 1 month, 6 months, 12 months, Prime, FedFun, and OIS.</p>
+				 
                   <ul>
                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928477/files/IrBasisCurve-3.pdf">Zenodo Basis curve</a></li>
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamgTM2kzM2ITPkl0av9mY">FlipHtml5 basis curve</a></li>
@@ -216,7 +232,13 @@ marginwidth="0" marginheight="0">
 				 </ul>
 
 				 <br>
-				 <font face="Arial, Helvetica, sans-serif"><b>OIS Curve</b></font>		
+				 <font face="Arial, Helvetica, sans-serif"><b>OIS Curve</b></font>	
+
+				<p>Overnight index swaps OIS curves became the market standard for discounting collateralized cashflows. 
+				The reason often given for using the OIS rate as the discount rate is that it is derived from the fed funds 
+				rate and the fed funds rate is the interest rate usually paid on collateral. As such the fed funds rate and 
+				OIS rate are the relevant funding rates for collateralized transactions.</p>
+				
                   <ul>
 					<li style="font-size:16px"><a href="https://zenodo.org/record/3928515/files/IrOIS-4.pdf">Zenodo ois curve</a></li>				  
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamETN0MDN2ITPkl0av9mY">FlipHtml5 ois curve</a></li>
@@ -233,6 +255,11 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>FX Implied Volatility</b></font>
+				 
+				 <p>Unlike in other markets that quote volatility versus strike directly, the FX smile is given implicitly 
+				 as a set of restrictions implied by market instruments and as such a calibration procedure to construct 
+				 a volatility-delta or volatility-strike smile is used.</p>
+				 
                   <ul>
 					<li style="font-size:16px"><a href="https://zenodo.org/record/3928657/files/FxVol-5.pdf">Zenodo FX vol</a></li>				  
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamIjMyYDN2ITPkl0av9mY">FlipHtml5 FX vol</a></li>
@@ -248,6 +275,10 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Swaption Implied Volatility</b></font>
+				 
+				 <p>Swaption implied volatility cube is a four dimensional plot of the implied volatility as a function of 
+				 strike, swaption expiry, and underlying swap tenor.</p>
+				 
                   <ul>
                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928662/files/IrSwnVol-6.pdf">Zenodo swaption vol</a></li>
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamYTNyYDN2ITPkl0av9mY">FlipHtml5 swaption vol</a></li>
@@ -263,6 +294,12 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Cap Implied Volatility</b></font>
+				 
+				 <p>An implied volatility is the volatility implied by the market price of an option based on the Black-Scholes 
+				 option pricing model. In cap market, a cap or floor is quoted by implied volatilities but not prices. 
+				 An interest rate cap volatility surface is a three-dimensional plot of the implied volatility of a cap 
+				 as a function of strike and maturity.</p>
+				 
                   <ul>
                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928669/files/IrCapVol-7.pdf">Zenodo cap vol</a></li>
 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamMzN0ITN2ITPkl0av9mY">FlipHtml5 cap vol</a></li>
@@ -279,6 +316,12 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>FX Curve</b></font>	
+				 
+				 <p>FX forward points are defined as the relationship between FX forward spreads, in basis points, and delivery 
+				 dates. Usually, an FX forward rate is quoted as FX forward spread, the number of basis points (called DP in 
+				 FX convention), against the current FX spot rate for a future delivery date. Given FX forward points/spreads, 
+				 FX forward rates can be very easily determined.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamQDO0ITN2ITPkl0av9mY">FlipHtml5 FX curve</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/qqkiegom/01595531557821.pdf">Pub FX curve</a></li>
@@ -295,6 +338,11 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Forward CPI Curve</b></font>	
+				 
+				 <p>Inflation curve or inflation forward curve is also called Consumer Price Index (CPI) curve that is the 
+				 term structures of CPI rates is defined as the relationship between CPI and different terms. The popular 
+				 indices are Euro HICPxT, UK RPI, and US CPI.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="IrInflationCurve-9.pdf">inflation curve</a></li>
  					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamMzN3gDNyMTPkl0av9mY">FlipHtml5 inflation curve</a></li>					
@@ -307,6 +355,11 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Inflation Linked Bond Curve</b></font>	
+				 
+				 <p>Inflation indexed bonds, also called inflation linked bonds or real return bonds, are bonds where the 
+				 principal is indexed to inflation or deflation on a daily basis in terms of a reference index, such as 
+				 Consumer Price Index (CPI). The primary purpose of these bonds is the transfer of inflation risk.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="FiInflationBondCurve-10.pdf">inflation bond curve</a></li>
  					<li style="font-size:16px"><a href="https://zenodo.org/record/4299106/files/FiInflationBondCurve-10.pdf">Zenodo inflation bond curve</a></li>
@@ -318,6 +371,10 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Treasury Benchmark Curve</b></font>	
+				 
+				 <p>Treasury curve or treasury benchmark curve is the term structures of treasury bill/bond prices vs maturities. 
+				 The two major types of marketable securities issued by government are treasury bills and treasury bonds.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="FiTreasuryCurve-11.pdf">treasury benchmark curve</a></li>
  					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamQTM4gDNyMTPkl0av9mY">FlipHtml5 treasury benchmark curve</a></li>
@@ -329,6 +386,10 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Treasury Yield Curve</b></font>	
+				 
+				 <p>Treasury yield curve or treasury zero coupon yield curve is the term structures of treasury 
+				 yields-to-maturity. The yield is also called the zero coupon rate or the implied forward rate.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="FiTreasuryYieldCurve-12.pdf">treasury yield curve</a></li>
  					<li style="font-size:16px"><a href="https://zenodo.org/record/4299119/files/FiTreasuryYieldCurve-12.pdf">Zenodo treasury yield curve</a></li>					
@@ -340,6 +401,13 @@ marginwidth="0" marginheight="0">
 				  
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>SIFMA swap index Curve</b></font>	
+				 
+				 <p>SIFMA (Securities Industry and Financial Markets Association) is a trading organization in US. The SIFMA 
+				 Municipal Swap Index, formerly the Bond Market Association Index, is a market index composed of tax-exempt 
+				 variable rate demand obligations (VRDOs). VRDOs are municipal bonds with floating interest rates. The SIFMA 
+				 index is issued weekly.</p>
+				 
+				 
                   <ul>
  					<li style="font-size:16px"><a href="FiSifmaCurve-13.pdf">sifma curve</a></li>
  					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamcTO5ADMzMTPkl0av9mY">FlipHtml5 sifma curve</a></li>
@@ -350,7 +418,13 @@ marginwidth="0" marginheight="0">
 				  </ul>
 				  
 				 <br>
-				 <font face="Arial, Helvetica, sans-serif"><b>cross currency basis Curve</b></font>	
+				 <font face="Arial, Helvetica, sans-serif"><b>Cross Currency Basis Curve</b></font>	
+				 
+				 <p>Cross currency swap differs from single currency swaps in that the interest rate payments on the two legs 
+				 are in different currencies. At inception of the trade, the notional principal amounts in the two currencies 
+				 are usually set to be fair given the spot exchange rate. Contrary to single currency swap, there is an exchange 
+				 of principals at inception and maturity, or even in each period of the swap.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="IrXccyBasisCurve-14.pdf">cross currency basis curve</a></li>
  					<li style="font-size:16px"><a href="https://zenodo.org/record/4313815/files/IrXccyBasisCurve-14.pdf">Zcross cross currency basis curve</a></li>
@@ -362,6 +436,12 @@ marginwidth="0" marginheight="0">
 				  
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Precious Metal Implied Volatility</b></font>	
+				 
+				 <p>Precious metals are trading commodities. In the past, precious metals were the foremost commodity-based form 
+				 of payments. The use of precious metals as currency led to the production of coinage that was used as trading 
+				 devices. The institution of coinage further led to the development of representative currencies in the form 
+				 of notes.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="CmcPreciousMetalVol-15.pdf">precious metal vol</a></li>
  					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/rknnzld8/download/pdf">pubpub precious metal vol</a></li>
@@ -372,10 +452,34 @@ marginwidth="0" marginheight="0">
 
 				  </ul>
 
-				  
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Credit Spread Curve</b></font>	
+				 
+				 <p>There is only one base interest rate per currency, corresponding to the bank’s unsecured lending/borrowing 
+				 rate (such as LIBOR). The interest rate used to discount cashflows may include a credit spread above or below 
+				 the base rate.</p>
+				 
+                  <ul>
+ 					<li style="font-size:16px"><a href="CrCreditSpread-16.pdf">credit spread curve</a></li>
+ 					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/jlw96tdj/download/pdf">pubpub credit spread</a></li>
+ 					<li style="font-size:16px"><a href="tps://assets.pubpub.org/j092gb4s/01610133323941.pdf">pubpub credit spread pdf</a></li>
+
+ 					<li style="font-size:16px"><a href="https://zenodo.org/record/4429184/files/CrCreditSpread-16.pdf">Zenodo credit spread</a></li>
+ 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamAzNykTM0MTPkl0av9mY">FlipHtml5 credit spread</a></li>
+
+				  </ul>				  
 
 				 <br>
-				 <font face="Arial, Helvetica, sans-serif"><b>Counterparty Credit Risk</b></font>	
+				 <font face="Arial, Helvetica, sans-serif"><b>Counterparty Credit Risk</b></font>
+	
+				<p>Counterparty credit risk (CCR) refers to the risk that a counterparty to a bilateral financial derivative 
+				contract may fail to fulfill its contractual obligation causing financial loss to the non-defaulting party. 
+				It will be incurred in the event of default by a counterparty. Only over-the-counter (OTC) derivatives and 
+				financial security transactions (e.g., repo) are subject to counterparty risk. If one party of a contract 
+				defaults, the non-defaulting party will find a similar contract with another counterparty in the market 
+				to replace the default one. That is why counterparty credit risk sometimes is referred as replacement risk. 
+				The replacement risk is the MTM value of a counterparty portfolio at the time of the counterparty default.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/22fdjmi8">pub ccr</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/l7qmf5sa/01598705440961.pdf">Pub ccr pdf</a></li>
@@ -397,6 +501,10 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Counterparty Credit Risk Simulation</b></font>	
+				 
+				 <p>Counterparty credit risk measure is credit exposure. As credit exposures in future are stochastic, 
+				 one needs to simulate market evolution in order to quantify counterparty credit risk.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/uv7fnc6p">pub ccr simulation</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/3d8smglr/51598705809692.pdf">Pub ccr simulation pdf</a></li>
@@ -419,6 +527,13 @@ marginwidth="0" marginheight="0">
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Collateral Management</b></font>	
+				 
+				 <p>Collateral is a property or an asset that a borrower offers as a way for a lender to secure the loan. 
+				 Collateral arrangement is a risk reduction tool that mitigates risk by reducing credit exposure. Collateral 
+				 doesn’t turn a bad counterparty into a good one and doesn’t eliminate credit risk. Instead, it just reduces 
+				 the loss at the time of default. Collateral arrangement is an essential element in the plumbing of the 
+				 financial system.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/qi11f8gf">pub collateral</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/r4v9jytz/11598709246717.pdf">Pub collateral pdf</a></li>
@@ -438,7 +553,14 @@ marginwidth="0" marginheight="0">
 				 </ul>	
 
 				 <br>
-				 <font face="Arial, Helvetica, sans-serif"><b>Credit Valuation Adjustment</b></font>	
+				 <font face="Arial, Helvetica, sans-serif"><b>Credit Valuation Adjustment</b></font>
+
+				<p>CVA  by definition, is the difference between the risk-free portfolio value and the true (or risky or 
+				defaultable) portfolio value that takes into account the possibility of counterparty’s default. The risk-free 
+				portfolio value is what brokers quote or what derivatives trading systems or derivaitves valuation models 
+				normally report. The risky portfolio value, however, is a relatively less explored and less transparent 
+				area, which is the main challenge and core theme for credit risk adjustment.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/tjzhcqez">pub cva</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/aocf2qy5/21598709554191.pdf">Pub cva pdf</a></li>
@@ -460,6 +582,12 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Fund Valuation Adjustment</b></font>	
+				 
+				 <p>Funding Valuation Adjustment (FVA) is the cost of funding that is considered in the valuation of 
+				 uncollateralized derivatives. It is introduced to quantify the adjustment to the value of derivatives 
+				 in order to ensure that a trader recovers funding costs that are consistent with the market’s view of 
+				 the funding costs associated with the same trade.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/ozumceme">pub fva</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/0zt6yman/51598723652925.pdf">Pub fva pdf</a></li>
@@ -479,6 +607,12 @@ marginwidth="0" marginheight="0">
 				 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>FRTB</b></font>	
+				 
+				 <p>The Fundamental Review of the Trading Book (FRTB) is a new Basel committee framework for the next 
+				 generation market risk regulatory capital rules. It is inspired by the undercapitalisation of trading 
+				 book exposures witnessed during the financial crisis. FRTB aims to address shortcoming of the current 
+				 Basel 2.5 market risk capital framework.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/w33dt1rs">pub frtb</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/lrv4ks4q/01598723913093.pdf">Pub frtb pdf</a></li>
@@ -496,6 +630,13 @@ marginwidth="0" marginheight="0">
 				 </ul>						 
 
 				 <font face="Arial, Helvetica, sans-serif"><b>Historical VaR</b></font>	
+				 
+				 <p> is the regulatory measurement for assessing market risk. It reports the maximum likely loss on a 
+				 portfolio for a given probability defined as x% confidence level over N days. VaR is vital in market risk 
+				 management and control. Also regulatory and economic capital computation is based on VaR results. 
+				 Although VaR measure is objective and intuitive, it doesn’t capture tail risk. There are three commonly 
+				 used methodologies to calculate VaR – parametric, historical simulation and Monte Carlo simulation.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/116rqssv/release/1">pub historical VaR</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/4u9agnc5/01599313202010.pdf">Pub historical VaR pdf</a></li>
@@ -512,7 +653,15 @@ marginwidth="0" marginheight="0">
  					<li style="font-size:16px"><a href="HistoricalVaR-7.pdf">historical VaR</a></li>
 
 				 </ul>						 
-				 <font face="Arial, Helvetica, sans-serif"><b>SIMM</b></font>	
+				 <font face="Arial, Helvetica, sans-serif"><b>SIMM</b></font>
+
+				<p>Initial Margin (IM) is the amount of collateral required to open a position with a broker or an exchange 
+				or a bank. The Standard Initial Margin Model (SIMM) is very likely to become the market standard. It is designed 
+				to provide a common methodology for calculating initial margin for uncleared OTC derivatives. Initial margin 
+				calculation is counterparty-portfolio-based. Given this standardized approach, counterparties can easily 
+				reconcile the results.</p>
+				
+				
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/wushuobx/release/1">pub SIMM</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/dvdo34s1/61599313482128.pdf">Pub SIMM pdf</a></li>
@@ -531,6 +680,11 @@ marginwidth="0" marginheight="0">
 				 </ul>						 
 
 				 <font face="Arial, Helvetica, sans-serif"><b>IRC</b></font>	
+				 
+				 <p>The incremental risk charge (IRC) is a regulatory requirement from the Basel Committee in response to 
+				 the financial crisis. It supplements existing Value-at-Risk (VaR) and captures the loss due to default 
+				 and migration events at a 99.9% confidence level over a one-year capital horizon.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/469v839f/release/1">pub IRC</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/z66vbt2h/31599313871841.pdf">Pub IRC pdf</a></li>
@@ -548,6 +702,11 @@ marginwidth="0" marginheight="0">
 				 </ul>
 
 				 <font face="Arial, Helvetica, sans-serif"><b>Market</b></font>	
+				 
+				 <p>A financial market is a market where people trade financial products. Typical financial markets are the 
+				 fixed income market, and interest rate market, the currency market, the equity market, the commodity market 
+				 and the credit market.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/hd1pqked/release/1">pub Market</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/jguugo0r/21599314143214.pdf">Pub market pdf</a></li>
@@ -566,6 +725,12 @@ marginwidth="0" marginheight="0">
 				 </ul>						 
 
 				 <font face="Arial, Helvetica, sans-serif"><b>Market Risk Economic Capital</b></font>	
+				 
+				 <p>Financial business is exposed to many types of risks due to the nature of business. To guard against 
+				 the risk, financial institutions must hold capital in proportion to the potential risk. Market risk economic 
+				 capital is intended to capture the value change due to changes in market risk factors. It is an internal 
+				 capital reserve to cover unexpected loss due to market movement.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/r47dfv0a/release/1">pub MREC</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/v0rcak2u/01599314367878.pdf">Pub mrec pdf</a></li>
@@ -584,6 +749,14 @@ marginwidth="0" marginheight="0">
 				 </ul>						 
 
 				 <font face="Arial, Helvetica, sans-serif"><b>Parametric VaR</b></font>	
+
+				 <p> is the regulatory measurement for assessing market risk. It reports the maximum likely loss on a 
+				 portfolio for a given probability defined as x% confidence level over N days. VaR is vital in market risk 
+				 management and control. Also regulatory and economic capital computation is based on VaR results. 
+				 Although VaR measure is objective and intuitive, it doesn’t capture tail risk. There are three commonly 
+				 used methodologies to calculate VaR – parametric, historical simulation and Monte Carlo simulation.</p>
+				 
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/2u0jpbfi/release/1">pub parametric var</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/c2ar5ldv/01599314635228.pdf">Pub parametric var pdf</a></li>
@@ -602,6 +775,12 @@ marginwidth="0" marginheight="0">
 				 </ul>						 
 
 				 <font face="Arial, Helvetica, sans-serif"><b>Sensitivity</b></font>	
+				 
+				 <p>Risk sensitivities, also referred to as Greeks, are the measure of a financial instrument’s value reaction 
+				 to changes in underlying factors. The value of a financial instrument is impacted by many factors, such as 
+				 interest rate, stock price, implied volatility, time, etc. Sensitivities are risk measures that are more 
+				 important than fair values.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/nq9sk3q4/release/1">pub sensitivity</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/axpymst1/31599314925777.pdf">Pub sensitivity pdf</a></li>
@@ -619,7 +798,14 @@ marginwidth="0" marginheight="0">
 
 					</ul>			
 
-				 <font face="Arial, Helvetica, sans-serif"><b>Monte Carlo VaR</b></font>	
+				 <font face="Arial, Helvetica, sans-serif"><b>Monte Carlo VaR</b></font>
+
+				 <p> is the regulatory measurement for assessing market risk. It reports the maximum likely loss on a 
+				 portfolio for a given probability defined as x% confidence level over N days. VaR is vital in market risk 
+				 management and control. Also regulatory and economic capital computation is based on VaR results. 
+				 Although VaR measure is objective and intuitive, it doesn’t capture tail risk. There are three commonly 
+				 used methodologies to calculate VaR – parametric, historical simulation and Monte Carlo simulation.</p>
+				 
                   <ul>
  					<li style="font-size:16px"><a href="https://interestrate.pubpub.org/pub/guu4ru3z/release/1">pub Mc var</a></li>
 					<li style="font-size:16px"><a href="https://assets.pubpub.org/40b9fx6f/21599315191080.pdf">Pub mc var pdf</a></li>
