@@ -165,61 +165,94 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			This page presents a Least Square Monte Carlo approach for accurately calculating credit value adjustment (CVA). 
-			In contrast to previous studies, the model relies on the probability distribution of a default time/jump rather 
-			than the default time itself, as the default time is usually inaccessible. As such, the model can achieve a high 
-			order of accuracy with a relatively easy implementation. We find that the valuation of a defaultable derivative is 
-			normally determined via backward induction when their payoffs could be positive or negative. Moreover, the model 
-			can naturally capture wrong or right way risk.		
+			For years, a widespread practice in the industry has been to mark derivative portfolios to market without taking counterparty risk into 
+			account. All cash flows are discounted using the LIBOR curve. But the real parties, in many cases, happen to be of lower credit quality 
+			than the hypothetical LIBOR party and have a chance of default.	
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			CVA not only allows institutions to move beyond the traditional control mindset of credit risk limits and to 
-			quantify counterparty risk as a single measurable P&L number, but also offers an opportunity for banks to dynamically 
-			manage, price and hedge counterparty risk. The benefits of CVA are widely acknowledged. Many banks have set up 
-			internal credit risk trading desks to manage counterparty risk on derivatives.
+			As a consequence, the International Accounting Standard (IAS) 39 requires banks to provide a fair-value adjustment due to counterparty 
+			risk. Although credit value adjustment (CVA) became mandatory in 2000, it received a little attention until the recent financial crises 
+			in which the profit and loss (P&L) swings due to CVA changes were measured in billons of dollars. Interest in CVA began to grow. Now CVA 
+			has become the first line of defense and the central part of counterparty risk management.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The earlier works on CVA are mainly focused on unilateral CVA that assumes that only one counterparty is defaultable 
-			and the other one is default-free. The unilateral treatment neglects the fact that both counterparties may default, i.e., 
-			counterparty risk can be bilateral. A trend that has become increasingly relevant and popular has been to consider 
-			the bilateral nature of counterparty credit risk. Although most institutions view bilateral considerations as 
-			important in order to agree on new transactions, Hull and White (2013) argue that bilateral CVA is more controversial 
-			than unilateral CVA as the possibility that a dealer might default is in theory a benefit to the dealer.
+			CVA not only allows institutions to move beyond the traditional control mindset of credit risk limits and to quantify counterparty risk 
+			as a single measurable P&L number, but also offers an opportunity for banks to dynamically manage, price and hedge counterparty risk. 
+			The benefits of CVA are widely acknowledged. Many banks have set up internal credit risk trading desks to manage counterparty risk on 
+			derivatives.
 			</font></p>							
 			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			CVA, by definition, is the difference between the risk-free portfolio value and the true (or risky or defaultable) 
-			portfolio value that takes into account the possibility of a counterparty’s default. The risk-free portfolio value is 
-			what brokers quote or what trading systems or models normally report. The risky portfolio value, however, is a 
-			relatively less explored and less transparent area, which is the main challenge and core theme for CVA. In other words, 
-			central to CVA is risky valuation.
+			The earlier works on CVA are mainly focused on unilateral CVA that assumes that only one counterparty is defaultable and the other one is 
+			default-free. The unilateral treatment neglects the fact that both counterparties may default, i.e., counterparty risk can be bilateral. A trend 
+			that has become increasingly relevant and popular has been to consider the bilateral nature of counterparty credit risk. Although most institutions 
+			view bilateral considerations as important in order to agree on new transactions, Hull and White (2013) argue that bilateral CVA is more 
+			controversial than unilateral CVA as the possibility that a dealer might default is in theory a benefit to the dealer.
 			</font></p>							
 			<br>				
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We present a framework for pricing risky contracts and their CVAs. The model relies on the probability distribution 
-			of the default jump rather than the default jump itself, because the default jump is normally inaccessible. We find 
-			that the valuation of risky assets and their CVAs, in most situations, has a backward recursive nature and requires 
-			a backward induction valuation. An intuitive explanation is that two counterparties implicitly sell each other an 
-			option to default when entering into an OTC derivative transaction. If we assume that a default may occur at any time, 
-			the default options are American style options. If we assume that a default may only happen on the payment dates, 
-			the default options are Bermudan style options. Both Bermudan and American options require backward induction valuations. 
+			CVA, by definition, is the difference between the risk-free portfolio value and the true (or risky or defaultable) portfolio value that 
+			takes into account the possibility of a counterparty’s default. The risk-free portfolio value is what brokers quote or what trading systems 
+			or models normally report. The risky portfolio value, however, is a relatively less explored and less transparent area, which is the main 
+			challenge and core theme for CVA. In other words, central to CVA is risky valuation.
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Based on our theory, we propose a novel cash-flow-based framework (see appendix) for calculating bilateral CVA at 
-			the counterparty portfolio level. This framework can easily incorporate various credit mitigation techniques, such as 
-			netting agreements and margin agreements, and can capture wrong/right way risk. Numerical results show that these
-			credit mitigation techniques and wrong/right way risk have significant impacts on CVA.
+			In general, risky valuation can be classified into two categories: the default time approach (DTA) and the default probability approach 
+			(DPA). The DTA involves the default time explicitly. Most CVA models in the literature (Brigo and Capponi (2008), Lipton and Sepp (2009), 
+			Pykhtin and Zhu (2006) and Gregory (2009), etc.) are based on this approach. 
  			</font></p>					
 			<br>			
-			
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Although the DTA is very intuitive, it has the disadvantage that it explicitly involves the default time. We are very unlikely to have 
+			complete information about a firm’s default point, which is often inaccessible (see Duffie and Huang (1996), Jarrow and Protter (2004), etc.). 
+			Usually, valuation under the DTA is performed via Monte Carlo simulation. On the other hand, however, the DPA relies on the probability 
+			distribution of the default time rather than the default time itself. Sometimes the DPA yields simple closed form solutions.
+ 			</font></p>					
+			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The current popular CVA methodology (Pykhtin and Zhu (2006) and Gregory (2009), etc.) is first derived using DTA and then discretized 
+			over a time grid in order to yield a feasible solution. The discretization, however, is inaccurate. In fact, this model has never been 
+			rigorously proved. Since CVA is used for financial accounting and pricing, its accuracy is essential. Moreover, this current model is 
+			based on a well-known assumption, in which credit exposure and counterparty’s credit quality are independent. Obviously, it can not 
+			capture wrong/right way risk properly. 
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In this paper, we present a framework for risky valuation and CVA. In contrast to previous studies, the model relies on the DPA rather 
+			than the DTA. Our study shows that the pricing process of a defaultable contract normally has a backward recursive nature if its payoff 
+			could be positive or negative. 
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			An intuitive way of understanding these backward recursive behaviours is that we can think of that any contingent claim embeds two default 
+			options. In other words, when entering an OTC derivatives transaction, one party grants the other party an option to default and, at the 
+			same time, also receives an option to default itself. In theory, default may occur at any time. Therefore, the default options are 
+			American style options that normally require a backward induction valuation.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Wrong way risk occurs when exposure to a counterparty is adversely correlated with the credit quality of that counterparty, while right way 
+			risk occurs when exposure to a counterparty is positively correlated with the credit quality of that counterparty. For example, in wrong way 
+			risk exposure tends to increase when counterparty credit quality worsens, while in right way risk exposure tends to decrease when 
+			counterparty credit quality declines. Wrong/right way risk, as an additional source of risk, is rightly of concern to banks and regulators. 
+			Since this new model allows us to incorporate correlated and potentially simultaneous defaults into risky valuation, it can naturally 
+			capture wrong/right way risk.
+ 			</font></p>					
+			<br>	
+
 			
 			<br>
                <font face="Arial, Helvetica, sans-serif"><b>Credit Valuation Adjustment (CVA) and Wrong Way Risk</b></font>
@@ -263,6 +296,8 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://gitlab.com/tim_xiao/cva/-/raw/master/cva-solution-2.pdf">Gitlab CVA Process</a></li>
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/qzrn3yb9/download/pdf">Pubpub CVA Process</a></li>
 
+					<li style="font-size:16px"><a href="https://osf.io/yjnsz/download">OSF cva</a></li>		
+					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/3yjk2/download">Socarxiv cva</a></li>						
 
 					<li style="font-size:16px"><a href="https://github.com/timxiao1203">GitHub</a></li>					
 				 </ul>

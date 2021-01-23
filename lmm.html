@@ -165,49 +165,42 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The LIBOR Market Model has become one of the most popular models for pricing interest rate products. It is commonly believed 
-			that Monte-Carlo simulation is the only viable method available for the LIBOR Market Model. In this article, however, 
-			we propose a lattice approach to price interest rate products within the LIBOR Market Model by introducing a shifted forward 
-			measure and several novel fast drift approximation methods. This model should achieve the best performance without losing 
-			much accuracy. Moreover, the calibration is almost automatic and it is simple and easy to implement. Adding this model to 
-			the valuation toolkit is actually quite useful; especially for risk management or in the case there is a need for a 
-			quick turnaround.
+			The LIBOR Market Model (LMM) is an interest rate model based on evolving LIBOR market forward rates under a risk-neutral forward probability 
+			measure. In contrast to models that evolve the instantaneous short rates (e.g., Hull-White, Black-Karasinski models) or instantaneous forward 
+			rates (e.g., Heath-Jarrow-Morton (HJM) model), which are not directly observable in the market, the objects modeled using the LMM are market 
+			observable quantities. The explicit modeling of market forward rates allows for a natural formula for interest rate option volatility that is 
+			consistent with the market practice of using the formula of Black for caps. It is generally considered to have more desirable theoretical 
+			calibration properties than short rate or instantaneous forward rate models.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The LIBOR Market Model (LMM) is an interest rate model based on evolving LIBOR market forward rates under a risk-neutral 
-			forward probability measure. In contrast to models that evolve the instantaneous short rates (e.g., Hull-White, Black-Karasinski 
-			models) or instantaneous forward rates (e.g., Heath-Jarrow-Morton (HJM) model), which are not directly observable in the market, 
-			the objects modeled using the LMM are market observable quantities. The explicit modeling of market forward rates allows for a 
-			natural formula for interest rate option volatility that is consistent with the market practice of using the formula of Black 
-			for caps. It is generally considered to have more desirable theoretical calibration properties than short rate or instantaneous 
-			forward rate models.
+			In general, it is believed that Monte Carlo simulation is the only viable numerical method available for the LMM (see Piterbarg [2003]). 
+			The Monte Carlo simulation is computationally expensive, slowly converging, and notoriously difficult to use for calculating sensitivities 
+			and hedges. Another notable weakness is its inability to determine how far the solution is from optimality in any given problem. 
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			In general, it is believed that Monte Carlo simulation is the only viable numerical method available for the LMM. The Monte 
-			Carlo simulation is computationally expensive, slowly converging, and notoriously difficult to use for calculating 
-			sensitivities and hedges. Another notable weakness is its inability to determine how far the solution is from optimality 
-			in any given problem.
+			In this paper, we propose a lattice approach within the LMM. The model has similar accuracy to the current pricing models in the market, 
+			but is much faster. Some other merits of the model are that calibration is almost automatic and the approach is less complex and easier 
+			to implement than other current approaches.
  			</font></p>					
 			<br>			
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We proposed a lattice model in the LMM to price interest rate products. Conclusions can be drawn, supported by the previous 
-			sections. First, the model is quite stable. The fast convergence behavior requires fewer discretization nodes. Second, 
-			this model has almost equivalent accuracy to the current pricing models in the market. Third, the implementation of the 
-			model is relatively easy. The calibration is very simple and straightforward. Finally, the performance of the model is 
-			probably the best among all known approaches at the time of writing.
+			We introduce a shifted forward measure that uses a variable substitution to shift the center of a forward rate distribution to zero. 
+			This ensures that the distribution is symmetric and can be represented by a relatively small number of discrete points. The shift transformation 
+			is the key to achieve high accuracy in relatively few discrete finite nodes. In addition, we present several fast and novel drift approximation 
+			approaches. Other concepts used in the model are probability distribution structure exploitation, numerical integration and the long jump 
+			technique (we only position nodes at times when decisions need to be made).
  			</font></p>					
 			<br>						
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We use the following techniques in our model: shifted forward measure, drift approximation, probability distribution 
-			structure exploitation, long jump, numerical integration, incomplete information handling, and calibration. Combining 
-			these techniques, the model achieves sufficient accuracy in relatively few time steps and discrete nodes, which makes 
-			it a very efficient method.
+			This model is actually quite useful for risk management because normally full-revaluations of an entire portfolio under hundreds of thousands 
+			of different future scenarios are required for a short time window (see FinPricing (2011)). Without an efficient algorithm, one cannot properly 
+			capture and manage the risk exposed by the portfolio.
  			</font></p>					
 			<br>						
 
@@ -221,10 +214,33 @@ marginwidth="0" marginheight="0">
 			<br>						
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We have implemented the lattice model to price a variety of interest rate exotics. The algorithm can always achieve a 
-			fast convergence rate. The accuracy, however, is a bit trickier, depending on many factors: drift approximation approaches, 
-			numerical integration schemes, volatility selections, and calibration, etc. Some work, such as calibration, is more of 
-			an art than a science.
+			In this paper, we proposed a lattice model in the LMM to price interest rate products. Conclusions can be drawn, supported by the previous 
+			sections. First, the model is quite stable. The fast convergence behavior requires fewer discretization nodes. Second, this model has almost 
+			equivalent accuracy to the current pricing models in the market. Third, the implementation of the model is relatively easy. The calibration 
+			is very simple and straightforward. Finally, the performance of the model is probably the best among all known approaches at the time of 
+			writing.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We use the following techniques in our model: shifted forward measure, drift approximation, probability distribution structure exploitation, 
+			long jump, numerical integration, incomplete information handling, and calibration. Combining these techniques, the model achieves sufficient 
+			accuracy in relatively few time steps and discrete nodes, which makes it a very efficient method.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			For ease of illustration, we present the lattice model based on the Trapezoidal Rule integration. A better but slightly more complicated 
+			solution is to spline the payoff functions. The cubic spline of the option payoffs can achieve higher accuracy, especially for Greeks 
+			calculations, and higher speed. Although cubic spline takes some time, the lattice will require much fewer nodes (23 ~ 28 nodes are good 
+			enough) and can perform a much faster integration. In general, the spline method can provide a speedup factor around 3 ~ 5 times.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We have implemented the lattice model to price a variety of interest rate exotics. The algorithm can always achieve a fast convergence rate. 
+			The accuracy, however, is a bit trickier, depending on many factors: drift approximation approaches, numerical integration schemes, 
+			volatility selections, and calibration, etc. Some work, such as calibration, is more of an art than a science.
  			</font></p>					
 			<br>	
 
@@ -263,6 +279,10 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://bitbucket.org/timxiao1203/lmm/downloads/Lattice-in-LMM-4.pdf">Bitbucket LMM Valuation</a></li>
 					<li style="font-size:16px"><a href="https://gitlab.com/timxiao1203/lmm/-/raw/master/Lattice-in-LMM-4.pdf">GitLab LMM Valuation</a></li>
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/dy8ou31h/download/pdf">Pubpub LMM Valuation</a></li>
+
+					<li style="font-size:16px"><a href="https://osf.io/taycs/download">OSF lmm</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/qmh9c/download">Socarxiv lmm</a></li>
+
 
 					<li style="font-size:16px"><a href="https://github.com/timxiao1203">GitHub</a></li>
 				</ul>				 

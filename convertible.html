@@ -165,54 +165,131 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			This page presents a new model for valuing hybrid defaultable financial instruments, such as, convertible bonds. 
-			In contrast to previous studies, the model relies on the probability distribution of a default jump rather than 
-			the default jump itself, as the default jump is usually inaccessible. As such, the model can back out the market 
-			prices of convertible bonds. A prevailing belief in the market is that convertible arbitrage is mainly due to 
-			convertible underpricing. Empirically, however, we do not find evidence supporting the underpricing hypothesis. 
-			Instead, we find that convertibles have relatively large positive gammas. As a typical convertible arbitrage 
-			strategy employs delta-neutral hedging, a large positive gamma can make the portfolio highly profitable, especially 
-			for a large movement in the underlying stock price.
+			A company can raise capital in financial markets either by issuing equities, bonds, or hybrids (such as convertible bonds). From an investor’s 
+			perspective, convertible bonds with embedded optionality offer certain benefits of both equities and bonds – like the former, they have the 
+			potential for capital appreciation and like the latter, they offer interest income and safety of principal. The convertible bond market is of 
+			primary global importance. 
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			A company can raise capital in financial markets either by issuing equities, bonds, or hybrids (such as convertible 
-			bonds). From an investor’s perspective, convertible bonds with embedded optionality offer certain benefits of both 
-			equities and bonds – like the former, they have the potential for capital appreciation and like the latter, they 
-			offer interest income and safety of principal. The convertible bond market is of primary global importance.
+			Tsiveriotis and Fernandes (1998) argue that in practice one is usually uncertain as to whether the bond will be converted, and thus propose 
+			dividing convertible bonds into two components: a bond part that is subject to credit risk and an equity part that is free of credit risk. 
+			A simple description of this model and an easy numerical example in the context of a binomial tree can be found in Hull (2003).
  			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The study aims to price hybrid financial instruments (e.g., convertible bonds) whose values may simultaneously depend 
-			on different assets subject to credit risk in a proper and consistent way. The motivation for our model is that if a 
-			company goes bankrupt, all the securities (including the equity) of the company default. The recovery is realized in 
-			accordance with the priority established by the Bankruptcy Code. In other words, different securities have the same 
-			probability of default, but different recovery rates.
+			Grimwood and Hodges (2002) indicate that the Goldman Sachs model is incoherent because it assumes that bonds are susceptible to credit risk 
+			but equities are not. Ayache et al (2003) conclude that the Tsiveriotis-Fernandes model is inherently unsatisfactory due to its unrealistic 
+			assumption of stock prices being unaffected by bankruptcy. To correct this weakness, Davis and Lischka (1999), Andersen and Buffum (2004), 
+			Bloomberg (2009), and Carr and Linetsky (2006) etc., propose a jump-diffusion model to explore defaultable stock price dynamics. They all 
+			believe that under a risk-neutral measure the expected rate of return on a defaultable stock must be equal to the risk-free interest rate. 
+			The jump-diffusion model characterizes the default time/jump directly.
  			</font></p>					
 			<br>			
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Our study shows that risky asset pricing is quite different from risk-free asset pricing. In fact, the expectation of 
-			a defaultable asset actually grows at a risky rate rather than the risk-free rate. This conclusion is vital for risky 
-			valuation.
+			The jump-diffusion model was first introduced by Merton (1976) in the market risk context for modeling asset price behavior that incorporates 
+			small day-to-day diffusive movements together with larger randomly occurring jumps. Over the last decade, people attempt to propagate the model 
+			from the market risk domain to the credit risk arena. At the heart of the jump-diffusion models lies the assumption that the total expected rate 
+			of return to the stockholders is equal to the risk-free interest rate under a risk-neutral measure.
  			</font></p>					
 			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We propose a hybrid framework to value risky equities and debts in a unified way. The model relies on the probability 
-			distribution of the default jump rather than the default jump itself. As such, the model can achieve a high order of 
-			accuracy with a relatively easy implementation.
+			Although we agree that under a risk-neutral measure the market price of risk and risk preferences are irrelevant to asset pricing (Hull, 2003) 
+			and thereby the expectation of a risk-free  asset grows at the risk-free interest rate, we are not convinced that the expected rate of return 
+			on a defaultable asset must be also equal to the risk-free rate. We argue that unlike market risk, credit risk actually has a significant 
+			impact on asset prices. This is why regulators, such as International Accounting Standards Board (IASB), Basel Committee on Banking Supervision 
+			(BCBS), etc. require financial institutions to report a credit value adjustment (CVA) in addition to the risk-free mark-to-market (MTM) value 
+			to reflect credit risk (Xiao, 2013). By definition, a CVA is the difference between the risk-free value and the risky value of an 
+			asset/portfolio subject to credit risk. CVA implies that the risk-free value should not be equal to the risky value in the presence of default 
+			risk. As a matter of fact, we will prove that the expected return of a defaultable asset under a risk-neutral measure actually grows at a risky 
+			rate rather than the risk-free rate. This conclusion is very important for risky valuation.
  			</font></p>					
 			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Empirically, we do not find evidence supporting a systematic underpricing hypothesis. We also find that convertible 
-			bonds have relatively large positive gammas, implying that convertible arbitrage can make a significant profit on a 
-			large upside or downside movement in the underlying stock price.
+			Because of their hybrid nature, convertible bonds attract different type of investors. Especially, convertible arbitrage hedge funds play 
+			a dominant role in primary issues of convertible debt. In fact, it is believed that hedge funds purchase 70% to 80% of the convertible debt 
+			offered in primary markets. A prevailing belief in the market is that convertible arbitrage is mainly due to convertible underpricing (i.e., 
+			the model prices are on average higher than the observed trading prices) (see Ammann et al (2003), Calamos (2011), Choi et al (2009), Loncarski 
+			et al (2009), etc.). However, Agarwal et al (2007) and Batta et al (2007) argue that the excess returns from convertible arbitrage strategies 
+			are not mainly due to underpricing, but rather partly due to illiquid. Calamos (2011) believes that arbitrageurs in general take advantage of 
+			volatility. A higher volatility in the underlying equity translates into a higher value of the equity option and a lower conversion premium. 
+			Multiple views reveal the complexity of convertible arbitrage, involving taking positions in the convertible bond and the underlying asset 
+			that hedges certain risks but leaves managers exposed to other risks for which they reap a reward. 
  			</font></p>					
 			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This article makes a theoretical and empirical contribution to the study of convertible bonds. In contrast to the above mentioned literature, 
+			we present a model that is based on the probability distribution (or intensity) of a default jump (or a default time) rather than the default 
+			jump itself, as the default jump is usually inaccessible (see Duffie and Huang (1996), Jarrow and Protter (2004), etc). 
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We model both equities and bonds as defaultable in a consistent way. When a firm goes bankrupt, the investors who take the least risk are 
+			paid first. Secured creditors have the best chances of seeing the value of their initial investments come back to them. Bondholders have a 
+			greater potential for recovering some their losses than stockholders who are last in line to be repaid and usually receive little, if anything. 
+			The default proceedings provide a justification for our modeling assumptions: Different classes of securities issued by the same company 
+			have the same default probability but different recovery rates. Given this model, we are able to back out the market prices.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Valuation under our risky model can be solved by common numerical methods, such as, Monte Carlo simulation, tree/lattice approaches, or 
+			partial differential equation (PDE) solutions. The PDE algorithm is elaborated in this paper, but of course the methodology can be easily 
+			extended to tree/lattice or Monte Carlo.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Using the model proposed, we conduct an empirical study of convertible bonds. We obtain a data set from FinPricing (2013). The data set 
+			contains 164 convertible bonds and 2 years of daily market prices as well as associated interest rate curves, credit curves, stock prices, 
+			implied Black-Scholes volatilities and recovery rates.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The most important parameter to be determined is the volatility input for valuation. A common approach in the market is to use the 
+			at-the-money (ATM) implied Black-Scholes volatility to price convertible bonds. However, most liquid stock options have relatively short 
+			maturates (rarely more than 8 years). As a result, some authors, such as Ammann et al (2003), Loncarski et al (2009), Zabolotnyuk et al (2010),
+			have to make do with historical volatilities. Therefore, we segment the sample into two sets according to maturity: a short-maturity 
+			class (0 ~ 8 years) and a long-maturity class (> 8 years). For the short-maturity class, we use the ATM implied Black-Scholes volatility 
+			for valuation, whereas for the long-maturity class, we calculate the historical volatility as the annualized standard deviation of the daily 
+			log returns of the last 2 years and then price the convertible bond based on this real-world volatility.
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The empirical results show that the model prices fluctuate randomly around the market prices, indicating the model is quite accurate. Our 
+			empirical evidence does not support a systematic underpricing hypothesis. A similar conclusion is reached by Ammann et al (2008) who use 
+			a Monte-Carlo simulation approach. Moreover, market participants almost always calibrate their models to the observed market prices using 
+			implied convertible volatilities. Therefore, underpricing may not be the main driver of profitability in convertible arbitrage. 
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The empirical results show that the model priceIt is useful to examine the basics of the convertible arbitrage strategy. A typical convertible 
+			bond arbitrage employs delta-neutral hedging, in which an arbitrageur buys a convertible bond and sells the underlying equity at the current 
+			delta (see Choi et al (2009), Loncarski et al (2009), etc.). With delta neutral positions, the sign of Gamma is important. If Gamma is negative, 
+			the portfolio profits so long as the underlying equity remains stable. If Gamma is positive, the portfolio will profit from large movements in 
+			the stock price in either direction (Somanath, 2011).
+ 			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We study the sensitivities of convertible bonds and find that convertible bonds have relatively large positive gammas, implying that 
+			convertible arbitrage can make a profit on a large upside or downside movement in the underlying stock price. Since convertible bonds are 
+			issued mainly by start-up or small companies (while more established firms rely on other means of financing), the chance of a large movement 
+			in either direction is very likely. Even for very small movements in the underlying stock price, profits can still be generated from the yield 
+			of the convertible bond and the interest rebate for the short position.
+ 			</font></p>					
+			<br>	
+
 			
 			<br>				 
                <font face="Arial, Helvetica, sans-serif"><b>Pricing Convertible Bond</b></font>
@@ -258,6 +335,10 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://bitbucket.org/timxiao1203/convertible/downloads/pricing-convertible-bond-3.pdf">Bitbucket Convertible</a></li>
 					<li style="font-size:16px"><a href="https://gitlab.com/tim_xiao/convertible/-/raw/master/pricing-convertible-bond-3.pdf">GitLab Convertible</a></li>
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/gxiihlto/download/pdf">Pubpub Convertible</a></li>				
+
+					<li style="font-size:16px"><a href="https://osf.io/92eny/download">OSF convertible</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/gxwaj/download">Socarxiv convertible</a></li>
+
 					
 					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org">Pubpub</a></li>
 				</ul>				 

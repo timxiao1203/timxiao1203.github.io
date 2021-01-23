@@ -165,47 +165,65 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The one-side defaultable financial derivatives valuation problems have been studied extensively, but 
-			the valuation of bilateral derivatives with asymmetric credit qualities is still lacking convincing 
-			mechanism. This paper presents an analytical model for valuing derivatives subject to default by both 
-			counterparties. The default-free interest rates are modeled by the Market Models, while the default 
-			time is modeled by the reduced-form model as the first jump of a time-inhomogeneous Poisson process. 
-			All quantities modeled are market-observable. The closed-form solution gives us a better understanding 
-			of the impact of the credit asymmetry on swap value, credit value adjustment, swap rate and swap spread.	
+			Interest rate swap (IRS) is one of the most popular financial derivatives. In the market, IRS’s are quoted irrespective of credit ratings 
+			of counterparties. In another words, they are considered as default-free. The valuation of default-free IRS’s under a term structure of 
+			interest rates is a classical exercise. However, swap contracts are traded over-the-counter (OTC) and are not backed by the guarantee of 
+			a clearing corporation or an exchange. As a consequence, each party is exposed to the credit risk (default risk). Historical experience 
+			shows that credit risk often leads to significant losses. Therefore, one should incorporate the cost of the counterparty risk into the 
+			swap price. Also, regulatory issues related to the Basel II framework encourage the inclusion of default risk into valuation.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The object modeled under the market models is market-observable. It is also consistent with the market 
-			standard approach for pricing caps/floors using Black’s formula. The market models have now become some 
-			of the most popular models for pricing such derivatives. They are generally considered to have more 
-			desirable theoretical calibration properties than short rate or instantaneous forward rate models.
+			Pricing defaultable derivatives or pricing the counterparty credit risk is a relatively new area of derivatives modeling and trading. 
+			Credit value adjustment (CVA) allows us to quantify counterparty credit risk as a single, measurable Profit & Loss number. By definition, 
+			CVA is the difference between the risk-free trade value and the true (or risky or defaultable) trade value that takes into account the 
+			possibility of counterparty’s default. Commonly, the CVA is not paid as a lump-sum upfront premium, but rather is structured into a funding 
+			spread. The risk-free trade value is what brokers quote or what trading systems or models normally report. The defaultable trade value, 
+			however, is a relatively less explored and less transparent area, which is the main challenge and core theme for credit risk adjustment 
+			(see Xiao [2015], [2017]).
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Unlike structural models, reduced-form models do not condition default explicitly on the value of the 
-			firm, and parameters related to the firm’s value need not be estimated to implement the model. For 
-			pricing and hedging, reduced-form models are the preferred methodology.
+			IRS is a typical bilateral contingent contract that can be either an asset or a liability to each party during the life of the contract. 
+			Unlike the unilateral defaultable claim valuation problems that have been studied extensively by many authors, the valuation of bilateral 
+			contingent claims is still lacking convincing mechanism. The problem is mainly caused by the asymmetric credit qualities and the asymmetric 
+			default settlement rules.
 			</font></p>					
 			<br>			
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Our closed-form solution shows that the value of a bilateral defaultable IRS is the sum of the values 
-			of individual bilateral defaultable swaplets. Each bilateral defaultable swaplet can be replicated by 
-			buying a risk-adjusted call option and selling a risk-adjusted put option. The risk-adjusting factors 
-			depend on hazard rates, recovery rates and settlement rules.
+			Sundaresan (1991), Longstaff and Schwartz (1993), and Tang and Li (2007) simplify the problem by considering the IRS as a simple exchange 
+			of loans (receivable parts and payable parts). It is inappropriate to value a defaultable IRS by pricing the default risk of the promised 
+			gross payment from each party separately and then adding the two together. Because the promised cash flow exchange in an IRS is always netted. 
+			Another simplification consists of taking into account the presence of one risky counterparty only, as in Li (1998) and Arvanities and Gregory 
+			(2001). These approaches overlook the presence of bilateral default risk.
 			</font></p>					
 			<br>	
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			In the case where the floating-rate payer is a LIBOR party, we confirm findings that the swap spreads 
-			are relatively less sensitive to credit quality comparing to the bond spreads or the CDS spreads. 
-			The credit impact on swap rates is approximately linear. In the case where both parties have spreads 
-			against the LIBOR that was not studied closely before, we find that the credit impact on swap rates 
-			is not linear any more. The swap funding spreads have a significantly impact on swap spreads as well.
+			The first study on asymmetric defaultable IRS is conducted by Duffie and Huang (1996). They use a short rate interest rate model combined 
+			with a reduced-form default model and lead to numerical approximations by solving a recursive integral. Even the authors admit that it is 
+			a substantial complexity solution. Hubner (2001) extends the work carried out by Duffie and Huang (1996) and gets a closed-form solution 
+			by introducing a one-dimensional state variable X that can be thought of as a ratio of the market value of the firm’s assets. The author, 
+			however, does not show how to calibrate the state variable and not even provide a simple example. In general, these proposed models are not 
+			practical enough to use.
 			</font></p>					
 			<br>				
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In this paper, we present an analytical model for valuing contingent claims subject to default by both parties. While the general principles 
+			of the valuation model can be applied to other bilateral defaultable contingent claims, we focus on the valuation of defaultable IRS’s in 
+			which both parties are exposed to credit risk. The approach is based on market models for interest rates and a reduced-form model for the 
+			default time. All quantities modeled are market-observable. With the closed-form solution, we can analyze the impact of credit risk on swap 
+			value, swap rate, swap spread and CVA more closely. We confirm the results in Duffie and Huang (1996) and also report some new findings.
+			</font></p>					
+			<br>			
+
+
+
+
 			
 			<br>
 
@@ -241,7 +259,9 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://www.econstor.eu/bitstream/10419/202549/1/valuing-defaultable-derivatives-10.pdf">Econstor Bilateral PDF</a></li>						
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/1tgnlpwt/download/pdf">Pubpub Bilateral PDF</a></li>
 
-
+					<li style="font-size:16px; visibility:hidden;"><a href="https://osf.io/rtpc9/download">OSF bilateral</a></li>
+					<li style="font-size:16px; visibility:hidden;"><a href="https://osf.io/preprints/socarxiv/kzbxf/download">Socarxiv bilateral</a></li>
+					
 					<li style="font-size:16px; visibility:hidden;"><a href="https://xiao.pubpub.org">pubpub xiao</a></li>
 				</ul>				
 

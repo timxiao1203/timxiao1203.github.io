@@ -163,41 +163,113 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			This page presents a new model for valuing a credit default swap (CDS) contract that is affected by 
-			multiple credit risks of the buyer, seller and reference entity. We show that default dependency has 
-			a significant impact on asset pricing. In fact, correlated default risk is one of the most pervasive 
-			threats in financial markets. We also show that a fully collateralized CDS is not equivalent to a 
-			risk-free one. In other words, full collateralization cannot eliminate counterparty risk completely 
-			in the CDS market.	
+			There are two primary types of models that attempt to describe default processes in the literature: structural models and reduced-form 
+			(or intensity) models. Many practitioners in the credit trading arena have tended to gravitate toward the reduced-from models given their 
+			mathematical tractability. 
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			To capture the default relationships among more than two defaultable entities, we introduce a new 
-			statistic: comrelation, an analogue to correlation for multiple variables, to exploit any multivariate 
-			statistical relationship. Our research shows that accounting for default correlations and comrelations 
-			becomes important, especially under market stress. The existing valuation models in the credit 
-			derivatives market, which take into account only pair-wise default correlations, may underestimate 
-			credit risk and may be inappropriate.
+			Central to the reduced-form models is the assumption that multiple defaults are independent conditional on the state of the economy. 
+			In reality, however, the default of one party might affect the default probabilities of other parties. Collin-Dufresne et al. (2003) and 
+			Zhang and Jorion (2007) find that a major credit event at one firm is associated with significant increases in the credit spreads of other 
+			firms. Giesecke (2004), Das et al. (2006), and Lando and Nielsen (2010) find that a defaulting firm can weaken the firms in its network of 
+			business links. These findings have important implications for the management of credit risk portfolios, where default relationships need 
+			to be explicitly modeled.
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We study the sensitivity of the price of a defaultable instrument to changes in the joint credit 
-			quality of the parties. For instance, our analysis shows that the effect of default dependence on 
-			CDS premia from large to small is the correlation between the protection seller and the reference 
-			entity, the comrelation, the correlation between the protection buyer and the reference entity, and 
-			the correlation between the protection buyer and the protection seller.
+			The main drawback of the conditionally independent assumption or the reduced-form models is that the range of default correlations that 
+			can be achieved is typically too low when compared with empirical default correlations (see Das et al. (2007)). The responses to correct 
+			this weakness can be generally classified into two categories: endogenous default relationship approaches and exogenous default relationship 
+			approaches. 
 			</font></p>					
 			<br>			
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The model shows that a fully collateralized CDS is not equivalent to a risk-free one. Therefore, 
-			we conclude that collateralization designed to mitigate counterparty risk works well for financial 
-			instruments subject to bilateral credit risk, but fails for ones subject to multilateral credit risk. 
+			The endogenous approaches include the contagion (or infectious) models and frailty models. The frailty models (see Duffie et al. (2009), 
+			Koopman et al. (2011), etc) describe default clustering based on some unobservable explanatory variables. In variations of contagion or 
+			infectious type models (see Davis and Lo (2001), Jarrow and Yu (2001), etc.), the assumption of conditional independence is relaxed and 
+			default intensities are made to depend on default events of other entities. Contagion and frailty models fill an important gap but at 
+			the cost of analytic tractability. They can be especially difficult to implement for large portfolios.
 			</font></p>					
 			<br>						
-					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The exogenous approaches (see Li (2000), Laurent and Gregory (2005), Hull and White (2004), Brigo et al. (2011), etc) attempt to link 
+			marginal default probability distributions to the joint default probability distribution through some external functions. Due to their 
+			simplicity in use, practitioners lean toward the exogenous ones.
+			</font></p>					
+			<br>		
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Given a default model, one can value a risky derivative contract and compute credit value adjustment (CVA) that is a relatively new area 
+			of financial derivative modeling and trading. CVA is the expected loss arising from the default of a counterparty (see Brigo and Capponi 
+			(2008), Lipton and Sepp (2009), Pykhtin and Zhu (2006), Gregory (2009), Bielecki et al (2013) and Crepey (2015), Xiao (2015), Xiao (2017), 
+			etc.)
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Collateralization as one of the primary credit risk mitigation techniques becomes increasingly important and widespread in derivatives 
+			transactions. According the ISDA (2013), 73.7% of all OTC derivatives trades (cleared ad non-cleared) are subject to collateral agreements. 
+			For large firms, the figure is 80.7%. On an asset class basis, 83.0% of all CDS transactions and 79.2% of all fixed income transactions are 
+			collateralized. For large firms, the figures are 96.3% and 89.4%, respectively. Previous studies on collateralization include Johannes and 
+			Sundaresan (2007), Fuijii and Takahahsi (2012), Piterbarg (2010), Bielecki, et al (2013) and Hull and White (2014), etc.
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			This paper presents a new framework for valuing defaultable financial contracts with or without collateral arrangements. The framework 
+			characterizes default dependencies exogenously, and models collateral processes directly based on the fundamental principals of collateral 
+			agreements. For brevity we focus on CDS contracts, but many of the points we make are equally applicable to other derivatives. CDS has 
+			trilateral credit risk, where three parties – buyer, seller and reference entity – are defaultable.
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In general, a CDS contract is used to transfer the credit risk of a reference entity from one party to another. The risk circularity that 
+			transfers one type of risk (reference credit risk) into another (counterparty credit risk) within the CDS market is a concern for financial 
+			stability. Some people claim that the CDS market has increased financial contagion or even propose an outright ban on these instruments.
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The standard CDS pricing model in the market assumes that there is no counterparty risk. Although this oversimplified model may be accepted 
+			in normal market conditions, its reliability in times of distress has recently been questioned. In fact, counterparty risk has become one of 
+			the most dangerous threats to the CDS market. For some time now it has been realized that, in order to value a CDS properly, counterparty 
+			effects have to be taken into account (see ECB (2009)).
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We bring the concept of comvariance into the area of credit risk modeling to capture the statistical relationship among three or more random 
+			variables. Comvariance was first introduced to economics by Deardorff (1982), who used this measurement to correlate three factors in 
+			international trading. Furthermore, we define a new statistics, comrelation, as a scaled version of comvariance. Accounting for default 
+			correlations and comrelations becomes important in determining CDS premia, especially during the credit crisis. Our analysis shows that 
+			the effect of default dependencies on a CDS premium from large to small accordingly is i) the default correlation between the protection 
+			seller and the reference entity, ii) the default comrelation, iii) the default correlation between the protection buyer and the reference 
+			entity, and iv) the default correlation between the protection buyer and the protection seller. In particular, we find that the default 
+			comvariance/comrelation has substantial effects on the asset pricing and risk management, which have never been documented.
+			</font></p>					
+			<br>	
+	
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			There is a significant increase in the use of collateral for CDS after the recent financial crises. Many people believe that, if a CDS is 
+			fully collateralized, there is no risk of failure to pay. Collateral posting regimes are originally designed and utilized for bilateral risk 
+			products, e.g., interest rate swap (IRS), but there are many reasons to be concerned about the success of collateral posting in offsetting 
+			the risk of CDS contracts. First, the value of CDS contracts tends to move very suddenly with big jumps, whereas the price movements of IRS 
+			contracts are far smoother and less volatile than CDS prices. Second, CDS spreads can widen very rapidly. Third, CDS contracts have many 
+			more risk factors than IRS contracts. In fact, our model shows that full collateralization cannot eliminate counterparty risk completely 
+			for a CDS contract.
+			</font></p>					
+			<br>	
+
+
+
+
+	
 			<br>
 
                <font face="Arial, Helvetica, sans-serif"><b>Pricing CDS with Counterparty Risk</b></font>
@@ -230,6 +302,9 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://www.econstor.eu/bitstream/10419/203447/1/pricing%20defaultable%20cds-12.pdf">Econstor CDS PDF</a></li>					
 					<li style="font-size:16px"><a href="https://pubhtml5.com/noml/rkgh/basic">Pubhtml5 CDS PDF</a></li>
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/d1f6f9x9/download/pdf">Pubpub CDS PDF</a></li>
+
+					<li style="font-size:16px"><a href="https://osf.io/mh4de/download">OSF cds</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/3pzyv/download">Socarxiv cds</a></li>
 
 					<li style="font-size:16px"><a href="https://david.pubpub.org">Pubpub</a></li>
 				 </ul>

@@ -165,43 +165,77 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			This page presents a generic model for pricing financial derivatives subject to counterparty credit risk. 
-			Both unilateral and bilateral types of credit risks are considered. Our study shows that credit risk 
-			should be modeled as American style options in most cases, which require a backward induction valuation. 
-			To correct a common mistake in the literature, we emphasize that the market value of a defaultable 
-			derivative is actually a risky value rather than a risk-free value. Credit value adjustment (CVA) is 
-			also elaborated. A practical framework is developed for pricing defaultable derivatives and calculating 
-			their CVAs at a portfolio level.		
+			A broad range of financial instruments bear credit risk. Credit risk may be unilateral or bilateral. Some derivatives such as, debt 
+			instruments (e.g., loans, bills, notes, bonds, etc), by nature contain only unilateral credit risk because only the default risk of one 
+			party appears to be relevant. Whereas some other derivatives, such as, over the counter (OTC) derivatives and securities financing 
+			transactions (SFT), bear bilateral credit risk because both parties are susceptible to default risk.	
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We present a theory for pricing defaultable financial derivatives and their CVAs. First, we want to 
-			indicate that the market value of a defaultable derivative is actually a risky value rather than a 
-			risk-free value. In fact, in applying the upfront CVA, we already converted the market value of a 
-			defaultable derivative from the risk-free value to the risky value.
+			In the market, risk-free values are quoted for most financial derivatives. In other words, credit risk is not captured. Historical 
+			experience shows that credit risk often leads to significant losses. Therefore, it is obvious to all market participants that credit risk 
+			should be taken into account when reporting the fair value of any defaultable derivative. The adjustment to the risk-free value is known 
+			as the credit value adjustment (CVA). CVA offers an opportunity for banks to dynamically price credit risk into new trades and has become 
+			a common practice in the financial industry, especially for trading books. By definition, CVA is the difference between the risk-free value 
+			and the true (or risky or defaultable) value that takes into account the possibility of default. The risk-free value is what brokers quote 
+			or what trading systems or models normally report. The risky value, however, is a relatively less explored and less transparent area, which 
+			is the main challenge and core theme for credit risk measurement and management (see Xiao (2015) and Xiao (2017)).
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			For completeness, our theoretical study covers various cases. We find that the valuation of defaultable 
-			derivatives and their CVAs, in most situations, has a backward recursive nature and requires a backward 
-			induction valuation. An intuitive explanation is that two counterparties implicitly sell each other an 
-			option to default when entering into a defaultable transaction. If we assume that a default may occur 
-			at any time, the default options are American style options. If we assume that a default may only happen 
-			on the payment dates, the default options are either European options or Bermudan options. Both Bermudan 
-			and American options require backward induction valuations. 
+			There are two primary types of models that attempt to describe default processes in the literature: structural models and reduced-form 
+			(or intensity) models. The structural models, studied by Merton (1974) and Longstaff and Schwartz (1995), regard default as an endogenous 
+			event, focusing on the capital structure of a firm. The reduced-form models introduced by Jarrow and Turnbull (1995) and Duffie and Singleton 
+			(1999) do not explain the event of default endogenously, but instead characterize it exogenously as a jump process. For pricing and hedging, 
+			reduced-form models are the preferred methodology.
 			</font></p>					
 			<br>			
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Based on our theory, we propose a novel cash-flow-based practical framework for calculating the bilateral 
-			risky value and bilateral CVA at the counterparty portfolio level. This framework can easily incorporate 
-			various credit mitigation techniques, such as netting agreements and margin agreements, and can capture 
-			wrong/right way risk. Numerical results show that these credit mitigation techniques and wrong/right way 
-			risk have significant impacts on CVA. 
+			Three different recovery models exist in the literature. The default payoff is either 1) a fraction of par (Madan and Unal (1998)), 2) a 
+			fraction of an equivalent default-free bond (Jarrow and Turnbull (1995)), or 3) a fraction of market value (Duffie and Singleton (1999)).  
+			The last one is most commonly used in the market. In their paper, Duffie and Singleton (1999) do not clearly state whether the market value 
+			of a defaultable derivative is a risky value or a risk-free value. Instead, the authors implicitly treat the market value as a risky value 
+			because the market price therein evolves in a defaultable manner. Otherwise, they cannot obtain the desired result. However, most of the 
+			later papers in the literature mistakenly think that the market value of a defaultable derivative is a risk-free value. Consequently, the 
+			results are incorrect. For instance, the current most popular CVA model described by Pykhtin and Zhu (2007), and Gregory (2009) is 
+			inappropriate in theory because the authors do not distinguish risky value and risk-free value when they conduct a risky valuation (i.e. 
+			valuing a defaultable derivative). In fact, the model has never been rigorously proved.
 			</font></p>					
 			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In this paper, we present generic models for valuing defaultable financial derivatives. For completeness, our study covers various cases: 
+			unilateral and bilateral, single payment and multiple payments, positive and negative payoffs. Although a couple of simple cases have been 
+			studied before by other authors, e.g. Duffie and Singleton (1999), Duffie and Huang (1996), who only provide heuristic derivations in a 
+			non-rigorous manner; analytic work on the other cases is novel. In contrast with the current recursive integral solution (see Duffie and 
+			Huang (1996)), our theory shows that the valuation of defaultable derivatives in most situations requires a backward induction procedure. 
+			</font></p>					
+			<br>			
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			There is an intuitive way of understanding these backward induction behaviours: We can think that any defaultable derivative with bilateral 
+			credit risk embeds two default options. In other words, when entering a defaultable financial transaction, one party grants the other party 
+			an option to default and, at the same time, also receives an option to default itself. In theory, default may occur at any time. Therefore, 
+			default options are American style options that normally require a backward induction valuation.
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			We explicitly indicate that, within the context of risky valuation, the market value of a defaultable derivative is actually a risky value 
+			rather than a risk-free value, because a firm may default at any future time even if it survives today. An intuitive explanation is that 
+			after charging the upfront CVA, one already converted the market value of a defaultable derivative from the risk-free value to the risky value. 
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			From a practical perspective, we propose a novel framework to perform the bilateral risky valuation and calculate the bilateral CVA at a 
+			portfolio level, which incorporates netting and margin (or collateral) agreements and captures wrong/right way risk. 
+			</font></p>					
+			<br>	
+
 			
 			<br>
 
@@ -238,6 +272,8 @@ marginwidth="0" marginheight="0">
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/fv79pkb0/download/pdf">Pubpub Derivatives PDF</a></li>
 					<li style="font-size:16px"><a href="https://philpapers.org/archive/XIATVO-3.pdf">Philpaper Derivatives Data Analytics</a></li>
 
+					<li style="font-size:16px"><a href="https://osf.io/tk2v3/download">OSF derivatives</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/jc43a/download">Socarxiv derivatives</a></li>
 
 					<li style="font-size:16px"><a href="https://xiao.pubpub.org">Pubpub</a></li>
 				  </ul>
