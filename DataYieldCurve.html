@@ -15,7 +15,7 @@
 
 <title>Bilateral Credit Risk Valuation</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/DataSwapCurve.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/DataYieldCurve.html" />
 
 <style>
 p {
@@ -165,50 +165,69 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Market observable interest rate curves are mainly swap curves and bond curves. They consist of market observable quotations, such as 
-			bond prices, swap rates, basis swap spreads, interest rate futures prices, or deposit rates. Bond curves are the term structure of market 
-			quoted bond prices, while swap curves are the term structures of swap rates, basis swap spreads, or Eurodollar futures. Swap curves can 
-			be futher divided into base swap curves and basis swap curves. Normally the 3 month swap curve is the base curve as all the basis curves 
-			are quoted against it. The market observable curves cannot be used for valuation directly. Thus they need to be bootstrapped into the 
-			derived curves that are essential for asset pricing.
+			Interest rate curves have many different types. Sometimes they are quite confusing. There are two main categories in the market: 
+			market observed interest rate curves and derived interest rate curves.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Since the swap market is a very liquid market with narrow bid-ask spreads and a wide selection of maturities, yield curves derived from 
-			swap curves offer several advantages over government curves (e.g., treasury yield curve). With the supply of government bond issues declining, 
-			yield curves are mainly bootstrapped from swap curves.
+			The term structure of interest rates, also known as yield curve, is defined as the relationship between the yield-to-maturity on a zero 
+			coupon bond and the bond’s maturity. Zero yield curves play an essential role in the valuation of all financial products. 
 			</font></p>					
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Swap curves can be categoried into swap rate curves, basis curves, and OIS curves. Usully a swap rate curve is also called a base curve 
-			or standard curve or 3 month swap curve. The reason for calling 3 month curve as base curve is all the other (basis) curves are quoted 
-			against it.
+			Yield curves can be derived from government bonds or LIBOR/swap instruments. The LIBOR/swap term structure offers several advantages over 
+			government curves, and is a robust tool for pricing and hedging financial products.  Correlations among governments and other fixed-income p
+			roducts have declined, making the swap term structure a more efficient hedging and pricing vehicle.
 			</font></p>					
 			<br>			
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The swap rate curve consists of a set of the most liquid and dominant interest rate products for certain time horizons. Normally the curve 
-			is divided into three parts. The short end of the term structure is determined by deposit rates. The middle part of the curve uses Eurodollar 
-			futures or FRAs. The far end is given by mid swap rates.
+			Derived interest rate curves are mainly yield curves. Yield curve is the term structure of interest rate yields-to-maturity. Yield curve is 
+			widely regarded as the best proxy for risk-free curve and benchmark curve. Liquidity of underlying instrumennts is crucial. Since the swap 
+			market is a very liquid market with narrow bid-ask spreads and a wide selection of maturities, yield curves derived from swap curves offer 
+			several advantages over government curves (e.g., treasury yield curve). With the supply of government bond issues declining, yield curves 
+			are mainly bootstrapped from swap curves.
 			</font></p>					
 			<br>	
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Zero rate curves, also called spot rate curves, are special and dominant type of yield curves. By definition, a zero rate curve is the 
+			term structure of the yields-to-maturity of zero coupon bonds. Given a zero rate, we can derive discount factor easily as:
+	
+			<br>
+			D(t,T) = exp (-rT)
+
+			<br>
+			where D(t,T) is the discount factor at time t for maturity T and r is the continuously compounded zero rate or spot rate between time t and T.
+			</font></p>					
+			<br>				
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Due to the simple relationship between zero rates and discount factors, zero rate curves become dominant valuation vehicle in the market. 
+			If people in financial market talk about interest rate curves, yield curves, zero rate curves, or spot rate curves, they actually mean the 
+			same thing. Without loss of generality, we will use zero rate curves representing all yield curves. Zero rate curves also have several 
+			different types. A zero curve derived from a base swap rate curve is used for discounting, so it is equivalent to discount curve. Similarly, 
+			a zero rate curve bootstrapped from a basis swap curve is used to compute forecasting rates. Understanding interest rate curves is essential 
+			in financial markets.
+			</font></p>				
+			
+			
 			
 			   <font face="Arial, Helvetica, sans-serif"><b>Reference</b></font>
 			   <br>
 			
 				<ul>				  
-                    <li style="font-size:16px"><a href="https://zenodo.org/record/3928440/files/IrCurveIntroduction-1.pdf">Zenodo swap curve</a></li>
-					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamUTNyITM2ITPkl0av9mY">FlipHtml5 swap curve</a></li>
-					<li style="font-size:16px"><a href="https://assets.pubpub.org/lxvihxjr/41595336014834.pdf">Pub swap curve</a></li>
+                     <li style="font-size:16px"><a href="https://zenodo.org/record/3928459/files/IrCurve-2.pdf">Zenodo yield curve</a></li>
+					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamkDO1kzM2ITPkl0av9mY">FlipHtml5 yield curve</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/m74y5jl1/61595340630919.pdf">Pub yield curve</a></li>
 
-					<li style="font-size:16px"><a href="https://github.com/cfrm17/YieldCurve/raw/main/IrCurveIntroduction-1.pdf">Github curve data</a></li>
-					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/c7n9gnqy/download/pdf">Pubpub curve data</a></li>
-					<li style="font-size:16px"><a href="https://gitlab.com/timxiao1203/ircurveintroduction/-/raw/master/IrCurveIntroduction-1.pdf">Gitlab curve data</a></li>
-					<li style="font-size:16px"><a href="https://bitbucket.org/timxiao1203/ircurveintroduction/downloads/IrCurveIntroduction-1.pdf">Bitbucket curve data</a></li>
-					<li style="font-size:16px"><a href="IrCurveIntroduction-1.pdf">swap curve</a></li>
-					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:33676/CONTENT/ircurveintroduction-1.pdf">hcommons swap curve</a></li>
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/YieldCurveConstruction/raw/main/IrCurve-2.pdf">Github yield curve</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/pmwcp6ah/download/pdf">Pubpub yield curve</a></li>
+					<li style="font-size:16px"><a href="https://gitlab.com/timxiao1203/ircurve/-/raw/master/IrCurve-2.pdf">Gitlab yield curve</a></li>
+					<li style="font-size:16px"><a href="https://bitbucket.org/timxiao1203/ircurve/downloads/IrCurve-2.pdf">Bitbucket yield curve</a></li>
+					<li style="font-size:16px"><a href="IrCurve-2.pdf">yield curve</a></li>
 
 				 </ul>			
 
