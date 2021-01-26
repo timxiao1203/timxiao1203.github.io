@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>FX Forward Points</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/DataFxFwd.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="150" 
+	  Alt="knowledge discuss" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                FX Forward Spreads</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			FX forward curve is also called FX implied forward curve or FX derived curve. It is derived from USD zero rate curve and FX forward spreads 
+			and used to value FX trades. 
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Market standard is to use FX quoted forward spreads and USD zero rate curve to generate FX implied forward curve. In other words, 
+			FX curve construction generates an interest rate curve of the quoting currency from the interest rate curve of the base currency. 
+			The construction methodology is based on the arbitrage-free relationship between forward FX rates and the discount rates of the 
+			two currencies.
+			</font></p>					
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The term structure of FX forward curve, also known as FX implied forward curve, is defined as the relationship between the currency 
+			zero rate and maturity. The settlement dates for the given underlying tenors. Application of the market conventions for O/N and T/N points. 
+			O/N is overnight rate and T/N is tomorrow next.
+			</font></p>					
+			<br>			
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			FX forward cure is derived using the arbitrage-free relationship between forward FX rates and the discount rates of two currencies. 
+			It is also called interest rate parity.
+			</font></p>					
+			<br>	
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+				D_Q=S/F D_B 	where S is the spot foreign exchange rate, F is the forward foreign exchange rate, D_Q the discount factor of 
+				the quoted currency, and D_B the discount factor of the base currency.
+			</font></p>					
+			<br>				
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Forward foreign exchange rate is determined by FX forward spreads. A forward spread is the difference between spot rate and forward rate. 
+			It is quoted as the number of basis points.
+			</font></p>				
+			
+			
+			
+			   <font face="Arial, Helvetica, sans-serif"><b>Reference</b></font>
+			   <br>
+			
+				<ul>				  
+ 					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamQDO0ITN2ITPkl0av9mY">FlipHtml5 FX curve</a></li>
+					<li style="font-size:16px"><a href="https://assets.pubpub.org/qqkiegom/01595531557821.pdf">Pub FX curve</a></li>
+
+					<li style="font-size:16px"><a href="https://github.com/cfrm17/fxForwardPoints/raw/main/FxForwardCurve-8.pdf">Github fx forward data</a></li>
+					<li style="font-size:16px"><a href="https://david.pubpub.org/pub/6utrh10z/download/pdf">Pubpub fx forward</a></li>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/3928681/files/FxForwardCurve-8.pdf">Zenodo fx forward</a></li>
+					<li style="font-size:16px"><a href="https://gitlab.com/timxiao1203/fxforwardpoints/-/raw/master/FxForwardCurve-8.pdf">Gitlab fx forward</a></li>
+					<li style="font-size:16px"><a href="https://bitbucket.org/timxiao1203/fxforwardpoint/downloads/FxForwardCurve-8.pdf">Bitbucket fx forward</a></li>
+
+					<li style="font-size:16px"><a href="FxForwardCurve-8.pdf">FX curve</a></li>
+
+				 </ul>			
+
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
