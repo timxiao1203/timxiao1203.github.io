@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Valuation Model</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.0;
+
+}
+</style>
+
+
+<META name="description" content="security and derivatives valuatino model">
+
+<META name="keywords" content="security, derivatives">
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=120 HEIGHT=22 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="images/tool.jpg" 
+	  Alt="data knowledge" width="150" height="180" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/products.gif" 
+	  Alt="data tool" width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Pricing Model</font></I></p>
+				
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+
+
+
+			</font></p>				
+			
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Hedge Fund Exposure</b></font>	
+
+				<p>A model is proposed for quantifying daily returns and corresponding NAV changes of individual hedge 
+				funds. NAV values of hedge funds are typically available on monthly basis. It estimates the daily NAV for a hedge fund 
+				is based on modeling daily returns of the hedge fund as a weighted sum of returns of a combination of several market 
+				indices and factors.</p>
+				
+                  <ul>
+
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539344#.YpDtxagpDq4">Zenodo Hedge Fund Exposure</a></li>
+
+				 </ul>
+				 
+				 <br>
+				<font face="Arial, Helvetica, sans-serif"><b>Principal Protected Note</b></font>
+				
+				<p>A principal protected deposit note consists of zero plus call option and linear amortizing bond floor structure. 
+				These models are essentially accrual models, determining the current value of the option due to fee accrual and 
+				historical hedge fund performance </p>
+				
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539656#.YpDuMqgpDq4">Zenodo principal protected note</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Collateralized Swap</b></font>
+				 
+				 <p>The Collateralized swap structure is an option where the client, rather than making an upfront cash payment, 
+				 puts up collateral instead–in this case in the form of a basket of hedge fund investments. For the most part the 
+				 option acts as an equity swap, with the client paying the returns on a basket of hedge funds and receiving a 
+				 spread over Libor, with the notional amount resetting periodically.</p>
+
+				<p>The value of the collateral affects the current leverage ratio and can trigger re-/de-leveraging or redemption, 
+				but otherwise has no affect on the option valuation itself. Nevertheless, to monitor the leverage ratio daily the 
+				collateral needs to be MTM daily, and ultimately the dealer’s risk in a situation where the deal must be closed out 
+				depends on the closeout value of the collateral.</p>
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539697#.YpDuTKgpDq4">Zenodo collateralized swap</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Hedge Fund VaR</b></font>	
+				 
+				<p>A model is presented to determine the value at risk (VaR) due to hedge fund volatility during closeout of hedge 
+				fund positions, as well as pricing calculations for options written on a basket of funds. It contains the implemented 
+				VaR calculations for options written on a basket of hedge funds, with minor changes and the methodology for calculating 
+				the VaR of the LTV (loan to value) ratio for loans to funds-of-funds.</p>
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539777#.YpDue6gpDq4">Zenodo hedge fund VaR</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Hedge Fund Barrier Option</b></font>
+				 
+				 <p>A hedge fund barrier call option is a note whose payoff is based on a basket of hedge funds. The deals are 
+				 structured so that once the barrier (usually set at 95% of the notional) is hit, the funds in the basket are sold 
+				 off, with the realized fund value depending on the redemption period of each fund.</p>
+
+				<p>The difference between the redeemed value of the basket of funds and the strike price of the call (usually set
+				at 75% of the notional) is forwarded to the investor. When the redeemed basket value falls below the strike price 
+				the investor loses money on the deal.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539852#.YpDum6gpDq4">Zenodo hedge fund barrier</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Adjustable Rate Mortgages</b></font>
+				 
+				 <p>Adjustable rate mortgages (ARMs) model has a significant amount of parameter/model risk In particular, there are 
+				 many input parameters (many of them market variables) and functions of these parameters that can have add a significant 
+				 amount of risk.</p>
+				 
+				 <p>The prepayment model used for these instruments is a four-factor model. While the parameters and factors used were
+				 supplied to us, it is difficult to assess the accuracy of the parameters since it is a based on extensive statistical 
+				 analysis of historical data.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6539925#.YpDurqgpDq4">Zenodo ARM</a></li>
+	
+				  </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Hedge Fund Index</b></font>
+				 
+				 <p>Hedge fund index is unusual in the sense that it is tracking an asset class with reduced liquidity (hedge funds), 
+				 and the performance of the index tracks the actual processes involved in hedge fund investing–in particular the 
+				 timing of fund redemptions.</p>
+
+				<p>So rather then being a weighted sum over some easily replicable market indices which is re-balanced periodically, 
+				this index is run more like a quantitative fund-of-funds. This will allow investors to directly hedge its exposure to 
+				index-linked products, which is important given that hedge funds are an asset class with reduced transparency, and with 
+				returns and have traditionally been difficult to replicate using liquid instruments.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6546586#.YpDuxKgpDq4">Zenodo hedge fund index</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Canada Housing Trust Swap</b></font>	
+				 
+				 <p>The Canada Housing Trust Swap includes variable rate mortgages and involves reinvestments made by the principal 
+				 payments. The variable rate mortgages that appear in the deal are a result of these reinvestment. The model was in 
+				 the context of the much more complicated problem where the notional on the mortgages was not fixed, and reinvestments 
+				 were made at prevailing market prices.</p>
+
+				<p>The issue of valuation is very much simplified by the fact that these variable rate mortgage principals pay interest 
+				based on one month BA, and this rate resets monthly. The prepayment is not an issue with these mortgages, since the 
+				principal is replaced (at par) in the event of prepayment and the floating rate payments remain one month BA. Therefore, 
+				valuing these assets is a simple exercise of valuing them equivalent to a floating rate bond.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6546723#.YpDu3qgpDq4">Zenodo CHT Swap</a></li>
+
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Foreign Currency Assets Hedge Model</b></font>	
+				 
+				 <p>The foreign currency assets hedge model is employed to conduct the hedge effectiveness test for the foreign 
+				 currency denominated floating rate LIBOR assets using CAD funding. The hedging derivative is a cross currency 
+				 interest rate swap. The hedging is designated as the Cash Flow Hedging in which both interest rate risk and foreign 
+				 exchange risk are hedged.</p>
+
+				<p>A hypothetical cross currency interest rate swap (XCIRS), with the floating leg terms matching the critical terms 
+				of the hedged FC floating rate assets, is used as the proxy measure. The actual hedging derivative is another XCIRS. 
+				Specifically, the trade, upon which the model is intended to target, is substituted by a cross currency swap, which 
+				is hedged by another XCIRS.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6546805#.YpDu9KgpDq4">Zenodo Foreign Asset Model</a></li>
+				 </ul>
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Cash Flow Hedge Effectiveness</b></font>	
+				 
+				 <p>A cash-flow hedge is defined as “hedging the exposure to variability in expected future cash flows that is 
+				 attributable to a particular risk. That exposure may be associated with an existing recognized asset or liability 
+				 (such as all or certain future interest payments on variable-rate debt) or a forecasted transaction (such as a 
+				 forecasted purchase or sale).</p>
+
+				<p>An entity can designate the variability of cashflows such as interest receipts or payments on variable-rate assets 
+				or liabilities or a forecasted transaction as the hedged item in a cashflow hedge.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6546938#.YpDvB6gpDq4">Zenodo cash flow hedge</a></li>
+
+				 </ul>	
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Fair Value Hedge Model</b></font>	
+				 
+				 <p>A fair value hedge is a hedge of the exposure to changes (that are attributable to a particular risk) in the fair 
+				 value of a recognized asset, liability, or unrecognized firm commitment. Changes in fair value of derivatives that 
+				 do not meet the criteria of one of these three categories of hedges are included in income.</p>
+
+				<p>When hedging exposures associated with the price of an asset, liability, or firm commitment, the total gain or loss 
+				on the derivative is recorded in earnings. In addition, the underlying exposure due to the risk being hedged must also 
+				be marked-to-market to the extent of the change due to the risk being hedged; and these results flow through current 
+				income as well. This treatment is called a fair value hedge.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6547047#.YpDvGKgpDq4">Zenodo fair value hedge</a></li>
+
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Portfolio Acquisition Model</b></font>	
+				 
+				 <p>The portfolio acquisition model is essentially a decision-making tool used to produce a bid that investors will 
+				 make on an existing portfolio of loans. In this case, the loans are Home Equity Lines Of Credit (HELOC) (or ‘second 
+				 mortgage’ because they are secured by the borrowers property, as is the ‘first mortgage’) typically with a maximum 
+				 term of 15 years, with interest-only payments terminating in a final bullet payment. Borrowing is allowed up to the 
+				 credit limit at any time at a variable rate tied to prime–can be fixed or floating–partial principal repayments are 
+				 allowed, but not scheduled.</p>
+
+				<p>Prior to modeling, the portfolio will have been carved up into reasonably homogeneous pieces–which the present 
+				relatively simple model might be expected to represent fairly well. As part of this ‘risk screening’, the charge-off 
+				rates are estimated from the credit quality (and other characteristics) of the loans in the portfolio. How well this 
+				is done will affect the results produced by the model–this process will not be examined here.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6547140#.YpDvKKgpDq4">Zenodo portfolio acquisition</a></li>
+
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>MBS Deferred Asset Model</b></font>	
+				 
+				 <p>The MBS Deferred Asset model is used for fair value assets that have been transferred to the Canada Housing 
+				 Trust (CHT) through participation in the Canada Mortgage Bond (CMB) program. In particular, the model calculates 
+				 the fair value of the retained interest of the MBS.</p>
+
+				<p>The model is a simple static cash flows model for the underlying MBS. The simplicity is possible due to the 
+				assumption that the prepayments of the underlying pool are not dependent on changes in interest rates. Generally, 
+				prepayments do depend on interest rates, and this is particularly true for US mortgages.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6547212#.YpDvPqgpDq4">Zenodo deferred asset</a></li>
+
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Mortgage Commitment Model</b></font>	
+				 
+				 <p>The mortgage Commitment model is being used to measure the risk of mortgage commitments. The model is actually 
+				 based on a two-step process, and in the end allows investor to hedge the inherent interest rate risk imbedded in 
+				 these mortgage commitments.</p>
+
+				<p>In the first stage, the actual mortgage commitment pipeline is “mapped” to a simplified portfolio of European 
+				swaptions. In the second stage, this simplified portfolio of swaptions is used to determine an appropriate portfolio 
+				of swaps to hedge the swaptions.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6547376#.YpDvTKgpDq4">Zenodo mortgage commitment model</a></li>
+
+				 </ul>	
+				 
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Performance Deferred Share Program Model</b></font>	
+				 
+				 <p>The Performance Deferred Share Program (PDSP) has been established by an organization to compensate eligible 
+				 employees for their contribution to the long term performance of the organization.</p>
+
+				<p>The final payout to the employee depends on the organization’s performance against its peer group. The PDSP 
+				valuation model is an attempt to value this liability taking this performance aspect into account.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6547457#.YpDvW6gpDq4">Zenodo PDSP model</a></li>
+
+				 </ul>					 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Balance Sheet Model</b></font>	
+				 
+				 <p>The balance sheet model is used to determine the risks of various assets, liabilities and balance sheet items. 
+				 Primarily, the model calculates the interest rate risk profile of these instruments.</p>
+
+				<p>The model involves defining an underlying interest rate process, valuation models for all the instruments that 
+				depends on the interest rates, and various scenarios for the interest rates in order to compute “risk profiles”.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6548879#.YpDvbagpDq4">Zenodo balance sheet model</a></li>
+
+				 </ul>		
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Mortgage Model</b></font>	
+				 
+				 <p>Mortgage model is used to calculate the risk profile of various interest rate risk sensitive instruments, such 
+				 as fixed rate mortgage and adjustable risk mortgage.</p>
+
+				<p>The interest rate risk measures depend on the specific characteristics of the instrument (for example, the coupon 
+				of a fixed rate mortgage), and these are calculated different for the various instruments assuming an underlying 
+				interest rate process together with various valuation models for the instruments. We will begin by outlining the 
+				interest rate process, then proceed to discuss the various instruments separately.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6548953#.YpDvfKgpDq4">Zenodo mortgage model</a></li>
+
+				 </ul>		
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Rate Lock Model</b></font>	
+				 
+				 <p>Rate lock is a derivative on fixed rate and adjustable rate mortgages. Fallout functions are specified for various 
+				 types of rate locks, and depend on several factors including source of rate lock and mortgage type. Like the prepayment 
+				 models, these fallout functions are based on analysis of historical data and these have a significant impact on the 
+				 risk measures of these rate locks.</p>
+
+				<p>Rate locks are specified using various categories upon origination. Additionally, there is a current status that 
+				may change daily during the course of the rate lock. Depending on the category and status of the rate lock, a fallout 
+				function is applied. This fallout function is supposed to be a measure of how many of these loans will close at expiry. 
+				Like the prepayment functions, these are based on historical observations.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6549162#.YpDvjagpDq4">Zenodo rate lock model</a></li>
+
+				 </ul>		
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>MBS Pass Through Model</b></font>	
+				 
+				 <p>Mortgage Backed Securities (MBS) are essentially interest rate derivatives, this requires both a robust interest 
+				 rate model as well as a model for the prepayment behavior. The prepayment model is dynamic, since prepayments (and 
+				 ultimately MBS cash flows) depend very strongly on the dynamics of prevailing mortgage rates. These mortgage rate 
+				 dynamics are driven by the dynamics of the yield curve.</p>
+
+				<p>MBS cash flows depend very strongly on the prepayment assumptions of the underlying pools. The prepayments are both 
+				substantial and heavily dependent on the prevailing mortgage rates. Hence, it is very important to use a reliable 
+				prepayment model if one hopes to “accurately” capture the risk of these instruments.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6549222#.YpDvoKgpDq4">Zenodo pass through model</a></li>
+
+				 </ul>					 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Callable Range Accrual Digital Adjustments Model</b></font>	
+				 
+				 <p>A single factor linear Gaussian model (LGM) is proposed for pricing callable range accrual swaps (for both the 
+				 fixed and floating coupon variants), and additional adjustments required to capture the implied volatility smile 
+				 observed in the market. The single factor LGM is equivalent to a single factor Hull-White model.</p>
+
+				<p>A range accrual swap is composed of two interest rate streams, a structured stream and a funding stream. The 
+				funding stream is a set of standard floating cashflows paying LIBOR + a spread. The index for the floating cashflow 
+				resets in advance and pays in arrear according to standard market conventions.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6549248#.YpDvyKgpDq4">Zenodo digital adjustment model</a></li>
+
+				 </ul>	
+				 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>BMA Knockout Swap Model</b></font>	
+				 
+				 <p>The BMA Ratio Swap with BMA Knockout is a two-legged BMA ratio swap where one leg pays a contract specified fixed 
+				 rate and the other leg pays Libor times a contract specified ratio (plus a contract specified constant spread).</p>
+
+				<p>On any contract payment date both the fixed and Libor coupon payments may cancel if the historical average BMA rate 
+				observed during the coupon period is above (or below, as specified by the contract) the knockout strike. For example, 
+				consider a contract where one party receives the fixed rate and pays 68% of 1M Libor. Both payments are cancelled if 
+				on a coupon date the 1M average of the 1W observations of the BMA rate (i.e., the average of the prior 4 observations 
+				of 1W BMA rate) is greater 5%.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6551223#.YpDv2agpDq4">Zenodo mba knockout swap model</a></li>
+
+				 </ul>	
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Arrear Cap Model</b></font>	
+				 
+				 <p>An arrear cap consists of caplets whose payoffs are not paid at the end of underlying index period. 
+				 It belongs to the category of unconventional caplets/floorlets. A non-vanilla IR cap/floor is composed of a portfolio 
+				 of unconventional IR caplets/floorlets. As before, it suffices to price an unconventional caplet/floorlet. However, 
+				 the conventional Black’s formula may not be directly applied to price the unconventional caplet/floorlet. A so-called 
+				 convexity adjustment is needed under an arbitrage-free approach.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6551437#.YpDwOKgpDq4">Zenodo arrear cap model</a></li>
+				 </ul>	
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>MBA Swap Model</b></font>	
+				 
+				 <p>The BMA Municipal Swap Index, produced by Municipal Market Data (MMD), is a single rate released every Wednesday 
+				 after 4:00 pm and effective on next business date (usually Thursday). The rate is a representative index made up of 
+				 an average of rates supplied by traders within the industry. It is a simple compounding annual rate with the day 
+				 count convention of ACT/ACT. In a generic fixed for floating BMA swap, the floating side is estimated using averages 
+				 of weekly BMA Municipal Swap Index.</p>
+
+				<p>While actual par Municipal Swap Rates are not available in the market, BMA ratios, which are actively traded, are 
+				applied to LIBOR par swap rates to derive the par BMA swap rate. BMA ratios are used in conjunction with LIBOR swap 
+				rates to calculate the various instruments traded in the BMA market.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6558053#.YpDwC6gpDq4">Zenodo mba swap model</a></li>
+				 </ul>
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Capped FRN Swap Model</b></font>	
+				 
+				 <p>A model is presented for pricing European/Bermudan type callable capped floating rate note (FRN) swaps. The capped 
+				 FRN swap is a contract to swap cash-flows between a vanilla floating rate leg and a capped floating rate leg. The 
+				 option gives the right to call the swap back in favor of the option owner.</p>
+
+				<p>Pricing the capped FRN swap is relatively simple as the value can be expressed in a close-form analytical formula. 
+				To price the option with Bermudan type, the capped FRN swap has been reduced to a contract to swap cash-flows between 
+				a fixed leg and a caplet leg. To make the reduction valid, we need to assume that the date-setting in both legs of the 
+				capped FRN swap are almost consistent.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6558277#.YpDwUqgpDq4">Zenodo capped FRN swap model</a></li>
+				 </ul>
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Caption Model</b></font>	
+				 
+				 <p>Caption is an option on caps and floors. Since we can view cap as a call option and floor as a put option, caption 
+				 can be modeled by compounding option techniques.</p>
+
+				<p>There are four basic types: call option on cap, put option on cap, call option on floor, and put option on floor. 
+				Here we only explain how to value European or American call option on cap in details. Other three cases can be done 
+				in a similar way.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6561073#.YpDwZagpDq4">Zenodo caption model</a></li>
+				 </ul>
+
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>FX Choice Option Model</b></font>	
+				 
+				 <p>A derivative security considered here is a European type option whose holder, at the maturity, can either not 
+				 exercise or exercise by choosing to enter one and only one of the two underlying securities: a cross-currency swap 
+				 or a cross-currency forward contract. Let us call the option an FX choice option.</p>
+
+				<p>Let t ¸ 0 be a generic valuation time point and T > 0 be the maturity of the FX choice option. Let C, U and S be 
+				a base currency, a quote currency and exchange rate, respectively, where S is expressed in the American convention, 
+				i.e., S is the number of the base currency C per unit of the quote currency U. Let BC be the bond price process of a 
+				pre-determined fixed coupon bond with unit face value in the C-currency.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6546805#.YpDu9KgpDq4">Zenodo fx choice option model</a></li>
+				 </ul>
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Chooser Cap Model</b></font>	
+				 
+				 <p>A chooser cap (floor) is different from the traditional European/Bermudan option that the owner of the chooser 
+				 option has multiple chances to exercise. The rigorous definition of chooser option is given in the appendix section 
+				 of this report. From the definition of the chooser option, a lower bound of the value of the chooser cap (floor) 
+				 is the sum of first k maximal values of (European) caplets (floorlets). To get a good upper bound is not trivial.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6561499#.YpDwjKgpDq4">Zenodo chooser cap model</a></li>
+				 </ul>
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>CMS Cliquet Model</b></font>	
+				 
+				 <p>A CMS cliquet option has two legs: One leg of this deal is based on (regular) floating rates. The other leg links 
+				 to CMS swap rates. Due to the “set-in-arrear” feature in the structured leg, convexity and timing adjustments have to 
+				 be considered.</p>
+
+				<p>Due to the embedded option and convexity adjustments in the structure leg, we need swap rate volatilities and 
+				forward rate volatilities. The former can be interpolated from the implied swaption volatility surface. The latter 
+				should be interpolated from the so-called implied forward volatility surface.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6561892#.YpDwnqgpDq4">Zenodo cms cliquet model</a></li>
+				 </ul>
+
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Arrear Forward Rate Agreement Model</b></font>	
+				 
+				 <p>It has been well known that a convexity adjustment must be considered in pricing a set-in-arrear forward rate 
+				 agreement (FRA). It also becomes market convention to do so.</p>
+
+				<p>We use a very good approximation under the condition that the reset date of a floating index rate is very close 
+				to a payment date. In CAD, the reset date can be identical to the payment date. In other currencies, the reset date 
+				can be only two business days prior to the payment date. It must be noted that the reset date may not exceed the 
+				payment date and the payment date may not exceed the end date of the index forward period.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6578408#.YpDwq6gpDq4">Zenodo arrear fra model</a></li>
+				 </ul>
+
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Double CMS Derivative Model</b></font>	
+				 
+				 <p>A double CMS derivatives represents a European type derivatives whose matured payoff depends on two CMS rates. 
+				 For most important products in the fixed income market, the payoff function can be an affine-linear with respect to 
+				 two CMS rates and may be possibly capped and/or floored.</p> 
+
+				<p>There are three basic types of payoffs: (a) an affine-linear on two CMS rates, (b) a call on a linear combination 
+				of the two and (c) a put on the combination. For the first type payoff (a), the present value can be calculated by 
+				using single CMS cap/floor model.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6578517#.YpDwuqgpDq4">Zenodo double cms model</a></li>
+				 </ul>
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Option Close-out Reserve Model</b></font>	
+				 
+				 <p>A model is presented to calculate the monthly Close-Out Reserve of the structured interest rate derivatives. 
+				 Products cover vanilla swaptions, Bermudan swaptions, callable swaps, variable notional swaptions, cap and floor 
+				 and Treasury bond options. </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6585388#.YpDwxagpDq4">Zenodo close-out reserve model</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Cross Currency Basis Swaption Model</b></font>	
+				 
+				 <p>A Cross-currency basis swap, which is also called FX basis swap, is a contract between two parties that one side 
+				 receives a floating rate (plus a possible spread) of currency A and the other receives a floating rate (also plus a 
+				 possible spread) of currency B.</p>
+
+				<p>Between the two currencies, suppose that currency A is more liquid than currency B. For example, USD is currency A 
+				and CAD is currency B. That is, in the currency A world, there is a market difference in supply and demand of currency 
+				B. Thus the traditional interest rate parity in the currency A world may not valid without any adjustment.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6588375#.YpEh86gpDq4">Zenodo cross currency basis swaption model</a></li>
+				 </ul>
+				 
+				 
+			 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Constant Maturity Swap Model</b></font>	
+				 
+				 <p>A constant maturity swap (CMS) is an interest rate swap where floating rate equals the swap rate for a swap with 
+				 a certain life (CMS tenor). For example, the floating payments on a CMS swap might be made every six months at a rate 
+				 equal to the five-year swap rate (CMS tenor = 5 year). For convexity and timing value calculation for CMS rates, 
+				 Hull-White formula with correlation coefficient, between CMS rate and forward rate, set at 0.7 is used.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://zenodo.org/record/6588555#.YpE20qgpDq4">Zenodo cms swap model</a></li>
+				 </ul>				 
+
+				 
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
