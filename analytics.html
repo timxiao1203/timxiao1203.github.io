@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Financial Analytics</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+<META name="description" content="financial analytics">
+
+<META name="keywords" content="security, derivatives">
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="images/tool.jpg" 
+	  Alt="data knowledge" width="164" height="194" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/products.gif" 
+	  Alt="data tool" width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Pricing Model</font></I></p>
+				
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+
+
+
+			</font></p>				
+			
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Equity Linked GIC Pooling Study</b></font>	
+
+				<p>Payoff for equity GIC requires a dynamically created basket such that the weight factors incorporate 
+				a division by the spot levels on the issue date, which converts the payoff to one based on a basket 
+				of comparative returns (rather than basket returns). To automate feeds on a daily basis we will need 
+				to create new baskets on a daily basis.</p>
+				
+				<p>The Pooling Criteria is the process of grouping like securities for the purpose of creating a 
+				pseudo-GIC to efficiently hedge the total balance.  The new process will group a portion of the GICs, 
+				greater than 3 million, into pools and leave the remaining GICs in Unallocated pools.  GICs exist 
+				on four source systems; IPS (non-registered), RRSP (registered), RRIF (registered) and SIT 
+				(registered and non-registered).</p>
+				
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/atyb9/download">OSF pooling</a></li>
+				 </ul>
+				 
+				 <br>
+				<font face="Arial, Helvetica, sans-serif"><b>Quanto Himalayan Option Study</b></font>
+				
+				<p>Himalayan options are a form of European-style, path-dependent, exotic option on a basket of equity 
+				underliers, in which intermediate returns on selected equities enter the payoff, while the equities 
+				are subsequently removed from the basket. </p>
+				
+				<p>This definition is consistent with the one in the case of domestic equities, that is, in the 
+				absence of a quanto adjustment. In the quanto case, the effect of the change in the quanto adjustment 
+				resulting from a change in the volatility is ignored. </p>
+				
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/cg5x4/download">OSF quanto himalaya</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Local Volatility Model Study</b></font>
+				 
+				 <p>We review a model for computing the price, in the domestic currency, of European standard call 
+				 and put options on an underlying foreign equity (stock or index) with tenor of up to 7 years. 
+				 The function implements a local volatility based pricing method.</p>
+
+				<p>Consider the calibration of the local volatility function based on market option prices or, 
+				equivalently, market Black’s implied volatilities. If there exists a smooth surface of either 
+				option price or implied volatility as a function of option strike and maturity, then this surface 
+				uniquely determines the local volatility function.</p>
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/74s83/downloand">Zenodo collateralized swap</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Forward Starting Option Study</b></font>	
+				 
+				<p>A model is presented for pricing European exercise, forward starting options on an underlying 
+				equity. The valuation requires two interest rate curve inputs. One curve, called the “hedge curve”, 
+				is specified by a list of n term and continuously compounded zero rate pairs and is intended for 
+				use in computing forward equity values.</p>
+				
+				<p>In practice, option price or implied volatility surfaces are available at points on a relatively 
+				sparse grid of strike and tenor pairs. Using analytical expressions to determine the local volatility 
+				function then likely yields inaccurate results due to the numerical instability from calculating 
+				first, and especially, second derivatives.</p>
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/37fbt/download">OSF forward start</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Three Factor Convertible Bond Study</b></font>
+				 
+				 <p>The owner of a convertible bond (CB) receives periodic coupon payments from the issuer, but 
+				 can also convert the CB into the issuer’s stock.  The convertible bond may also include call 
+				 and put provisions, which respectively allow the issuer to buy back the convertible bond and 
+				 the owner to put the convertible bond for respective preset amounts.  </p>
+
+				<p>Here the short interest rate process is assumed to be of Ho-Lee form under the bond’s coupon 
+				currency risk-neutral probability measure, and the stock price and foreign exchange rate processes 
+				are assumed to follow geometric Brownian motion with drift under their respective risk-neutral 
+				probability measures.  </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/pbjf8/download">OSF three factors</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Mutual Fund Securitization Study</b></font>
+				 
+				 <p>The purpose of the model is to determine, from a projected stream of future cashflows, whether 
+				 all Commercial Paper used to fund the commissions to brokers for the sale of mutual funds will be 
+				 repaid within a period.  Here a broker charges the Partnership a commission on the net asset value 
+				 of the mutual funds sold.  The buyer of the mutual funds, however, pays nothing up front; instead, 
+				 a deferred sales charge, which depends on when the mutual funds are redeemed, is assessed.</p>
+				 
+				 <p>The model assumes that the monthly net asset value of the mutual funds follows a deterministic 
+				 process.  Administration and program fees, as well as mutual fund redemptions are then based on the 
+				 monthly net asset value.  Issued Commercial Paper is amortized into equal monthly payments over 
+				 a period of six years.  Here the cashflows generated from the administration and redemption fees 
+				 are paid monthly to the Partnership, to be used for the payment of outstanding Commercial Paper 
+				 and associated interest.  Furthermore, the model includes a test to determine whether a collateral 
+				 infusion is required to aid in re-paying the Commercial Paper.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/vzfaw/download">OSF securitization</a></li>
+				  </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Hull-White Convertible Bond Study</b></font>
+				 
+				 <p>Here we assume that the short term interest rate process follows a stochastic differential 
+				 equation (SDE) of the Hull-White form, and that the stock’s price follows geometric Brownian 
+				 motion with drift.  For tractability, however, the stock’s price SDE is modified so that its 
+				 drift does not depend on the stochastic short-term interest rate.</p>
+
+				<p>Based on the Hull-White single-factor tree building approach, respective trinomial trees are 
+				constructed for the short-term interest rate and stock’s price processes.  Using the Hull-White 
+				two-factor tree building procedure, a combined tree is constructed by matching the mean, variance 
+				and correlation corresponding to each combined tree node.  The convertible bond price is given 
+				from the combined tree by backward induction.  </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/eyb8c/download">OSF Hull-White Convertible</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Brownian Bridge Swap</b></font>	
+				 
+				 <p>The Brownian bridge algorithm has been implemented for stress testing within the Risk Management 
+				 framework. It is used for generation of multidimensional random paths whose initial and ending points 
+				 are predetermined and fixed. </p>
+
+				<p>In the context of stress testing this algorithm is used for efficient generation of specific 
+				scenarios subject to certain extreme and generally unlikely conditions. If paths were generated 
+				by a conventional Monte-Carlo method only a very small portion of all the paths would satisfy such 
+				conditions.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/6dn54/download">OSF BB</a></li>
+				 </ul>
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Convertible Bond with Exchangeable Feature Study</b></font>	
+				 
+				 <p>A convertible bond issuer pays periodic coupons to the convertible bond holder. The bond holder 
+				 can convert the bond into the underlying stock within the period(s) of time specified by the 
+				 conversion schedule. The bond issuer can call the bond and the holder can put it according to 
+				 the call and put provisions. The Exchangeable feature assumes that the convertible bond and the 
+				 underlying stock are issued by different parties.</p>
+
+				<p>There are two possible cases with respect to stock conversion: Covered - the bond issuer holds 
+				the underlying stock for the life time of the convertible; Vulnerable - the bond issuer does not 
+				hold the stock prior to the stock conversion.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/zgx8c/download">Exchangeable convertible bond</a></li>
+				 </ul>
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Asset Backed Senior Note Study</b></font>	
+				 
+				 <p>We consider a securitization deal, which allows the holder to purchase co-ownership interests in 
+				 a revolving pool of credit card receivables. To fund the acquisition of the interests in the revolving 
+				 pool, the trust issued Asset-Backed Notes, in a number of different series. A share of future 
+				 collections of credit charge receivables, to which the trust is entitled, is used to pay the interest 
+				 and the principal of the notes.</p>
+
+				<p>Both the aggregate interest and the allocated collection amount depend on the remaining aggregate 
+				(senior and subordinated) principal X. Each month during the liquidation period the aggregate principal 
+				is reduced by the senior principal payment Z, unless it falls below a certain amount, which will 
+				trigger the cleanup prepurchase option, so that the entire remaining principal is paid off immediately 
+				(not shown in the formulae for simplicity). </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/eg6mv/download">OSF ABS</a></li>
+				 </ul>	
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Hull White Volatility Calibration Study</b></font>	
+				 
+				 <p>Hull White model is a short rate model satisfies a risk-neutral SDE of the form. We map implied 
+				 Black's at the money (ATM) European swaption volatilities into corresponding Hull-White (HW) short 
+				 rate volatilities.</p>
+
+				<p>We seek to determine a HW volatility to match the market price of a certain ATM European payer 
+				swaption.  In particular let Ti be a Libor rate reset point.  Furthermore consider 
+				a fixed-for-floating interest rate swap of the following form,</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/k3wc9/download">OSF HW vol</a></li>
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Government Bond Bootstrapping Study</b></font>	
+				 
+				 <p>We discuss a method for bootstrapping a set of zero rates from an input set of US government 
+				 money market securities and bonds. The government bond bootstrapping procedure requires to input 
+				 a set of financial instruments, of the type below, sorted by order of increasing time to maturity:</p>
+
+				<p>Government Bond Bootstrapping proceeds in two phases. The first phase uses short term instruments, 
+				which typically mature in one year or less. Consider, for example, a US government money market 
+				instrument with </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/4nhyb/download">OSF bond bootstrapping</a></li>
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>GIC Pricing Study</b></font>	
+				 
+				 <p>Guaranteed investment certificate (GIC) is a financial instrument that offers a return based on 
+				 a corresponding GIC rate and the performance of a basket of certain stock and bond market indices.</p>
+
+				<p>The rate of return is then given by a weighted sum of the GIC rate and the percentage change in 
+				each index level described above, but bounded below by a minimum guaranteed interest rate.  
+				At maturity, the GIC holder receives the invested principal plus the principal times this rate of 
+				return.  </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/tgd82/download">OSF GIC</a></li>
+				 </ul>	
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Extendable Swap Study</b></font>	
+				 
+				 <p>An extendable swap represents a forward swap agreement with an option of extending the swap for 
+				 another term (swaption). The valuation model assumes the swap rates for different terms to be 
+				 correlated log-normally distributed random variables and uses the Haselgrove integration method 
+				 for pricing the deal. </p>
+
+				<p>The model estimates the swap price as a risk-neutral expectation of the difference between the 
+				bond price whose yield-to-maturity is the swap rate and the bond’s par. The swap rate is considered 
+				a log-normally distributed random variable. </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/23w9h/download">OSF extendable swap</a></li>
+				 </ul>	
+				 
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Callable Inverse Swap Study</b></font>	
+				 
+				 <p>A Callable Inverse Floating Rate Swap is a forward swap agreement with an option of canceling 
+				 the swap each year starting from several years in future. The deal is priced with a two factor 
+				 Black-Karasinski model.</p>
+
+				<p>The calibration procedure takes only an interest rate curve as input (ignoring volatility surfaces) 
+				and results in adjusting the “alpha” parameter of the model. To test the calculations over a range 
+				of parameters, we used  the “piece-wise constant parametrization” mode. </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/9jyh8/download">OSF inverse swap</a></li>
+				 </ul>					 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Flexible GIC Study</b></font>	
+				 
+				 <p>A flexible GIC is an investment with an embedded option to redeem the principal and accrued 
+				 interest at any time after 30 days from the date of purchase. In other words, the holder of GIC 
+				 has an option to redeem the principal and accrued interest at any time after 30 days of from the 
+				 date of purchase. No interest is paid if the investment is redeemed within first 30 days from 
+				 the purchase date.</p>
+
+				<p>We price the option of a flexible GIC with a one factor Hull-White model via a trinomial tree. 
+				The Hull-White model assumes a normal distribution for the rates. Our solution constructs a Hull-White 
+				tree. The calibration procedures take an interest rate curve as input (ignoring volatility surfaces) 
+				and assume volatility and mean reversion parameters as constants. </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/w97gv/wiki/home/">OSF flexible GIC</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/q6ut7/download">OSF flexible GIC pdf</a></li>
+				 </ul>		
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>American Bond Option Study</b></font>	
+				 
+				 <p>A valuation model is presented for pricing an American style call option on the yield of Treasury 
+				 bond. The payoff is positive if the yield exceeds a predetermined strike level. The model assumes 
+				 the yield of an American Treasury bond to be a log-normally distributed stochastic process and uses 
+				 Monte-Carlo simulation to price the deal as a European call option. </p>
+
+				<p>The model builds a trinomial tree for the yield process to price the deal as an American option. 
+				The time slices of the tree are evenly spaced. Node transition probabilities and the time interval 
+				between slices are determined by matching the first four moments of the underlying Brownian motion. 
+				The option is priced using the backward induction.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/z73hj/wiki/home/">OSF Bond American option</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/dt69v/download">OSF American bond option</a></li>
+				 </ul>		
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Martingale Preserving Tree Study</b></font>	
+				 
+				 <p>An important feature of the popular three factor trinomial tree is that it uses a deterministic 
+				 approximation of the interest rates for constructing the stock tree. The preservation of the 
+				 martingale property of the stock price is thus not guaranteed.  and may potentially represent 
+				 a problem.</p>
+
+				<p>We propose a two-factor tree model that implements the Hull-White and Black-Karasinski models. 
+				The new tree model does preserve the martingale property of the stock for sufficiently long terms. </p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/vyk8t/wiki/home/">OSF Martingale tree</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/6eyrv/download">OSF preserving tree</a></li>
+				 </ul>		
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Arrear Quanto CMS Study</b></font>	
+				 
+				 <p>An arrear quanto constant-maturity-swap (CMS) is a swap that pays coupons in a different currency 
+				 from the notional and in arrears. The underlying swap rate is computed from a forward starting CMS.</p>
+
+				<p>Assumes that, under the coupon payment currency (SEK) risk-neutral probability measure, the forward 
+				swap rate process corresponding to each swap rate fixing follows Geometric Brownian motion with drift.  
+				Each forward swap rate process is then convexity adjusted, and is furthermore expressed under the 
+				notional currency (FRF) risk neutral-probability measure by means of a quanto adjustment.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/u95g2/wiki/home/">OSF quanto cms</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/g6tp5/download">OSF arrear quanto cms</a></li>
+				 </ul>					 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Black-Karasinski Short Rate Tree Study</b></font>	
+				 
+				 <p>The Black-Karasinski model is a short rate model that assumes the short-term interest rates to 
+				 be log-normally distributed. The one factor  Black-Karasinski model is implemented as a binomial 
+				 or trinomial tree</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/efy6v/download">OSF BK tree</a></li>
+				 </ul>	
+				 
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Variable Rate Swap Study</b></font>	
+				 
+				 <p>Variable rate swap is a special type of interest rate swap in which one leg of the swap corresponds 
+				 to fixed rate payments while the other involves fixed rate payments for an initial period of time 
+				 and a floating rate for the rest. The floating rate on that portion is defined as a minimum of two 
+				 index rates.</p>
+
+				<p>The two index rates are treated as assets whose values are lognormally distributed random variable. 
+				Their pricing procedure uses discount factors retrieved from the EURIBOR curve.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/j3p7q/wiki/home/">OSF variable rate swap</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/np5bw/download">OSF variable swap</a></li>
+				 </ul>	
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>CMS Spread Option Study</b></font>	
+				 
+				 <p>A constant maturity swap (CMS) spread option makes payments based on a bounded spread between 
+				 two index rates (e.g., a GBP CMS rate and a EURO CMS rate).  The GBP CMS rate is calculated from 
+				 a 15 year swap with semi-annual, upfront payments, while the EURO CMS rate is based on a 15 year 
+				 swap with annual, upfront payments. </p>
+				 
+				 <p>We assume that both the forward GBP and EURO CMS rates follow geometric Brownian motion under 
+				 their respective  -forward measures.  Here respective initial forward CMS rates are calculated.  
+				 The forward rates are then convexity adjusted from respective parallel bonds specified</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/ndte4/wiki/home/">OSF cms spread</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/9db5u/download">OSF cms spread option</a></li>
+				 </ul>	
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Early Start Swap Study</b></font>	
+				 
+				 <p>An early start swap is a swap that has an American style option for the counterparty of starting 
+				 the swap early, within a period of three month. Otherwise, the swaps are plain vanilla 
+				 fixed-for-floating swaps.</p>
+
+				<p>We consider a swap as an exchange of a principal for a coupon bearing bond with the same principal. 
+				Indeed, from payer’s perspective, the swap’s present value is the difference between the present 
+				values of received LIBOR payments</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/z587j/wiki/home/">OSF early start</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/kapm3/download">OSF early start swap</a></li>
+				 </ul>
+
+
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Quanto Total Return LIBOR Swap Study</b></font>	
+				 
+				 <p>A quanto total return Libor Swap is a swap where one leg is a regular floating leg paying LIBOR 
+				 less a constant spread and the other leg makes a single payment at the swap’s maturity equal to a 
+				 leveraged non-negative return on USD-for-EURO exchange rate paid in CAD. The main focus of the 
+				 valuation model is the quantoed total return on the FX rate.</p>
+
+				<p>The payoff of the leg based on the return of the foreign exchange rate is a payoff of a European 
+				call option.  Its present value is given by Black’s formula for futures with the discounting factor 
+				equal to the Canadian zero-coupon bond</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/rwfgn/wiki/home/">OSF quanto total</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/p7kn4/download">OSF quanto total return</a></li>
+				 </ul>
+				 
+				 
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Daily Digital LIBOR Swap Study</b></font>	
+				 
+				 <p>A daily digital LIBOR swap is an interest rate swap whose reference interest rate is three-month 
+				 USD Libor BBA. For each accrual period in the swap, one party receives the reference rate, and pays 
+				 the reference rate plus a positive spread, but weighted by the ratio of the number of calendar days 
+				 in the period that the reference rate sets below an upper level to the total number of calendar days 
+				 in the period.</p>
+
+				<p>The payoff amount can be viewed as the value of the sum of a series of daily Libor digital payoffs.  
+				Here we assume that Libor rates are log-normally distributed, and derives an analytical formula for 
+				the daily digital payoff.</p>
+				 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/wn2ys/wiki/home/">OSF daily digital</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/qzmer/download">OSF daily digital swap</a></li>
+				 </ul>
+				
+
+				 
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
