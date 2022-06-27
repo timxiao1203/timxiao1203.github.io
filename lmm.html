@@ -182,13 +182,6 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			In this paper, we propose a lattice approach within the LMM. The model has similar accuracy to the current pricing models in the market, 
-			but is much faster. Some other merits of the model are that calibration is almost automatic and the approach is less complex and easier 
-			to implement than other current approaches.
- 			</font></p>					
-			<br>			
-			
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			We introduce a shifted forward measure that uses a variable substitution to shift the center of a forward rate distribution to zero. 
 			This ensures that the distribution is symmetric and can be represented by a relatively small number of discrete points. The shift transformation 
 			is the key to achieve high accuracy in relatively few discrete finite nodes. In addition, we present several fast and novel drift approximation 
@@ -213,34 +206,12 @@ marginwidth="0" marginheight="0">
  			</font></p>					
 			<br>						
 
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			In this paper, we proposed a lattice model in the LMM to price interest rate products. Conclusions can be drawn, supported by the previous 
-			sections. First, the model is quite stable. The fast convergence behavior requires fewer discretization nodes. Second, this model has almost 
-			equivalent accuracy to the current pricing models in the market. Third, the implementation of the model is relatively easy. The calibration 
-			is very simple and straightforward. Finally, the performance of the model is probably the best among all known approaches at the time of 
-			writing.
- 			</font></p>					
-			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We use the following techniques in our model: shifted forward measure, drift approximation, probability distribution structure exploitation, 
-			long jump, numerical integration, incomplete information handling, and calibration. Combining these techniques, the model achieves sufficient 
-			accuracy in relatively few time steps and discrete nodes, which makes it a very efficient method.
- 			</font></p>					
-			<br>	
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			For ease of illustration, we present the lattice model based on the Trapezoidal Rule integration. A better but slightly more complicated 
+			We present the lattice model based on the Trapezoidal Rule integration. A better but slightly more complicated 
 			solution is to spline the payoff functions. The cubic spline of the option payoffs can achieve higher accuracy, especially for Greeks 
 			calculations, and higher speed. Although cubic spline takes some time, the lattice will require much fewer nodes (23 ~ 28 nodes are good 
 			enough) and can perform a much faster integration. In general, the spline method can provide a speedup factor around 3 ~ 5 times.
- 			</font></p>					
-			<br>	
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We have implemented the lattice model to price a variety of interest rate exotics. The algorithm can always achieve a fast convergence rate. 
-			The accuracy, however, is a bit trickier, depending on many factors: drift approximation approaches, numerical integration schemes, 
-			volatility selections, and calibration, etc. Some work, such as calibration, is more of an art than a science.
  			</font></p>					
 			<br>	
 
@@ -251,12 +222,10 @@ marginwidth="0" marginheight="0">
                   <ul>
 				  	<li style="font-size:16px"><a href="Lattice-in-LMM-4.pdf">LMM PDF</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/preprints/inarxiv/zxk7w/download">inarxiv LMM Valuation</a></li>
-					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamgDMzMzN2ITPkl0av9mY">FlipHtml5 LMM Trade Valuation</a></li>
 					<li style="font-size:16px"><a href="https://zenodo.org/record/6549222#.YpDvoKgpDq4">Zenodo pass through</a></li>
 					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:28370/CONTENT/lattice-in-lmm-4.pdf">Hcommons LMM Trade Valuation</a></li>
-
 					<li style="font-size:16px"><a href="https://zenodo.org/record/6549248#.YpDvyKgpDq4">Zenodo digital adjustment</a></li>
-					<li style="font-size:16px"><a href="https://xiao.pubpub.org/pub/dy8ou31h/download/pdf">Pubpub LMM Valuation</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/lvzg9q5n/release/1">Pubpub composite</a></li>
 					<li style="font-size:16px"><a href="https://tim-yxiao.gitbook.io/lmm/">gitbook lmm</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/qmh9c/download">Socarxiv lmm</a></li>
 

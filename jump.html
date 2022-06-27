@@ -165,14 +165,6 @@ marginwidth="0" marginheight="0">
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			A company can raise capital in financial markets either by issuing equities, bonds, or hybrids (such as convertible bonds). From an investor’s 
-			perspective, convertible bonds with embedded optionality offer certain benefits of both equities and bonds – like the former, they have the 
-			potential for capital appreciation and like the latter, they offer interest income and safety of principal. The convertible bond market is 
-			of primary global importance. 
-			</font></p>							
-			<br>
-			
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			There is a rich literature on the subject of convertible bonds. Arguably, the first widely adopted model among practitioners is the one 
 			presented by Goldman Sachs (1994) and then formalized by Tsiveriotis and Fernandes (1998). The Goldman Sachs’ solution is a simple one 
 			factor model with an equity binomial tree to value convertible bonds. The model considers the probability of conversion at every node. 
@@ -204,21 +196,7 @@ marginwidth="0" marginheight="0">
 			from the market risk domain to the credit risk arena. 
  			</font></p>					
 			<br>				
-			
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			There are two primary types of models that attempt to describe default processes in the literature: structural models and reduced-form models. 
-			The structural models regard default as an endogenous event, focusing on the capital structure of a firm. The reduced-form models do not 
-			explain the event of a default endogenously, but instead characterize it exogenously as a jump process. Many practitioners in the credit 
-			trading arena have tended to gravitate toward the reduced-from models given their mathematical tractability and market consistency.
- 			</font></p>					
-			<br>		
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Zhou (1997), Hilberink and Rogers (2002), Chen and Kou (2009), etc. introduce the jump-diffusion mechanism into the structural models, 
-			while Davis and Lischka (1999), Andersen and Buffum (2004), and Bloomberg (2009), etc. add a default jump to the stock price dynamics. 
-			We refer to the formers as the structural jump-diffusion models and the latters as the reduced-form jump-diffusion models.
- 			</font></p>					
-			<br>	
+				
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			Although both the structural jump-diffusion model and the reduced-form model contain jumps, these jumps have different meanings: A jump in 
@@ -232,20 +210,6 @@ marginwidth="0" marginheight="0">
 			that the total expected rate of return to the stockholders is equal to the risk-free interest rate under a risk-neutral measure.
  			</font></p>					
 			<br>	
-			
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			IAlthough we agree that under a risk-neutral measure the market price of risk and risk preferences are irrelevant to asset pricing 
-			(see Hull (2003)) and thereby the expectation of a risk-free  asset grows at the risk-free interest rate, we are not convinced that 
-			the expected rate of return on a defaultable asset must be also equal to the risk-free rate. We argue that unlike market risk, credit 
-			risk actually has a significant impact on asset prices. This is why regulators, such as International Accounting Standards Board (IASB), 
-			Basel Committee on Banking Supervision (BCBS), etc. require financial institutions to report a credit value adjustment (CVA) in addition 
-			to the risk-free mark-to-market (MTM) value to reflect credit risk (see Xiao (2013)). By definition, a CVA is the difference between the 
-			risk-free value and the risky value of an asset/portfolio subject to credit risk. CVA implies that the risk-free value should not be equal 
-			to the risky value in the presence of default risk. As a matter of fact, we will prove that the expected return of a defaultable asset 
-			under a risk-neutral measure actually grows at a risky rate rather than the risk-free rate. This conclusion is very important for risky 
-			valuation.
- 			</font></p>					
-			<br>				
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			Because of their hybrid nature, convertible bonds attract different type of investors. Especially, convertible arbitrage hedge funds play 
@@ -268,15 +232,6 @@ marginwidth="0" marginheight="0">
 			<br>					
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We model both equities and bonds as defaultable in a consistent way. When a firm goes bankrupt, the investors who take the least risk are 
-			paid first. Secured creditors have the best chances of seeing the value of their initial investments come back to them. Bondholders have 
-			a greater potential for recovering some their losses than stockholders who are last in line to be repaid and usually receive little, 
-			if anything. The default proceedings provide a justification for our modeling assumptions: Different classes of securities issued by the 
-			same company have the same default probability but different recovery rates. Given this model, we are able to back out the market prices.
- 			</font></p>					
-			<br>		
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			Valuation under our risky model can be solved by common numerical methods, such as, Monte Carlo simulation, tree/lattice approaches, 
 			or partial differential equation (PDE) solutions. The PDE algorithm is elaborated in this paper, but of course the methodology can be easily 
 			extended to tree/lattice or Monte Carlo.
@@ -290,17 +245,6 @@ marginwidth="0" marginheight="0">
  			</font></p>					
 			<br>		
 
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The most important input parameter to be determined is the volatility for valuation. A common approach in the market is to use the 
-			at-the-money (ATM) implied Black-Scholes volatility to price convertible bonds. However, most liquid stock options have relatively short 
-			maturates (rarely more than 8 years). As a result, some authors, such as Ammann, et al. (2003), Loncarski, et al. (2009), Zabolotnyuk, et al. 
-			(2010), have to make do with historical volatilities. Therefore, we segment the sample into two sets according to the time to maturity: 
-			a short-maturity class (0 ~ 8 years) and a long-maturity class (> 8 years). For the short-maturity class, we use the ATM implied Black-Scholes 
-			volatilities for valuation, whereas for the long-maturity class, we calculate the historical volatility as the annualized standard deviation 
-			of the daily log returns of the last 2 years and then price the convertible bond based on this real-world volatility.
- 			</font></p>					
-			<br>	
-	
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 			The empirical results show that the model prices fluctuate randomly around the market prices, indicating the model is quite accurate. 
 			Our empirical evidence does not support a systematic underpricing hypothesis. A similar conclusion is reached by Ammann and Wilde (2008) 
@@ -318,26 +262,18 @@ marginwidth="0" marginheight="0">
  			</font></p>					
 			<br>	
 
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			We study the sensitivities of convertible bonds and find that convertible bonds have relatively large positive gammas, implying that 
-			convertible arbitrage can make a profit on a large upside or downside movement in the underlying stock price. Since convertible bonds are 
-			issued mainly by start-up or small companies (while more established firms rely on other means of financing), the chance of a large movement 
-			in either direction is very likely. Even for very small movements in the underlying stock price, profits can still be generated from the yield 
-			of the convertible bond and the interest rebate for the short position.
- 			</font></p>					
-			<br>		
 			
                <font face="Arial, Helvetica, sans-serif"><b>Jump diffusion for pricing convertibles</b></font>
 			   <br>
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/preprints/inarxiv/6x9qy/download">inarxiv Jump</a></li>
 					<li style="font-size:16px"><a href="https://zenodo.org/record/6548953#.YpDvfKgpDq4">Zenodo mortgage</a></li>
-					<li style="font-size:16px"><a href="https://fliphtml5.com/download/download-pdf-file.php?str=x0DZh9GTud3bENXamkDMwUzN2ITPkl0av9mY">FlipHtml5 Trade Jump</a></li>
 					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:30002/CONTENT/pricingconvertiblebondjumpdiffusion-5.pdf">Hcommons Trade Jump</a></li>
 					<li style="font-size:16px"><a href="pricingConvertibleBondJumpDiffusion-5.pdf">Jump PDF</a></li>
 					<li style="font-size:16px"><a href="https://tim-yxiao.gitbook.io/jump/">gitbook jump</a></li>
 					<li style="font-size:16px"><a href="https://zenodo.org/record/6549162#.YpDvjagpDq4">zenodo rate lock</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/preprints/socarxiv/zr7hp/download">Socarxiv jump</a></li>
+					<li style="font-size:16px"><a href="https://fixedincome.pubpub.org/pub/2qdt3tqc/release/1">pubpub reverse bond</a></li>
 				</ul>				
 
 			  
