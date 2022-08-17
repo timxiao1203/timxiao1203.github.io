@@ -171,6 +171,10 @@ marginwidth="0" marginheight="0">
 			<br>
 				<font face="Arial, Helvetica, sans-serif"><b>Equity Linked GIC Pooling Study</b></font>	
 
+				<p>The equity GIC product has the property that strike levels are the closing index levels on date of 
+				issue. The proposed specification for pooling employs pool idents with the same maturity, issue date, 
+				and index levels.</p>
+				
 				<p>Payoff for equity GIC requires a dynamically created basket such that the weight factors incorporate 
 				a division by the spot levels on the issue date, which converts the payoff to one based on a basket 
 				of comparative returns (rather than basket returns). To automate feeds on a daily basis we will need 
@@ -185,10 +189,15 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/atyb9/download">OSF pooling</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/bond-valuation/">Gitbook bond</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47606/CONTENT/gicpooling.pdf">Hcommons gic pooling</a></li>
 				 </ul>
 				 
 				 <br>
 				<font face="Arial, Helvetica, sans-serif"><b>Quanto Himalayan Option Study</b></font>
+				
+				<p>Analytics for pricing quanto Himalayan options on equity is discussed, where the single best return 
+				is locked in each fixing period. Specifically, we considered the impact of the quanto adjustment term 
+				on calibration and the computation of option premium and hedge ratios</p>
 				
 				<p>Himalayan options are a form of European-style, path-dependent, exotic option on a basket of equity 
 				underliers, in which intermediate returns on selected equities enter the payoff, while the equities 
@@ -201,6 +210,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/cg5x4/download">OSF quanto himalaya</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/bond-futures/">Gitbook bond futures</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47610/CONTENT/quantohimalaya.pdf">Hcommons quanto himalaya</a></li>			
 				 </ul>
 
 				 <br>
@@ -216,8 +226,9 @@ marginwidth="0" marginheight="0">
 				uniquely determines the local volatility function.</p>
 
                   <ul>
-					<li style="font-size:16px"><a href="https://osf.io/74s83/downloand">Zenodo collateralized swap</a></li>
+					<li style="font-size:16px"><a href="https://osf.io/74s83/downloand">OSF local vol</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/callable-bond/">gitbook callable bond</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47612/CONTENT/localvolquanto.pdf">hcommons local vol</a></li>
 				 </ul>
 
 				 <br>
@@ -232,10 +243,15 @@ marginwidth="0" marginheight="0">
 				sparse grid of strike and tenor pairs. Using analytical expressions to determine the local volatility 
 				function then likely yields inaccurate results due to the numerical instability from calculating 
 				first, and especially, second derivatives.</p>
+				
+				<p>A forward starting option is an option whose strike price is not fully determined until an 
+				intermediate date before expiration. A model is used to compute option price, Delta, Gamma, 
+				Hedge Rho, Discount Rho, Vega and Theta.</p>
 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/37fbt/download">OSF forward start</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/floating-rate-note/">gitbook frn</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47614/CONTENT/forwardlookingoption.pdf">hcommons forward start</a></li>
 				 </ul>
 
 				 <br>
@@ -250,10 +266,14 @@ marginwidth="0" marginheight="0">
 				currency risk-neutral probability measure, and the stock price and foreign exchange rate processes 
 				are assumed to follow geometric Brownian motion with drift under their respective risk-neutral 
 				probability measures.  </p>
+				
+				<p>We use a three factor, trinomial tree based model for pricing the CB. Here we construct 
+				three independent trinomial trees, which are then combined into a three-factor tree.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/pbjf8/download">OSF three factors</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/inflation-indexed-bond/">gitbook inflation bond</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47618/CONTENT/threefactorconvertible.pdf">Hcommons three factors</a></li>
 				 </ul>
 
 				 <br>
@@ -273,13 +293,24 @@ marginwidth="0" marginheight="0">
 				 and associated interest.  Furthermore, the model includes a test to determine whether a collateral 
 				 infusion is required to aid in re-paying the Commercial Paper.</p>
 				 
+				 <p>The net asset value of the mutual funds follows a deterministic process, and that one party's 
+				 capital contributions to fund sales commissions are amortized on a straight-line basis over a period 
+				 of six years. The purpose of the model is to determine, from a projected stream of future principal 
+				 and interest payments, whether all Commercial Paper will be repaid within a maximum period of 
+				 thirteen years.</p>
+				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/vzfaw/download">OSF securitization</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/puttable-bond/">gitbook puttable bond</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47620/CONTENT/mutualfundsecuritization.pdf">Hcommons securitization</a></li>
 				  </ul>
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>Hull-White Convertible Bond Study</b></font>
+				 
+				 <p>A convertible bond pays the holder periodic coupon payments from the issuer, but can also 
+				 convert it into the issuer’s stock.  The model uses a two-factor trinomial tree for pricing 
+				 the convertible bond.</p>
 				 
 				 <p>Here we assume that the short term interest rate process follows a stochastic differential 
 				 equation (SDE) of the Hull-White form, and that the stock’s price follows geometric Brownian 
@@ -295,6 +326,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/eyb8c/download">OSF Hull-White Convertible</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/zero-coupon-bond/">gitbook zero</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47622/CONTENT/hwconvertible.pdf">OSF Hull-White Convertible</a></li>
 				 </ul>
 
 				 <br>
@@ -303,6 +335,10 @@ marginwidth="0" marginheight="0">
 				 <p>The Brownian bridge algorithm has been implemented for stress testing within the Risk Management 
 				 framework. It is used for generation of multidimensional random paths whose initial and ending points 
 				 are predetermined and fixed. </p>
+				 
+				 <p>The Brownian Bridge algorithm belongs to the family of Monte Carlo or Quasi-Monte Carlo methods 
+				 with reduced variance. It generates sample paths which all start at the same initial point and end, 
+				 at the same moment of time, at the same final point. </p>
 
 				<p>In the context of stress testing this algorithm is used for efficient generation of specific 
 				scenarios subject to certain extreme and generally unlikely conditions. If paths were generated 
@@ -312,6 +348,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/6dn54/download">OSF BB</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/callable-floating-coupon-note/">gitbook callable frn</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47646/CONTENT/brownianbridge.pdf">Hcommons BB</a></li>
 				 </ul>
 
 				 <br>
@@ -322,6 +359,11 @@ marginwidth="0" marginheight="0">
 				 conversion schedule. The bond issuer can call the bond and the holder can put it according to 
 				 the call and put provisions. The Exchangeable feature assumes that the convertible bond and the 
 				 underlying stock are issued by different parties.</p>
+				 
+				 <p>A convertible bond with exchangeable feature, which can be converted into a stock issued by 
+				 a party different from the bond issuer. Assume that the stock conversion is vulnerable. If the 
+				 bond-issuer has defaulted by a time, t , then the stock price is zero. If, on the other hand, 
+				 the bond-issuer has not defaulted by time t , then the stock price is given by St or 0.</p>
 
 				<p>There are two possible cases with respect to stock conversion: Covered - the bond issuer holds 
 				the underlying stock for the life time of the convertible; Vulnerable - the bond issuer does not 
@@ -330,6 +372,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/zgx8c/download">Exchangeable convertible bond</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/untitled/">gitbook convexity</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47688/CONTENT/exchangeableconveritible.pdf">Hcommons Exchangeable convertible bond</a></li>
 				 </ul>
 				 
 				 <br>
@@ -340,6 +383,11 @@ marginwidth="0" marginheight="0">
 				 pool, the trust issued Asset-Backed Notes, in a number of different series. A share of future 
 				 collections of credit charge receivables, to which the trust is entitled, is used to pay the interest 
 				 and the principal of the notes.</p>
+				 
+				 <p>An early amortization event is a set of circumstances specified in the offering memorandum, which 
+				 if it were to occur, would effectively move the liquidation date forward to the time of its occurrence. 
+				 Generally, early amortization is triggered by the failure of the pool assets to remain within a certain 
+				 range of value or quality.</p>
 
 				<p>Both the aggregate interest and the allocated collection amount depend on the remaining aggregate 
 				(senior and subordinated) principal X. Each month during the liquidation period the aggregate principal 
@@ -350,6 +398,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/eg6mv/download">OSF ABS</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/libor-market-model/">gitbook lmm</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47690/CONTENT/abcanalytics.pdf">Hcommons ABS</a></li>
 				 </ul>	
 
 				 <br>
@@ -362,10 +411,14 @@ marginwidth="0" marginheight="0">
 				<p>We seek to determine a HW volatility to match the market price of a certain ATM European payer 
 				swaption.  In particular let Ti be a Libor rate reset point.  Furthermore consider 
 				a fixed-for-floating interest rate swap of the following form,</p>
+				
+				<p>At each grid point, we compared respective Black’s and HW trinomial tree payer swaption pricing 
+				benchmarks. Specifically, using the interest rate and implied Black’s volatility.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/k3wc9/download">OSF HW vol</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/local-market-valuation/">gitbook local</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47692/CONTENT/hwvol.pdf">Hcommons HW vol</a></li>
 				 </ul>	
 				 
 				 <br>
@@ -382,6 +435,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/4nhyb/download">OSF bond bootstrapping</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/cancellable-product/">gitbook cancellable</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47696/CONTENT/bondbootstrapping.pdf">Hcommons bond bootstrapping</a></li>
 				 </ul>	
 				 
 				 <br>
@@ -389,6 +443,11 @@ marginwidth="0" marginheight="0">
 				 
 				 <p>Guaranteed investment certificate (GIC) is a financial instrument that offers a return based on 
 				 a corresponding GIC rate and the performance of a basket of certain stock and bond market indices.</p>
+				 
+				 <p>The payoff at maturity from a GIC can be shown equal to the invested principal plus principal times 
+				 the sum of the minimum guaranteed interest rate and the payoff from a European call option on the 
+				 arithmetic average of the basket price, where the basket price is given by a weighted sum of the 
+				 index levels.</p>
 
 				<p>The rate of return is then given by a weighted sum of the GIC rate and the percentage change in 
 				each index level described above, but bounded below by a minimum guaranteed interest rate.  
@@ -398,6 +457,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/tgd82/download">OSF GIC</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/callable-bermudan-note/">gitbook callable Bermudan</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47698/CONTENT/gicpricing.pdf">Hcommons GIC</a></li>
 				 </ul>	
 				 
 				 <br>
@@ -407,6 +467,9 @@ marginwidth="0" marginheight="0">
 				 another term (swaption). The valuation model assumes the swap rates for different terms to be 
 				 correlated log-normally distributed random variables and uses the Haselgrove integration method 
 				 for pricing the deal. </p>
+				 
+				 <p>The valuation model assumes the swap rates for different terms to be correlated log-normally 
+				 distributed random variables and uses the Haselgrove integration method for pricing the deal.</p>
 
 				<p>The model estimates the swap price as a risk-neutral expectation of the difference between the 
 				bond price whose yield-to-maturity is the swap rate and the bond’s par. The swap rate is considered 
@@ -415,6 +478,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/23w9h/download">OSF extendable swap</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/market-risk-measurement-and-management/">gitbook market risk</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47722/CONTENT/extendableswap.pdf">Hcommons extendable swap</a></li>
 				 </ul>	
 				 
 
@@ -428,10 +492,15 @@ marginwidth="0" marginheight="0">
 				<p>The calibration procedure takes only an interest rate curve as input (ignoring volatility surfaces) 
 				and results in adjusting the “alpha” parameter of the model. To test the calculations over a range 
 				of parameters, we used  the “piece-wise constant parametrization” mode. </p>
+				
+				<p>The Black-Karasinski class of models assumes the short term interest rates to be log-normally 
+				distributed. The spreadsheet mode used for the deal pricing has a hard-coded term structure of 
+				the mean reversion and volatility parameters, constructed as Chebyshev polynomials.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/9jyh8/download">OSF inverse swap</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/market-risk-factors/">gitbook risk factors</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47724/CONTENT/callableinverseswap.pdf">Hcommons inverse swap</a></li>
 				 </ul>					 
 				 
 				 
@@ -443,6 +512,11 @@ marginwidth="0" marginheight="0">
 				 has an option to redeem the principal and accrued interest at any time after 30 days of from the 
 				 date of purchase. No interest is paid if the investment is redeemed within first 30 days from 
 				 the purchase date.</p>
+				 
+				 <p>In the case of exercise a penalty is applied: the accrued interest is recalculated according 
+				 to a lower rate than that set for the deal till maturity. The interest adjustments are typically 
+				 different for the two exercise periods: the adjusted interest rate for the first exercise period 
+				 is lower than that for the second one.</p>
 
 				<p>We price the option of a flexible GIC with a one factor Hull-White model via a trinomial tree. 
 				The Hull-White model assumes a normal distribution for the rates. Our solution constructs a Hull-White 
@@ -452,6 +526,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/w97gv/wiki/home/">OSF flexible GIC</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/q6ut7/download">OSF flexible GIC pdf</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47726/CONTENT/flexiblegic.pdf">Hcommons flexible GIC pdf</a></li>
 				 </ul>		
 
 				 <br>
@@ -461,6 +536,9 @@ marginwidth="0" marginheight="0">
 				 bond. The payoff is positive if the yield exceeds a predetermined strike level. The model assumes 
 				 the yield of an American Treasury bond to be a log-normally distributed stochastic process and uses 
 				 Monte-Carlo simulation to price the deal as a European call option. </p>
+				 
+				 <p>The model assumes the yield of an American Treasury bond to be a log-normally distributed stochastic 
+				 process and uses Monte-Carlo simulation to price the deal as a European call option.</p>
 
 				<p>The model builds a trinomial tree for the yield process to price the deal as an American option. 
 				The time slices of the tree are evenly spaced. Node transition probabilities and the time interval 
@@ -470,6 +548,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/z73hj/wiki/home/">OSF Bond American option</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/dt69v/download">OSF American bond option</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47730/CONTENT/bondamericanoption.pdf">Hcommons American bond option</a></li>
 				 </ul>		
 
 				 <br>
@@ -480,12 +559,19 @@ marginwidth="0" marginheight="0">
 				 martingale property of the stock price is thus not guaranteed.  and may potentially represent 
 				 a problem.</p>
 
-				<p>We propose a two-factor tree model that implements the Hull-White and Black-Karasinski models. 
-				The new tree model does preserve the martingale property of the stock for sufficiently long terms. </p>
+				<p>We propose a three-factor tree model that implements the Hull-White and Black-Karasinski models. 
+				The new tree model does preserve the martingale property of the stock for sufficiently long terms 
+				(with accuracy better that 10-8 for terms of at least 10 years).  </p>
+				
+				<p>Given the limitations of the three-factor model that stem from the deterministic approximation 
+				of the interest rates, it performs remarkably well. Even for a bond’s term as long as 7 years the 
+				difference between the model and benchmark is within acceptable limits. The differences grow rapidly 
+				for longer terms, and the model is not recommended for terms exceeding 7 years.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/vyk8t/wiki/home/">OSF Martingale tree</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/6eyrv/download">OSF preserving tree</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47732/CONTENT/perservingtree.pdf">Hcommons preserving tree</a></li>
 				 </ul>		
 				 
 				 
@@ -499,10 +585,14 @@ marginwidth="0" marginheight="0">
 				swap rate process corresponding to each swap rate fixing follows Geometric Brownian motion with drift.  
 				Each forward swap rate process is then convexity adjusted, and is furthermore expressed under the 
 				notional currency (FRF) risk neutral-probability measure by means of a quanto adjustment.</p>
+				
+				<p>The initial forward swap rate is also quanto adjusted. We note that the correlation used in the 
+				spreadsheet is between the FRF to SEK exchange rate and the SEK swap rate.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/u95g2/wiki/home/">OSF quanto cms</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/g6tp5/download">OSF arrear quanto cms</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47734/CONTENT/arrearquantocms.pdf">Hcommons arrear quanto cms</a></li>
 				 </ul>					 
 				 
 				 
@@ -513,9 +603,16 @@ marginwidth="0" marginheight="0">
 				 be log-normally distributed. The one factor  Black-Karasinski model is implemented as a binomial 
 				 or trinomial tree</p>
 				 
+				 <p>Black-Karasinski short rate tree approach can be used to price convertible bond. Convertible bond is 
+				 not only a coupon paying bond but also can be converted at the discretion of the holder within the periods 
+				 of time specified by the conversion schedule. Typically, the issuer has the option to buy the bond back at 
+				 a predetermined strike price(s) during the callable period(s). Also, there are provisions that allow the 
+				 holder to return the bond to the issuer in exchange for a predetermined cash price during certain period(s). </p>
+				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/efy6v/download">OSF BK tree</a></li>
 					<li style="font-size:16px"><a href="https://cmrm11.gitbook.io/unexplained-profit-and-loss/">gitbook unexpected p&l</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47736/CONTENT/bktree.pdf">Hcommons BK tree</a></li>
 				 </ul>	
 				 
 				 
@@ -534,11 +631,17 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/j3p7q/wiki/home/">OSF variable rate swap</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/np5bw/download">OSF variable swap</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47738/CONTENT/variableswap.pdf">Hcommons variable swap</a></li>
 				 </ul>	
 
 
 				 <br>
 				 <font face="Arial, Helvetica, sans-serif"><b>CMS Spread Option Study</b></font>	
+				 
+				 <p>A constant maturity swap (CMS) spread option makes payments based on a bounded spread between 
+				 two index rates (e.g., a GBP CMS rate and a EURO CMS rate).  The GBP CMS rate is calculated from 
+				 a 15 year swap with semi-annual, upfront payments, while the EURO CMS rate is based on a 15 year 
+				 swap with annual, upfront payments. </p>
 				 
 				 <p>A constant maturity swap (CMS) spread option makes payments based on a bounded spread between 
 				 two index rates (e.g., a GBP CMS rate and a EURO CMS rate).  The GBP CMS rate is calculated from 
@@ -552,6 +655,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/ndte4/wiki/home/">OSF cms spread</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/9db5u/download">OSF cms spread option</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47768/CONTENT/cmsspreadoption.pdf">Hcommons cms spread option</a></li>
 				 </ul>	
 				 
 				 
@@ -561,6 +665,10 @@ marginwidth="0" marginheight="0">
 				 <p>An early start swap is a swap that has an American style option for the counterparty of starting 
 				 the swap early, within a period of three month. Otherwise, the swaps are plain vanilla 
 				 fixed-for-floating swaps.</p>
+				 
+				 <p>Early start swaps are a series of 10-year interest rate swaps. Each swap has an American style 
+				 option for the counterparty of starting the swap early, within a period of three month. Otherwise, 
+				 the swaps are plain vanilla fixed-for-floating swaps.</p>
 
 				<p>We consider a swap as an exchange of a principal for a coupon bearing bond with the same principal. 
 				Indeed, from payer’s perspective, the swap’s present value is the difference between the present 
@@ -569,6 +677,7 @@ marginwidth="0" marginheight="0">
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/z587j/wiki/home/">OSF early start</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/kapm3/download">OSF early start swap</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47770/CONTENT/earlystartswap.pdf">Hcommons early start swap</a></li>
 				 </ul>
 
 
@@ -583,10 +692,15 @@ marginwidth="0" marginheight="0">
 				<p>The payoff of the leg based on the return of the foreign exchange rate is a payoff of a European 
 				call option.  Its present value is given by Black’s formula for futures with the discounting factor 
 				equal to the Canadian zero-coupon bond</p>
+				
+				<p>The payoff of the quanto-return leg is max(1.3 x (FX at maturity - initialFX)/initialFx), 0). 
+				Its present value is given by Black’s formula for futures with the discounting factor equal to 
+				the Canadian zero-coupon bond and the future price. </p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/rwfgn/wiki/home/">OSF quanto total</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/p7kn4/download">OSF quanto total return</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47774/CONTENT/quantotrs.pdf">Hcommons quanto total return</a></li>
 				 </ul>
 				 
 				 
@@ -602,13 +716,61 @@ marginwidth="0" marginheight="0">
 				<p>The payoff amount can be viewed as the value of the sum of a series of daily Libor digital payoffs.  
 				Here we assume that Libor rates are log-normally distributed, and derives an analytical formula for 
 				the daily digital payoff.</p>
+				
+				<p>The reference interest rate is three-month USD Libor BBA. For each accrual period in the swap, 
+				one party receives the reference rate, and pays the reference rate plus a positive spread, but weighted 
+				by the ratio of the number of calendar days in the period that the reference rate sets below an upper 
+				level to the total number of calendar days in the period.</p>
 				 
                   <ul>
 					<li style="font-size:16px"><a href="https://osf.io/wn2ys/wiki/home/">OSF daily digital</a></li>
 					<li style="font-size:16px"><a href="https://osf.io/qzmer/download">OSF daily digital swap</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47776/CONTENT/dailydigital.pdf">Hcommons daily digital swap</a></li>
 				 </ul>
 				
+				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>Ratchet Swap </b></font>	
+				 
+				 <p>A ratchet swap is an interest rate swap with two legs. One leg is a standard floating leg and the 
+				 other leg is a ratchet leg. The ratchet leg pays a ratchet floating rate.</p>
+				 
+				 <p>The ratchet floating rate coupon is based on an index, e.g., 6-month EURIBOR. The rate is further 
+				 subject to a minimum decrease of 0 bps and a maximum increase of a threshold, such as, 15 bps. These 
+				 rates are reset two business days prior to the first day of each coupon period.</p>
+				 
+				 <p>The valuation methodology is based on the Monte Carlo spot LIBOR rate model. The model generates 
+				 spot rates which log-normally distributed at each reset date. These spot rates are derived from 
+				 corresponding forward rates whose stochastic behavior is constructed in an arbitrage-free manner. 
+				 Outcomes for the spot rate are generated for each reset date. These rates are then applied to the 
+				 ratchet-type payoff structure. The ratchet instrument is then valued by discounting and averaging 
+				 these payoffs.</p>
 
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/azy78/download">OSF ratchet swap</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47608/CONTENT/ratchetswap.pdf">Hcommons ratchet swap</a></li>
+				 </ul>				 
+				 
+				 
+				 				 <br>
+				 <font face="Arial, Helvetica, sans-serif"><b>LIBOR Rate Model </b></font>	
+				 
+				 <p>LIBOR Rate Model is used for pricing Libor-rate based derivative securities. The model is applied, 
+				 primarily, to value instruments that settle at a Libor-rate reset point.  In order to value instruments 
+				 that settle at points intermediate to Libor resets, we calculate the numeraire value at the settlement 
+				 time by interpolating the numeraire at bracketing Libor reset points. .</p>
+				 
+				 <p>Although referred to as a BGM model, the model is actually based on Jamshidian’s approach towards 
+				 Libor rate modeling (i.e., where Libor rates are modeled simultaneously under the spot Libor measure).</p>
+				 
+				 <p>Libor rate model is very useful to price callable exotics. Many derivatives have callable features. 
+				 Callable exotics are among the most challenging derivatives to price. These products are loosely defined 
+				 by the provision that gives the holder or issuer the right to call the product after a lock-out period </p>
+
+                  <ul>
+					<li style="font-size:16px"><a href="https://osf.io/wra62/download">OSF LRM</a></li>
+					<li style="font-size:16px"><a href="https://hcommons.org/deposits/download/hc:47780/CONTENT/liborswapmodel.pdf">Hcommons LRM</a></li>
+				 </ul>				 
+				 
 				 
               </td>
           </tr>
