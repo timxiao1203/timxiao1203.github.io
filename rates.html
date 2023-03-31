@@ -269,109 +269,94 @@ marginwidth="0" marginheight="0">
 
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Cash Flow </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Black-Karasinski Short Rate Tree </b></font>	
 
-				<p>We model the closed monthly cash flows from a pool of mortgage. Here cash flows consist of principal and interest payments.  Principal payments arise from the regular amortization of principal, as well as from scheduled and unscheduled principal pre-payments. </p>
+				<p>The Black-Karasinski model is a short rate model that assumes the short-term interest rates to be log-normally distributed. We implement the one factor  Black-Karasinski model as a binomial or trinomial tree.</p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/647">Science mortgage cash</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagecashflow/">Gitbook mortgage cash</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904705.us.archive.org/24/items/mortgageCashFlow/mortgageCashFlow.pdf">Archive mortgage cash</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871195.pdf">core bk tree</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933162">core bk tree</a></li>
 				 </ul>	
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Transfer Coupon  </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Callable Bond </b></font>	
 
-				<p>With respect to a closed commercial mortgage certificate, the transfer coupon rate is defined as an annualized, monthly compounded interest rate, such that the fair value of the closed mortgage certificate, from Treasury’s point of view, is par. </p>
+				<p>A callable bond can therefore be considered a vanilla underlying bond with an embedded Bermudan style option. Callable bonds protect issuers. Therefore, a callable bond normally pays the investor a higher coupon than a non-callable bond. </p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/646">Science mortgage coupon</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagetranfercoupon/">Gitbook mortgage coupon</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904709.us.archive.org/16/items/mortgageTransferCoupon/mortgageTransferCoupon.pdf">Archive mortgage cash</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534868178.pdf">core callable bond pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127932547">core callable bond</a></li>
 				 </ul>	
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Seller Swap  </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Rainbow Option </b></font>	
 
-				<p>One party sells mortgage pools on its balance sheet and pays the bond interest by entering into a pay-fixed swap with CHT, and receives the interest from MBS pool sold to CHT. This is a seller swap. The fixed leg is semi annual, and the float leg, MBS coupons, is monthly. In addition, the MBS sold to the trust generates principal cash flows. CHT buys new-pooled mortgages from the party with this principal flows every month until the maturity of the swap. </p>
+				<p>Rainbow options are appealing to investors due to its natural risk diversification, cost efficiency, and weighted average on the best or worst performing assets. The best version offers higher returns, whereas the worst version is normally cheap.</p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/645">Science seller swap</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/sellerswap/">Gitbook seller swap</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia902902.us.archive.org/10/items/sellerSwap/sellerSwap.pdf">Archive seller swap</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534868019.pdf">core rainbow pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127930421">core rainbow</a></li>
 				 </ul>	
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Pool </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Bond Curve </b></font>	
 
-				<p>A model is presented for the calculation of the fair value and the hedge ratios, Delta, Vega and Gamma, with respect to pools of Canadian commercial and residential mortgages. Commercial mortgages are closed and either insured or not insured, while residential mortgages are separated into </p>
+				<p>Government Bond Bootstrapping proceeds in two phases. The first phase uses short term instruments, which typically mature in one year or less. Consider, for example, a US government money market instrument with </p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/644">Science mortgage pool</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagepoolcalculation/">Gitbook mortgage pool</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904700.us.archive.org/8/items/mortgagePool/mortgagePool.pdf">Archive mortgage pool</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871175.pdf">core bond curve pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931168">core bond curve</a></li>
 				 </ul>	
 				 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>MBS Liquidation Rate</b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Collateralization Model</b></font>	
 
-				<p>We calculate the price of an MBS based on future cashflows that are assumed to be deterministic. One of the factors affecting future cashflows is a liquidation rate. In its current implementation the user has two options for specifying a liquidation rate, that is, it can be assumed to be constant or vary deterministically according to a Standard Vector prepayment model. For the Standard Vector model, the liquidation rate is calculated as  </p>
+				<p>Default for ordinary contractual payments is deemed to have happened as soon as the payment is missed as the size and timing of the payment is defined precisely by the contract. In contrast, the size of collateral transfers is subject to legitimate dispute. This is because collateral levels are a function of portfolio value, and for all but the simplest portfolios, portfolio value is a function of future payments whose amount or even existence is uncertain. </p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/643">Science mbs</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mbs-liquidation-model/">Gitbook mbs</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904709.us.archive.org/13/items/liquidationMbs/liquidationMbs.pdf">Archive mbs</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534863864.pdf">core collateral pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931261">core collateral</a></li>
 				 </ul>				 
 
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Prepayment Neural Net</b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Asset Backed Senior Note </b></font>	
 
-					<p>A model of mortgage prepayment rates based on the neural net approach is proposed. The model for insured, closed, five-year term mortgages has been developed.</p>
-
-					<p>Mortgage prepayment rate is affected by a large number of economic, social and demographic factors and is to a significant degree a random variable. We have identified six principal determinants of the prepayment rate and built a neural network that uses these determinants as input parameters.  Given these inputs the model is supposed to predict the corresponding prepayment rate.</p>
-
+					<p>The valuation makes the assumption that the future values of these parameters will be unchanged until the final payment date. Subsequently, the calculator performs a deterministic computation consisting of calculating the future cashflows in the waterfall and discounting them.</p|
+					
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/642">Science prepayment</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/paymentneuralnet/">Gitbook prepayment</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904701.us.archive.org/21/items/prepayment-neural-net/PrepaymentNeuralNet.pdf">Archive prepayment</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871172.pdf">core abs pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931174">core abs</a></li>
 				 </ul>	
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Mutual Fund Cash Flow </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Digital LIBOR Swap </b></font>	
 
-					<p>A model for the balance between the expenses to pay back amortizing notes and the income from fees generated by mutual funds is presented. We provide two basic models, one static and the other dynamic, for the performance of the mutual fund fees. The static model assumes that the Net Asset Value (NAV) of the mutual fund grows at a predetermined rate. The alternative model assumes that the growth rate of the NAV varies either.</p>
-
-					<p>The fund manager pays outright commissions to the broker who buys units of the mutual fund to his customers, while the customers do not pay anything at the time of purchase. The fund unit holders, however, pay fees to the fund management annually. The fund sells these future cash flows to one party and uses the proceeds to pay the broker commissions. To finance the purchase of the future cash flows, the party issues amortizing notes. </p>
-
-                  <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/640">Science MF</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mutualfundcashflow/">Gitbook MF</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904701.us.archive.org/7/items/mutualFundCash/mutualFundCash.pdf">Archive MF</a></li>
+					<p>A daily digital LIBOR swap is an interest rate swap whose reference interest rate is three-month USD Libor BBA. For each accrual period in the swap, one party receives the reference rate, and pays the reference rate plus a positive spread, but weighted by the ratio of the number of calendar days in the period that the reference rate sets below an upper level to the total number of calendar days in the period.</p>
+                  
+				  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871215.pdf">core digital swap pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933862">core digital swap</a></li>
 				 </ul>					 
 
 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Variable Rate MBS  </b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Callable Floating Coupon Note </b></font>	
 
-					<p>In the simplest sense an MBS is valued according to the current value of an expected series of cash flows for the pool of mortgages that underlie the security.  However, predicting the expected cash flows must take into account the characteristics of the underlying mortgages that could alter the cash flows and predict what those changes would be. </p>
-
-					<p>The calculator used for MBS valuation of FRM assesses the expected cash flows from the mortgages while considering the potential for not earning those cash flows due to early return of principal from prepayments and mortgage refinancing, and determines the appropriate fixed coupon for the MBS accordingly.  However, VRM have different characteristics that determine the cash flow behaviour in particular a changing interest rate and the possibility for conversion to a new FRM.  </p>
-
+					<p>Callable floating coupon note usually pay a higher coupon or interest rate to investor. Institutions may issue callable floating coupon notes to fund expansion or to pay off loans. This type of note is in demand among investors when interest rates are low and expected to rise.</p>
+					
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/641">Science variable MBS</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/variableratembsvaluation/">Gitbook variable MBS</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904700.us.archive.org/2/items/variableMbsValuation/variableMbsValuation.pdf">Archive variable MBS</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534868267.pdf">core callable frn</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/126056982">core callable frn</a></li>
 				 </ul>	
 				 
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Credit Risk Calculator</b></font>	
+				<font face="Arial, Helvetica, sans-serif"><b>Martingale Preserving Tree </b></font>	
 
-				<p>The purpose of the credit risk calculator is to ensure that the expected loss that can occur from the guarantor’s (CMHC’s) perspective is covered by the guarantee fee. From CMHC’s perspective, the risk of loss will occur if an AAA/AA swap counterparty fails instantaneously without any rating migration to a lower state (i.e., AA to A). Under a normal rating migration, the swap counterparty to the Trust would have to collateralize its exposure. </p>
+				<p>An important feature of the popular three factor trinomial tree is that it uses a deterministic approximation of the interest rates for constructing the stock tree. The preservation of the martingale property of the stock price is thus not guaranteed.  and may potentially represent a problem.</p>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/639">Science credit risk</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/creditriskcalculator/">Gitbook credit risk</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904704.us.archive.org/11/items/creditRiskCalculator/creditRiskCalculator.pdf">Archive credit risk</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871193.pdf">core tree pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931199">core tree</a></li>
 				 </ul>	
 
 				 
