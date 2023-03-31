@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Rates Product</title>
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+<META name="description" content="Interest Rate Product">
+
+<META name="keywords" content="security, derivatives">
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000 bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="images/tool.jpg" 
+	  Alt="data knowledge" width="164" height="194" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/products.gif" 
+	  Alt="data tool" width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Interest Rate Product</font></I></p>
+				
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			</font></p>		
+
+
+			
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>CMS Spread Option</b></font>	
+
+				<p>To evaluate CMS spread option, we require the SDE followed by the forward exchange rate process under domestic T-forward measure.  This is derived by changing measure from foreign  delta-forward measure, to domestic risk-neutral measure, to domestic  -forward measure.</p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871211.pdf">core cms spread pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931161">core cms spread</a></li>
+				 </ul>
+				 
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Forward Starting Option </b></font>	
+
+				<p>The valuation requires two interest rate curve inputs. One curve, called the “hedge curve”, is specified by a list of n term and continuously compounded zero rate pairs and is intended for use in computing forward equity values.</p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871134.pdf">core forward starting pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933887">core forward starting</a></li>
+				 </ul>
+				
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Brownian Bridge </b></font>	
+
+				<p>The Brownian Bridge algorithm belongs to the family of Monte Carlo or Quasi-Monte Carlo methods with reduced variance. It generates sample paths which all start at the same initial point and end, at the same moment of time, at the same final point. </p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871150.pdf">core bb pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933859">core bb</a></li>
+				 </ul>
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Cap Implied Volatility</b></font>	
+
+				<p>A cap/floor is quoted by implied volatilities but not prices. An interest rate cap volatility surface is a three-dimensional plot of the implied volatility of a cap as a function of strike and maturity. The term structures of implied volatilities which provide indications of the market’s near- and long-term uncertainty about future short- and long-term forward interest rates. A crucial property of the implied volatility surface is the absence of arbitrage.
+				</p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534864981.pdf">core cap vol pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127928666">core cap vol</a></li>
+				 </ul>		
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Exchangeable Convertible Bond </b></font>	
+
+				<p>A convertible bond issuer pays periodic coupons to the convertible bond holder. The bond holder can convert the bond into the underlying stock within the period(s) of time specified by the conversion schedule. The bond issuer can call the bond and the holder can put it according to the call and put provisions. </p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871171.pdf">core exchangable convertible pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931169">core exchangable convertible</a></li>
+				 </ul>		
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Variable Rate Swap </b></font>	
+
+				<p>Variable rate swap is a special type of interest rate swap in which one leg of the swap corresponds to fixed rate payments while the other involves fixed rate payments for an initial period of time and a floating rate for the rest. The floating rate on that portion is defined as a minimum of two index rates.</p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871196.pdf">core variable swap pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127931171">core variable swap</a></li>
+				 </ul>					 
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Quanto Option </b></font>	
+
+				<p>A quanto option is a financial contract where payment is made in a currency other than that of the underlying security. It can help investors to buy foreign stocks to hedge their foreign asset risk as well as exchange rate risk.</p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534866609.pdf">core quanto pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/126047802">core quanto</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Zero Coupon Bond </b></font>	
+
+				<p>Zero coupon bonds are issued at a deep discount and repaid the face value at maturity. The greater the length of the maturity is the cheaper price a bond has. Unlike other bonds, the investor’s return is the difference between the purchase price and the face value. An investor preferring a long-term investment may purchase zero coupon bonds such as saving money for children’s college tuition. The deep discount helps the investor grow a small amount of money into a sizable sum over several years. Normally investors buy zero coupon bonds when interest rates are high. </p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534868225.pdf">core zero pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933340">core zero</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Pricign GIC</b></font>	
+
+				<p>The payoff at maturity from a GIC can be shown equal to the invested principal plus these principal times the sum of the minimum guaranteed interest rate and the payoff from a European call option on the arithmetic average of a basket price at the 12 points above, where the basket price is given by a weighted sum of the index levels above.  </p>
+				
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/534871176.pdf">core gic pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/127933873">core gic</a></li>
+				 </ul>	
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Cash Flow </b></font>	
+
+				<p>We model the closed monthly cash flows from a pool of mortgage. Here cash flows consist of principal and interest payments.  Principal payments arise from the regular amortization of principal, as well as from scheduled and unscheduled principal pre-payments. </p>
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/647">Science mortgage cash</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagecashflow/">Gitbook mortgage cash</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904705.us.archive.org/24/items/mortgageCashFlow/mortgageCashFlow.pdf">Archive mortgage cash</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Transfer Coupon  </b></font>	
+
+				<p>With respect to a closed commercial mortgage certificate, the transfer coupon rate is defined as an annualized, monthly compounded interest rate, such that the fair value of the closed mortgage certificate, from Treasury’s point of view, is par. </p>
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/646">Science mortgage coupon</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagetranfercoupon/">Gitbook mortgage coupon</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904709.us.archive.org/16/items/mortgageTransferCoupon/mortgageTransferCoupon.pdf">Archive mortgage cash</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Seller Swap  </b></font>	
+
+				<p>One party sells mortgage pools on its balance sheet and pays the bond interest by entering into a pay-fixed swap with CHT, and receives the interest from MBS pool sold to CHT. This is a seller swap. The fixed leg is semi annual, and the float leg, MBS coupons, is monthly. In addition, the MBS sold to the trust generates principal cash flows. CHT buys new-pooled mortgages from the party with this principal flows every month until the maturity of the swap. </p>
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/645">Science seller swap</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/sellerswap/">Gitbook seller swap</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia902902.us.archive.org/10/items/sellerSwap/sellerSwap.pdf">Archive seller swap</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Mortgage Pool </b></font>	
+
+				<p>A model is presented for the calculation of the fair value and the hedge ratios, Delta, Vega and Gamma, with respect to pools of Canadian commercial and residential mortgages. Commercial mortgages are closed and either insured or not insured, while residential mortgages are separated into </p>
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/644">Science mortgage pool</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mortgagepoolcalculation/">Gitbook mortgage pool</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904700.us.archive.org/8/items/mortgagePool/mortgagePool.pdf">Archive mortgage pool</a></li>
+				 </ul>	
+				 
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>MBS Liquidation Rate</b></font>	
+
+				<p>We calculate the price of an MBS based on future cashflows that are assumed to be deterministic. One of the factors affecting future cashflows is a liquidation rate. In its current implementation the user has two options for specifying a liquidation rate, that is, it can be assumed to be constant or vary deterministically according to a Standard Vector prepayment model. For the Standard Vector model, the liquidation rate is calculated as  </p>
+				
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/643">Science mbs</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mbs-liquidation-model/">Gitbook mbs</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904709.us.archive.org/13/items/liquidationMbs/liquidationMbs.pdf">Archive mbs</a></li>
+				 </ul>				 
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Prepayment Neural Net</b></font>	
+
+					<p>A model of mortgage prepayment rates based on the neural net approach is proposed. The model for insured, closed, five-year term mortgages has been developed.</p>
+
+					<p>Mortgage prepayment rate is affected by a large number of economic, social and demographic factors and is to a significant degree a random variable. We have identified six principal determinants of the prepayment rate and built a neural network that uses these determinants as input parameters.  Given these inputs the model is supposed to predict the corresponding prepayment rate.</p>
+
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/642">Science prepayment</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/paymentneuralnet/">Gitbook prepayment</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904701.us.archive.org/21/items/prepayment-neural-net/PrepaymentNeuralNet.pdf">Archive prepayment</a></li>
+				 </ul>	
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Mutual Fund Cash Flow </b></font>	
+
+					<p>A model for the balance between the expenses to pay back amortizing notes and the income from fees generated by mutual funds is presented. We provide two basic models, one static and the other dynamic, for the performance of the mutual fund fees. The static model assumes that the Net Asset Value (NAV) of the mutual fund grows at a predetermined rate. The alternative model assumes that the growth rate of the NAV varies either.</p>
+
+					<p>The fund manager pays outright commissions to the broker who buys units of the mutual fund to his customers, while the customers do not pay anything at the time of purchase. The fund unit holders, however, pay fees to the fund management annually. The fund sells these future cash flows to one party and uses the proceeds to pay the broker commissions. To finance the purchase of the future cash flows, the party issues amortizing notes. </p>
+
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/640">Science MF</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/mutualfundcashflow/">Gitbook MF</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904701.us.archive.org/7/items/mutualFundCash/mutualFundCash.pdf">Archive MF</a></li>
+				 </ul>					 
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Variable Rate MBS  </b></font>	
+
+					<p>In the simplest sense an MBS is valued according to the current value of an expected series of cash flows for the pool of mortgages that underlie the security.  However, predicting the expected cash flows must take into account the characteristics of the underlying mortgages that could alter the cash flows and predict what those changes would be. </p>
+
+					<p>The calculator used for MBS valuation of FRM assesses the expected cash flows from the mortgages while considering the potential for not earning those cash flows due to early return of principal from prepayments and mortgage refinancing, and determines the appropriate fixed coupon for the MBS accordingly.  However, VRM have different characteristics that determine the cash flow behaviour in particular a changing interest rate and the possibility for conversion to a new FRM.  </p>
+
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/641">Science variable MBS</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/variableratembsvaluation/">Gitbook variable MBS</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904700.us.archive.org/2/items/variableMbsValuation/variableMbsValuation.pdf">Archive variable MBS</a></li>
+				 </ul>	
+				 
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Credit Risk Calculator</b></font>	
+
+				<p>The purpose of the credit risk calculator is to ensure that the expected loss that can occur from the guarantor’s (CMHC’s) perspective is covered by the guarantee fee. From CMHC’s perspective, the risk of loss will occur if an AAA/AA swap counterparty fails instantaneously without any rating migration to a lower state (i.e., AA to A). Under a normal rating migration, the swap counterparty to the Trust would have to collateralize its exposure. </p>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://science-media.org/presentation/639">Science credit risk</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/creditriskcalculator/">Gitbook credit risk</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904704.us.archive.org/11/items/creditRiskCalculator/creditRiskCalculator.pdf">Archive credit risk</a></li>
+				 </ul>	
+
+				 
+              </td>
+          </tr>
+        </table></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
