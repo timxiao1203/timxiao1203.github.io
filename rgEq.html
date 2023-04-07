@@ -177,8 +177,8 @@ marginwidth="0" marginheight="0">
 				<p>We test the model via several trades (transactions). In these sample transactions, Monte Carlo simulation associated with stratified sampling variance deduction is employed to evaluate the option.  In the first sample transaction, there are six stocks, one as a reference, and the other five in a basket with equal weight.  These underling stocks and the option are all measured in CAD.  A strike share table is provided so that a share number can be interpolated based on the relative performance.  The initial price for each asset is 100.  The calculated option value is 96.5776 when 2000 simulations and 2000 samples in stratified sampling are used.  Keeping the 2000 stratified samples unchanged, calculations with more simulations are conducted.  Table 1 shows the simulated results.</p>
 				
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369876624_Asian_Basket_Relative_Performance_Option_Model/links/64301f20609c170a13fd4cc1/Asian-Basket-Relative-Performance-Option-Model.pdf">ResearchGate callable Asian pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369876624_Asian_Basket_Relative_Performance_Option_Model">ResearchGate callable Asian</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369876624_Asian_Basket_Relative_Performance_Option_Model/links/64301f20609c170a13fd4cc1/Asian-Basket-Relative-Performance-Option-Model.pdf">ResearchGate Asian RPO pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369876624_Asian_Basket_Relative_Performance_Option_Model">ResearchGate Asian RPO</a></li>
 				 </ul>
 
 
@@ -192,8 +192,94 @@ marginwidth="0" marginheight="0">
 				 </ul>
 
 
-			
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Binary Return Note </b></font>	
+	
+				<p>The Monte Carlo method for computing expectations consists in simulating the cashflow sequence M times (where M is a large number) and taking the average. If the valuation date is later than a reset date, then the realized return rate should be used. Quasi Mote Carlo (QMC) method (Sobol low discrepancy sequences and Brownian bridge path generation) is used. Such a method has an improved convergence speed. We also use crude Monte Carlo for comparison. For the main issues that arise when computing sensitivities. It is known that Gamma requires a high number of simulations.</p>
 
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369878648_Binary_Return_Note_Model/links/64302aec20f25554da15a5ca/Binary-Return-Note-Model.pdf">ResearchGate binary return pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369878648_Binary_Return_Note_Model">ResearchGate binary return</a></li>
+				 </ul>
+
+				 
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Bond Option </b></font>	
+	
+				<p>We present a pricing model for bond options. Assuming that the bond price at the maturity of the option is lognormal, the model adopts the Black’s analytical closed-form solution. In market, both the underlying spot price of bond and the strike price are clean prices (quoted prices), while dirty prices are used in the price dynamic and the closed-form solution.</p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369879832_Bond_Option_Model/links/6430416120f25554da15b598/Bond-Option-Model.pdf">ResearchGate bond option pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369879832_Bond_Option_Model">ResearchGate bond option</a></li>
+				 </ul>
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Bond Futures Option </b></font>	
+	
+				<p>We test the bond futures option model in several cases. The first case is a call option, with the value date of 20031212 10:54, the futures price of 111.0, the risk free interest rate of 0.01, the volatility of the futures price of 0.05, and the option maturity of 20040221 10:54.  The second case is a put option with the same inputs as the first case except that the volatility is 0.10.</p>
+								
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369879856_Bond_Futures_Option_Model/links/643046fa20f25554da165e99/Bond-Futures-Option-Model.pdf">ResearchGate bond futures option pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369879856_Bond_Futures_Option_Model">ResearchGate bond futures option</a></li>
+				 </ul>				 
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Callable Asian Option </b></font>	
+	
+				<p>Pricing of callable Asian options involve two stages.  The first stage is for the cases when the current value date is prior to the call date.  This is our focus.  The second is for the cases when the current value date is beyond the call date; in these cases, either the option was called and therefore deceased, or the remaining is just a regular Asian option, which is not in our scope.</p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369880761_Callable_Asian_Option_Model/links/64304eeead9b6d17dc40d407/Callable-Asian-Option-Model.pdf">ResearchGate callable Asian pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369880761_Callable_Asian_Option_Model">ResearchGate callable Asian</a></li>
+				 </ul>	
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Credit Default Swap </b></font>	
+	
+				<p>Once calibration of a term structure of hazard rates is completed, the target swap can be priced.  Currently, the model only allows fee payment at payment dates and does not allow accrued fee when default occurs.  If a payment date in the target default swap falls between two calibration pay dates, linear interpolation is employed in the model to find the hazard rate associated with the target payment date.  This is equivalent to using a time-weighted average of hazard rates in a payment period of the target swap as a flat hazard rate for that period, so long as the length of each payment period of the target swap is the same as that of the swaps for calibration. </p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369880868_Credit_Default_Swap_Model/links/643052d520f25554da17af1a/Credit-Default-Swap-Model.pdf">ResearchGate cds pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369880868_Credit_Default_Swap_Model">ResearchGate cds</a></li>
+				 </ul>	
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Floating Rate Convertible Bond </b></font>	
+	
+				<p>Following general market pricing practice, pricing of convertible bonds uses lattice trees for the stock price with the interest rate curves static just like pricing a conventional bond. This is the so-called one-factor (stock price) model. The call/put feature of the bond therefore has price effect mainly contributed by the stock price movement rather than the interest rate movement. A two-factor tree model may be considered if the call/put option on bond has considerable weight on the convertible price. </p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369881130_Floating_Rate_Convertible_Bond_Model/links/64305ecfad9b6d17dc41399e/Floating-Rate-Convertible-Bond-Model.pdf">ResearchGate floating convertible pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369881130_Floating_Rate_Convertible_Bond_Model">ResearchGate floating convertible</a></li>
+				 </ul>	
+
+
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Convertible Bond with Refix Feature</b></font>	
+	
+				<p>The single-factor version of the model is found to be accurate for the purposes of pricing convertible bonds which possess the refix feature.  This includes situations multiple dates upon which the conversion ratio/conversion price is reset.  In addition, the asset swap spread adjustment was verified to function according to design.</p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369881226_Convertible_Bond_with_Refix_Feature/links/643061d7609c170a13ff5527/Convertible-Bond-with-Refix-Feature.pdf">ResearchGate refix convertible pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369881226_Convertible_Bond_with_Refix_Feature">ResearchGate refix convertible</a></li>
+				 </ul>
+
+				 
+			<br>
+				<font face="Arial, Helvetica, sans-serif"><b>Non Quanto Convertible Bond </b></font>	
+	
+				<p>In a non-quanto convertible bonds, the spot stock price in foreign currency is converted into an amount in domestic currency using the spot exchange rate.  This amount is then adjusted by the current value of predicted future discrete dividends, measured in domestic currency.  The domestic risk-free interest rate is employed as the drift rate for the translated stock.</p>
+				
+				<ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/369881088_Non_Quanto_Convertible_Bond_Model/links/64306953ad9b6d17dc413c94/Non-Quanto-Convertible-Bond-Model.pdf">ResearchGate non-quanto convertible pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/369881088_Non_Quanto_Convertible_Bond_Model">ResearchGate non-quanto convertible</a></li>
+				 </ul>
+				 
+				 
 				 
               </td>
           </tr>
