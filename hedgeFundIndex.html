@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Hedge Fund VaR</title>
+<title>Hedge Fund Index</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/HedgeFundVaR.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/hedgeFundIndex.html" />
 
 <style>
 p {
@@ -160,67 +160,78 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 
 			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-                Hedge Fund VaR</font></I></p>
+                Hedge Fund Index</font></I></p>
 			
 			<br>
-		
+			
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We propose a model to determine the value at risk (VaR) due to hedge fund volatility during closeout of hedge fund positions, as well as pricing calculations for options written on a basket of funds.
+Hedge fund index is unusual in the sense that it is tracking an asset class with reduced liquidity (hedge funds), and the performance of the index tracks the actual processes involved in hedge fund investing–in particular the timing of fund redemptions. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-It contains the implemented VaR calculations for options written on a basket of hedge funds, with minor changes and the methodology for calculating the VaR of the LTV (loan to value) ratio for loans to funds-of-funds.
+
+So rather then being a weighted sum over some easily replicable market indices which is re-balanced periodically, this index is run more like a quantitative fund-of-funds. This will allow investors to directly hedge its exposure to index-linked products, which is important given that hedge funds are an asset class with reduced transparency, and with returns and have traditionally been difficult to replicate using liquid instruments.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The portfolio diversification and leverage limits were found to be consistent with increasing conservatism as the number of funds in a basket decreases. It should be noted that these limits cannot be considered as ‘stand alone’ since the characteristics of hedge funds change with strategy and management style–this table must be used in conjunction with other risk-management tools.
+
+While the result is an index that reflects the performance of the hedge fund industry fairly well, the actual operation of the index is fairly complicated. The basic relationship is:
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Assume that we have historical fund values for each fund Fi in a basket: {Fi, Fi, . . . Fn}, and a fraction αi of each fund is ‘owned’ by the basket. Then at month n the value of the basket is
+
+So far nothing is very surprising: the index return is the weighted sum of fund returns, which is then adjusted by the fee.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-However, we are interested in determining the volatility of the basket with today’s weightings, not the historical volatility of the basket. These two quantities are typically different as the composition of the basket changes slightly with time, and the funds that dominant the basket volatility one month may have vanishingly small weight the next.
+
+
+Although transparent, the above calculation is not as simple as it appears. In order to calculate the fund return ρm we need to know the NAV of the fund in question at the beginning and end of the month. Typically we do not have finalized fund NAVs until some weeks have passed, although we may have preliminary estimates. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-to generate a collection of historical returns on today’s basket (this is not really a time-series). The returns (6) are then used to estimate the volatility of the basket: σ_B.
+
+This results in the index return being recalculated at various times with different estimates of the fund returns, until the finalized value of the index is calculated: 45 calendar days after the end of the month. Even then there may be some funds that have not reported finalized NAVs, and the index administrator may have estimated the return.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Assuming a sudden drop in the basket value–causing immediate trigger–we want to estimate how much the basket could lose in value at the 99th percentile of its returns distribution. This is complicated by the fact that there is a delay associated with the redemption of each fund. As per standing order S09.01.05, the VaR (and capital) is initially calculated as follows.
+
+In addition, redemption fees may be charged by the fund for index-related adjustment activities, and these fees are ‘charged’ to the fund return. That is, if there is a redemption from a fund that would result in a fee, the fraction of that redemption attributable to index adjustment activities (and not client outflow or other RBC fund-related business) is used to adjust the fund return in the index.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The distribution of basket value returns is assumed to be normally-distributed with width _B as calculated above. We want to determine the basket value that corresponds to a drop in value to the 99th percentile of this distribution. That is, the value of the basket when it has moved down in value ~ 2.33 standard deviations, which would be:
+
+Also, if the fund weight for the month consists partly of a ‘residual weight’ (or ‘passive weight’), the residual weight fraction gets no performance. The residual weight can be thought of as an outstanding redemption from a fund that is in the process of being transferred to RBC–it gets no market performance since it is no longer ‘in’ the fund, but it has either not yet been received or has not yet been re-invested or redeemed to a client.
 			</font></p>							
+			<br>
+
+
 
 			
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Hedge Fund VaR</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Hedge Fund Barrier</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6539777/files/zenodo-hedge-fund-VaR.pdf">zenodo hedge fund VaR pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6539777">zenodo hedge fund VaR</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7374369/files/FSCDOImplementation.pdf">zenodo fscdo pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7374369/files/FSCDOImplementation.pdf">zenodo fscdo</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6546586/files/zenodo-hedgeFundIndex.pdf">zenodo hedge fund index pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6546586">zenodo hedge fund index</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7832058/files/CreditAcceleration.pdf">zenodo credit acceleration pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7832058">zenodo credit acceleration</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7378011/files/CorrelationMtm.pdf">zenodo correlation mtm</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7378580/files/ImpliedCorrelation.pdf">zenodo implied correlation pdf</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7378011">zenodo correlation mtm</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7378454">zenodo implied correlation</a></li>
 				</ul>				 
 
 
-
+implied co
 			  
                </td>
           </tr>
