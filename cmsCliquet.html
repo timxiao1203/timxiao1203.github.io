@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>BMA Swap </title>
+<title>CMS Cliquet </title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/mbaSwap.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/cmsCliquet.html" />
 
 <style>
 p {
@@ -158,54 +158,33 @@ marginwidth="0" marginheight="0">
           <tr> 
 			
             <td bgcolor="#FFFFFF" valign="top"> 
-
-			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               BMA Swap </font></I></p>
-			<br>
 			
+						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+               CMS Cliquet </font></I></p>
+			   <br>
+
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The BMA Ratio Swap with BMA Knockout is a two-legged BMA ratio swap where one leg pays a contract specified fixed rate and the other leg pays Libor times a contract specified ratio (plus a contract specified constant spread). 
+A CMS cliquet option has two legs: One leg of this deal is based on (regular) floating rates. The other leg links to CMS swap rates. Due to the “set-in-arrear” feature in the structured leg, convexity and timing adjustments have to be considered. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The BMA Municipal Swap Index, produced by Municipal Market Data (MMD), is a single rate released every Wednesday after 4:00 pm and effective on next business date (usually Thursday). The rate is a representative index made up of an average of rates supplied by traders within the industry. It is a simple compounding annual rate with the day count convention of ACT/ACT. In a generic fixed for floating BMA swap, the floating side is estimated using averages of weekly BMA Municipal Swap Index.
+Due to the embedded option and convexity adjustments in the structure leg, we need swap rate volatilities and forward rate volatilities. The former can be interpolated from the implied swaption volatility surface. The latter should be interpolated from the so-called implied forward volatility surface. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-While actual par Municipal Swap Rates are not available in the market, BMA ratios, which are actively traded, are applied to LIBOR par swap rates to derive the par BMA swap rate. BMA ratios are used in conjunction with LIBOR swap rates to calculate the various instruments traded in the BMA market.
+However, this surface is currently not available in the market. Therefore, the swap rate volatility surface is also applied to forward rate volatilities.  The convexity adjustment does not explicitly depend on the correlation coefficient between the swap rate and the forward rate. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-In a generic fixed for floating BMA swap, the floating side is estimated using averages of the BMA Municipal Swap Index, which is published on a weekly basis. The fixed side pays interest quarterly on a 30/360 yield basis and payment dates adjusted using modified following basis. The floating side pays interest quarterly in ACT/ACT yield basis and payment dates adjusted using the modified following basis. The interest rate coupon can be calculated as https://finpricing.com/lib/FiBondCoupon.html
+Consider a fixed income contract consisting of a regular floating leg and a structured floating leg. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-Three types of swap legs are available, including BMA leg as well as typical LIBOR (floating) leg and fixed leg with variable notional. BMA leg pays (or receives) weighted average of weekly BMA indices over specified periods, based on ACT/ACT day count basis (DCB). LIBOR leg receives (or pay) LIBOR rate multiplied by a fixed ratio using ACT/360 DCB.
-			</font></p>							
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-The BMA Municipal Swap Index is a 7-day high-grade market index comprised of tax-exempt VRDNs from MMD’s extensive database. The rate is a representative index made up of an average of rates supplied by traders within the industry.
-			</font></p>							
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-It is a simple annual rate with the day count convention (DCC) of ACT/ACT. Spot BMA rates are reset at every business Wednesday after 4:00 pm and effective on next business date (usually Thursday) and matures on next business Wednesday inclusive with a holiday adjustment based on the holiday centre of “NYC” and day roll convention (DRC) of “Following”.
-			</font></p>							
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-If a Wednesday is not a good business day, the BMA reset day rolls over to next business day with the holiday of “NYC” and the DRC of “Following”. Then, the BMA rate is effective on the reset day and also matures on next business Wednesday inclusive with a holiday adjustment based on the holiday centre of “NYC” and DRC of “Following”.
+The payoff of the regular leg determined at the ith reset date ti and paid at the ith payment date ti+1 is given by
 			</font></p>							
 			<br>
 
@@ -215,14 +194,14 @@ If a Wednesday is not a good business day, the BMA reset day rolls over to next 
                <font face="Arial, Helvetica, sans-serif"><b>BMA Swap </b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7017511/files/MbaSwap.pdf">zenodo swap pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7017511">zenodo swap</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387516/files/basketDefault.pdf">zenodo basketDefault pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387516">zenodo basketDefault</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7017558/files/cmsCliquet.pdf">zenodo cms cliquet pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7017558">zenodo cliquet</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387866/files/VariMatGiantFirstLoss.pdf">zenodo VariMatGiantFirstLoss pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387866">zenodo VariMatGiantFirstLoss</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387723/files/VariableMatCDO.pdf">zenodo variable cdo pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387897/files/McSen.pdf">zenodo McSen pdf</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387723">zenodo variable cdo</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387897">zenodo McSen</a></li>
 				</ul>				 
 
 
