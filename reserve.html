@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Double CMS Option</title>
+<title>Option Close-out Reserve </title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/doubleCms.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/reserve.html" />
 
 <style>
 p {
@@ -160,59 +160,65 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Double CMS Option </font></I></p>
+               Option Close-out Reserve </font></I></p>
 			   <br>
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-A double CMS derivatives represents a European type derivatives whose matured payoff depends on two CMS rates.1 For most important products in the fixed income market, the payoff function can be an affine-linear with respect to two CMS rates and may be possibly capped and/or floored. 
+We present a model to calculate the monthly Close-Out Reserve of the structured interest rate derivatives. Products cover vanilla swaptions, Bermudan swaptions, callable swaps, variable notional swaptions, cap and floor and Treasury bond options. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Further, if the weighting-coefficients in the affine linear function, which are also called index gearing factors, have same signs, then it is also called (double-) CMS average; otherwise, it is called (double-) CMS spread. 
+The M×N Vega matrix has to be bilinear projected into a smaller-sized 4×4 Vega matrix, and then the netted positions of this smaller-sized matrix are applied to the quoted bid/offer spread.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Conventionally, for the second and third types of payoffs, they may be called CMS average/spread call and put, respectively. One may also notice that a vanilla digital call (put) can be well approximated by two calls (puts). Hence a CMS average/spread digital call/put can be replicated by CMS average/spread calls/puts. In this vetting report, we only consider double-CMS derivatives with payoffs of type (b) and (c).
+We can price all kinds of options and get the corresponding Vegas based on the above volatility matrices. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Special examples are CMS spread calls (or cap or caplets), puts (or floor or floorlets) and swaps. A double-CMS (structured) swap is a swap contract with a regular funding leg and a structured (or CMS) leg in which coupons are functions of two CMS rates as mentioned above. Particularly, each (structured) coupon rate can be a sum of an affine-linear function with respect to two CMS rates and a linear combination of CMS average/spread calls and puts. 
+Let us consider an option (vanilla or non-vanilla). Given a swaption term, an underlying term and a strike price, if we change the volatility from the above volatility cubic, we can get one Vega by using the definition of Vega. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-With this structure, we have the following special cases: (a) simple CMS average/spread swaps in which coupon rates in the CMS leg are not capped nor floored, (b) CMS average/spread cap-floor swaps and (c) CMS average/spread digital swaps. The double-CMS swaps, which are considered in this vetting report, are not callable.
+Given a M× N Vega matrix obtained from the above methods and a same-sized M×N Volatility Spread matrix, the option Close-Out Reserve can be calculated. However, Broker only offers a smaller-sized quoted bid/offer Volatility Spread matrix, which usually has a minimal dimension of 4×4. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-With the above analysis and the restriction and also due to the additivity of the double-CMS products considered in this report, it suffices to discuss European CMS average/spread calls and puts.
+To obtain better accuracy, this matrix can be expanded along with the option terms and underlying terms, so currently a 6 x 7 matrix has been proposed. However, below we use a 4×4 dimension matrix as an example. For instance, a 4×4 Volatility Spread matrix is given with option terms of 1y, 5y, 10y and 20y, and underlying terms of 1y, 5y, 10y and 20y. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The SABRN model for European vanilla option together with a normal copula function approach is applied to determine the joint distribution of two terminal CMS rates.
+In order to calculate the Option Close-Out Reserve, the M×N Vega matrix has to be transformed into a smaller-sized 4×4 matrix, and then the netted positions of this smaller-sized matrix are applied to the quoted bid/offer spread. We have used bilinear projection to transform the Vega matrix. Let us review the algorithm of the bilinear projection. Given M× N Volatility Spread matrix, we will transfer it to be a 4× 4 Volatility Spread matrix and calculate the total Close-Out reserve.
 			</font></p>							
 			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+Firstly, for each column, we project the value at the underlying term=1M, 3M, 6M and 1Y into the value at the underlying term=1Y, the value at the underlying term= 5Y into the value at the underlying term=5Y, the value at the underlying term=10Y into the value at the underlying term=10Y, the value at the underlying term= 20Y, 25Y and 30Y into the value at the underlying term=20 Y. 
+			</font></p>							
+			<br>
+
 
 
 			
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>BMA Swap </b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Option Close-out Reserve </b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6578517/files/doubleCms.pdf">zenodo double cms pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6578517">zenodo double cms</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387930/files/basisAdjustment.pdf">zenodo basisAdjustment pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387930">zenodo basisAdjustment</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6585388/files/closeOutReserve.pdf">zenodo reserve pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/6585388">zenodo reserve</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7542073/files/401kFund.pdf">zenodo 401kFund pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7542073">zenodo 401kFund</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387976/files/RiskMeasureFnmCDO2%263.pdf">zenodo RiskMeasureFnmCDO2%263 pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7542104/files/stableValueModel.pdf">zenodo stableValueModel pdf</a></li>
 					
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7387976">zenodo RiskMeasureFnmCDO2%263</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7542104">zenodo stableValueModel%263</a></li>
 				</ul>				 
 
 
