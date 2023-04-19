@@ -164,20 +164,30 @@ marginwidth="0" marginheight="0">
 			   <br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The Brownian bridge algorithm has been implemented for stress testing within the Risk Management framework. It is used for generation of multidimensional random paths whose initial and ending points are predetermined and fixed. 
+An amortizing floor option consists of 12 floorlets, or put options, on the arithmetic average of the daily 12-month Pibor rate fixings over respective windows of approximately 30 calendar days.  Furthermore the notional amount corresponding to each floorlet is specified by an amortization schedule.
 			</font></p>							
 			<br>
 
-An amortizing floor option consists of 12 floorlets, or put options, on the arithmetic average of the daily 12-month Pibor rate fixings over respective windows of approximately 30 calendar days.  Furthermore the notional amount corresponding to each floorlet is specified by an amortization schedule.
-
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 We consider a floor option consisting of a series of floorlets as follows.  Here each floorlet is specified by
+			</font></p>							
+			<br>
 
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 Consider a floorlet with associated Pibor rate averaging window, and let  T denote the corresponding settlement date.  We assume that, for each reset in this window, the associated 12-month forward Pibor rate, L , satisfies an SDE, of the form
+			</font></p>							
+			<br>
 
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 We note that, mathematically, the Pibor rates above cannot simultaneously be martingales under the common  T-forward probability measure; moreover, in order to simultaneously express the Pibor rates above under this same measure, the SDE above requires a drift correction term.
+			</font></p>							
+			<br>
 
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
 Here the forward Pibor rate volatility,  , is taken from a corresponding Euro forward swap rate volatility curve.  Furthermore Pibor forward rates are calculated from a curve sheet of EURIBOR discount factors 
-	
+			</font></p>							
+			<br>
+<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
                <font face="Arial, Helvetica, sans-serif"><b>Amortizing Floor Option</b></font>
 			   <br>
