@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Base Correlation </title>
+<title>Loss Trigger Leveraged Super Senior Tranche </title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/baseCorrelation.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/ltlsst.html" />
 
 <style>
 p {
@@ -160,52 +160,51 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Base Correlation </font></I></p>
+               Loss Trigger Leveraged Super Senior Tranche </font></I></p>
 			   <br>
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-The implied correlations for the CDO index tranches are the correlations backed out by the market quoted prices using CDO valuation models available in the credit library, namely, the Poisson model and the Normal Copula model.  
+The loss trigger leveraged super senior tranche (LT-LSS) valuation model is presented. A leveraged super senior tranche trade is a credit linked note, which provides investors with a leveraged exposure to the super senior tranche in a synthetic CDO transaction. The note holder earns the risk premium associated with selling protection on the entire senior exposure when the protection it provides is limited to only the funded principal amount which is just a fraction of the entire exposure. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-Normal copula model has become the market standard to compute the joint default probabilities of a collateral pool, which is essential to value a CDO trade [4,5]. Within the GSP credit derivative modeling framework, a normal copula Monte Carlo (MC) simulation model has already implemented 
+There are a series of time varying loss triggers built in the trade. If at any time before the trade maturity the accumulated loss amount of the entire collateral pool reaches a predefined level, the trade terminates and is settled on the mark-to-market (MTM) of the underlying super senior tranche or the funded amount, whichever is less.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-The normal copula function is a multivariate cumulative normal distribution with correlation matrix  . Applying the normal copula function to the modelling of correlated default events of a collateral asset pool, the uniform random variables are mapped to the default probabilities with standard normal distribution. The default copula, or the cumulative joint default probability for the collateral pool with n assets, can be expressed 
+The valuation of LT-LSS trades has been a challenging task in both the industry and academia. LSS trades are essentially exotic options on the forward starting super senior tranche conditional on the trigger breach, which depends on the way how the correlated default events, credit spread of each reference obligor, and market implied correlations evolve over time. The exercise of a LSS trade is contingent on the trigger breach, which can happen at any time before the trade maturity. The value of the trade cannot be fully determined unless a dynamic process of the portfolio is modeled. Furthermore, compared with other triggers, the LT-LSS is the most complicated because it directly links the credit spread and the implied correlation movements to the default events of the collateral pool. It is almost impossible to get pertinent market information to calibrate such a conditional loss process, even if we can somehow model one. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-The normal copula function is actually an n-dimensional integral, which is hard to calculate directly if n is large.   We use the one-factor normal copula model to reduce the dimensionality in order to achieve an analytical solution
+The model does not attempt to dynamically model the forward starting super senior tranche value conditional on trigger breach. Instead, it makes the assumption that, upon the loss trigger breach, the settlement is always the funded amount which is the maximum payoff of the trade. This assumption enables us to model the LT-LSS trade as a digital trigger option, which can be solved via our recently developed weighted Monte Carlo (WMC) method for the forward starting CDO (FSCDO) trade. The WMC methodology and the FSCDO valuation model were approved on May 11, 2006.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-In order to price a CDO tranche with an attachment point  and a detachment point , the expected loss function of the tranche is introduced, which has the form
+For a trade in the sold protection position, the MTM calculated by the LT-LSS model is always conservative. For a trade in the bought protection position, the model is acceptable when an additional model risk reserve is set up. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
-In order to calculate the expected loss function denoted in Eq. (13), we need to the find the probability distribution function of the loss function. In general there are two approaches: 1) via the characteristic function and the moment generating function and 2) via iteration. 
+A leveraged super senior tranche (LSS) trade is a credit linked note, which provides investors with a leveraged exposure to the super senior tranche in a synthetic CDO transaction.   The note holder earns the risk premium associated with selling protection on the entire senior exposure when the protection it provides is limited to only the principal amount that is funded, which is just a fraction of the entire exposure. 
 			</font></p>							
 			<br>
-
 
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Base Correlation </b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Loss Trigger Leveraged Super Senior Tranche </b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7831611/files/BaseCorrelation.pdf">zenodo correlation pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia601506.us.archive.org/30/items/bkTree/bkTree.pdf">archive tree</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/giccoupon/">gitbook gic</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/kjhsu/download">osf frn pdf</a></li>				
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/defaultSimulator">github default</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7382842/files/LSSWMC.pdf">zenodo pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia601404.us.archive.org/30/items/variableSwap/variableSwap.pdf">archive variable</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/swapaverage/">gitbook term</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/d59wu/download">osf zero pdf</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/feeProcessEstimation">github fee</a></li>
 				</ul>				 
 
                </td>
