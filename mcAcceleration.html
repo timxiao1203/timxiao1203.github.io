@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Monte Carlo Acceleration</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/mcAcceleration.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			
+						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+               Monte Carlo Acceleration</font></I></p>
+			   <br>
+
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+A new procedure is presented to accelerate the convergence of Monte Carlo simulations using the Default Correlation model.  It is found that the modifications have been implemented correctly,  and that the modifications result in a substantial improvement in the convergence rate of the Monte Carlo simulation models.  
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+A particular benefit of the model is a dramatic improvement in the stability of  delta computations, allowing more accurate and timely risk management of basket trades.  The reason for the improvement in stability of the deltas is a change in the method of their calculation.  The new method is found to be quite accurate  for low and moderate correlations and is explained in detail in the next section.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+The new method generates small negative delta amounts in certain cases.  Based on the numerical results, these negative deltas are not confined to situations of high correlation and/or large spread differences between credits.  The negative deltas do seem, however,  to be consistent with zero and to therefore be the result of a noise component introduced in certain cases by the acceleration algorithm.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+A typical Monte Carlo simulation algorithm assigns each simulation run, or path, an identical probability weight.  If we allow, however, a different probability to be assigned to each simulation path, we allow more flexibility in the simulation and can thus shape the simulation in accordance with our needs.  For example, we can choose the probabilities of each path in manner such that the simulation is guaranteed to reproduce the prices of “benchmark” securities, whose prices are known from market data.  A simulation thus calibrated to benchmarks will then price off-market securities in a realistic manner.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+The technique of assigning probability weights has, at least theoretically, the additional benefits of accelerating the convergence of the simulation, as well as allowing the sensitivities of the simulated price with respect to the benchmark securities to be computed without needing to perform additional simulations.
+			</font></p>							
+			<br>
+
+
+
+<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+			<br>				 
+               <font face="Arial, Helvetica, sans-serif"><b>Monte Carlo Acceleration</b></font>
+			   <br>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7832058/files/CreditAcceleration.pdf">zenodo acceleration pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia904701.us.archive.org/6/items/preservingTree/preservingTree.pdf">archive tree</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/cadBondCurve/">gitbook bond curve</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/zcyuq/download">osf basis pdf</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/401kFund">github fund</a></li>
+				</ul>				 
+
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
