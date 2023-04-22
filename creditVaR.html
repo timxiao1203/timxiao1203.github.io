@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Repo Curve</title>
+<title>Credit Delta and Credit VaR </title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/repo.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/creditVaR.html" />
 
 <style>
 p {
@@ -160,46 +160,45 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Repo Curve</font></I></p>
+               Credit Delta and Credit VaR </font></I></p>
 			   <br>
 
-
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-A repo curve calibration methodology is presented to bring it more consistent with market quotation. Instead of a fixed term structure for an issuer, the repo curve in essence becomes a “repo factor collection” in which a constant repo factor is stored with respect to each outstanding bond of the issuer.  
+Credit default swaps may terminate prior to maturity if the obligor defaults.  The effective duration of a credit default swap is therefore shorter than the term of the swap due to the possibility of swap termination prior to maturity.  The current methodology overstates PV01 values because it does not incorporate the default probability.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-A repo curve is defined as an adjustment to the discount curve in the pricing of a bond/FRN, when the credit default swaps (CDS) market implied default probability of the issuer is used in the pricing. We have changed the repo curve generation methodology. 
+Since high level of credit spread is a result (and an indication) of high default probability, the reduction in PV01 values is significant for high spread transactions.  For transactions with low credit spread (less than 200 bps), the difference is negligible.  
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Instead of a fixed term structure, the repo curve for each issuer in essence becomes “repo collections” in which a constant repo factor is stored with respect to each outstanding bond with same issuer. The computation of the repo factor for each bond remains unchanged. 
+Calculate rating-level CVaR values by multiplying the net PV01 values for each rating by the credit spread volatility factors for that rating.  The credit spread volatility factor is the 1-day movement at the 99% confidence level based on the 2-year credit spread for a particular rating band.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-With certain probability the bond won’t default before maturity. In this case the bondholder receives coupons at coupon payment dates and principal at maturity. However, there is a possibility that the bond will default before maturity thus the bondholder will only receive a recovered value based on principal plus accrued coupon. 
+Credit spread information derived from debt securities is only an approximation to the swap spread data and may not truly reflect the level and volatility of swap spreads.  Therefore credit spreads of debt securities should only be used as a proxy in the absence of historical spread data for asset swaps and default swaps.  
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Repo factor actually defines the relationship between CDS spreads and bond yield spreads. Theoretically there is a relationship between bond yield spread and CDS spread, which has been verified by empirical analysis.  The repo factor looks at risky bonds in a different way, with the assumption that the default probability of the issuer is same as that implied by the CDS trades. All other information implied in the bond yield spread, such as liquidity and funding cost difference between bonds and CDS trades, still remains the adjustment to the discount factor. 
+The levels as well as volatilities of credit spreads vary significantly within a rating band.  The spread volatility of an index of similarly rated bonds can be significantly smaller than that of an individual obligor due to diversification effect.  It is therefore necessary to calculate and apply volatilities at the obligor level rather than at the rating level.
 			</font></p>							
 			<br>
 
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Repo Curve</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Credit Delta and Credit VaR </b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7428850/files/RepoCurve.pdf">zenodo pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/treeforbarrier/">gitbook mbs</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903407.us.archive.org/10/items/fi-callable-frn-18/FiCallableFrn-archive.pdf">archive frn</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/timxiao1203/ShortTermCurve">github short</a></li>				
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/FundExposure-">github exposure</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7473670/files/CreditDeltaVaR.pdf">zenodo pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/partialbarrier/">gitbook partial</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903407.us.archive.org/20/items/fi-callable-bond-13/FiCallableBond-archive.pdf">archive callable</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/PrincipalNote-">github principal</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/CollateralizedSwap">github swap</a></li>
 				</ul>				 
 
                </td>
