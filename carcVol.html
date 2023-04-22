@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Capped Accumulated Return Call Volatility Surface</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/carcVol.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			
+						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+               Capped Accumulated Return Call Volatility Surface</font></I></p>
+			   <br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+A pricing model for capped-accumulated-return-call (CARC) with volatility surface is presented.  Proprietary approaches to interpreting volatility surface are employed during pricing.  To accelerate the convergence when low discrepancy sequences are used in Monte Carlo simulation (Quasi-Monte Carlo simulation), the Brownian Bridge Path Construction has been employed in some CARC transactions.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+As is known, quasi-Monte Carlo methods provides a way to improve the accuracy and reliability of Monte Carlo simulation by using deterministic sequences known as quasi-random sequences.  This results in better convergence and deterministic error bounds (Joy, Boyle and Tan, 1996).  There are a few techniques aimed at speeding up quasi-Monte Carlo, and the Brownian bridge path construction is one of them.  It attempts to use the best coordinates of each point to determine most of the structure of a path.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+A new representation of the volatility skew is provided.  To use this new representation, the user must input “STRIKE_REPRESENTATION   PERCENTAGE” in the token file.  Then, the ATM strike is always assumed to be 100.  The first quantity in the volatility skew still signifies the stock price when the volatility skew was built.  
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+The model will interpret this skew as follows.  At the time 1 year from the date when the volatility skew was built, the 10% ITM volatility is 0.4, with the strike level being 90*1050/100=945.  The ATM volatility is 0.38 with the strike level being 1050*100/100=1050.  The 10% OTM volatility is 0.36 with the strike level being 110*1050/100=1155.  At the time 2.0 years, a similar interpretation can be obtained.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+As to the interpolation of the volatility surface in pricing CARC, for each reset period, the model needs vol_spot and vol_strike to determine the volatility to use for that period.  For the current period, the vol_spot = current_stock_price at the value date, vol_strike = (1.0+cap) *l ast_reset_price.  For all future periods, the vol_spo t= base_spot of the volatility skew, and the vol_strike = (1.0+cap) * base_spot.  The base_spot is the stock price when the volatility skew was built, such as 1050 in the above example.  Based on the value of vol_strike/vol_spot for each reset period, the volatility for that period is obtained by linear interpolating (or flat extrapolating) time in the volatility skew representation, followed by moneyness interpolation (or flat extrapolation).  
+			</font></p>							
+			<br>
+
+
+
+<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+			<br>				 
+               <font face="Arial, Helvetica, sans-serif"><b>Capped Accumulated Return Call Volatility Surface</b></font>
+			   <br>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7487163/files/CarcVolSurface.pdf">zenodo pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903403.us.archive.org/28/items/fi-zero-bond-17/FiZeroBond-archive.pdf">archive zero</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/TrustSwap">github trust</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/CashFlowHedge">github cash</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/MBSDeferredAsset">github mbs</a></li>
+				</ul>				 
+
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
