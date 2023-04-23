@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<title>Stable Value Wrap Model</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/stable.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+			
+						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+               Stable Value Wrap Model</font></I></p>
+			   <br>
+
+
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+A fund model is presented for several contract subtypes involving stable value protection on 401K tax-sheltered investment plans. The model does not perform pricing, but rather makes an estimate of expected losses.  The estimation of fees received in compensation for extending the value protection is not treated in the model, although the loss estimation appears to be consistent with the detailed structure of these contracts.  
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+Extending the model to estimate fees is straightforward, and would also simplify certain other functions associated with booking and marking to market 401K wrap contracts, such as estimation of fee loss reserves.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+The stable value model is aimed at pricing the value of providing value protection on a portfolio consisting of fixed income instruments.  The protection provided by the stable value contract is written on any shortfall between the market value of the fund and a defined “book value” which exists when redemptions or withdrawals from the fund are made.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+The book value of the fund is computed as a function of the “crediting rate”, which itself is a function of previous market and book values as well as the equity and/or fixed income indices that indicate the market value of the fund.
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+The yield on the fixed income component of the protected fund is modeled as the change through time of a single rate which is considered to be the value of a fixed income yield index.  
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+Modeling of 401K stable value contracts, commonly called “wraps”, is complicated by the structural features of these contracts and of the funds to which they are applied.  401K plans typically grow and shrink as fund participants make deposits and  make withdrawals.  The deposits and withdrawals of the participants are modeled as a normal random variable
+			</font></p>							
+			<br>
+
+
+
+<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
+			<br>				 
+               <font face="Arial, Helvetica, sans-serif"><b>Stable Value Wrap Model</b></font>
+			   <br>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7542104/files/stableValueModel.pdf">zenodo pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903402.us.archive.org/7/items/ir-swap-36/IrSwap-archive.pdf">archive swap</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/CMSCliquet">github cms</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/CloseOutReserve">github reserve</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/CrossCurrencyBasisSwaption">github xccy</a></li>
+				</ul>				 
+
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
