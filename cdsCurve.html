@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Mortgage Swap</title>
+<title>CDS Spread Term Structure</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/mortgageSwap.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/cdsCurve.html" />
 
 <style>
 p {
@@ -160,31 +160,32 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Mortgage Swap</font></I></p>
+               CDS Spread Term Structure</font></I></p>
 			   <br>
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The payment amount in a mortgage swap can be modeled as the value of a European discrete Asian call option on a basket of indices. Here the
-basket price consists of an arithmetic average of various stock and bond indices. The call option payoff at maturity is equal to maximum of zero and an arithmetic average of basket values at certain points in time prior to option expiry less a fixed strike.
-			</font></p>							
+If a term structure of default swap spreads is provided in the first format, calibration is independent on the target default swap we want to price. Time to the value date in years must be divisible by 0.25 so that quarterly payment dates can be generated; otherwise the program will give an error message.
+  			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We assume that each index price follows, under the corresponding risk neutral probability
-measure, geometric Brownian motion with drift. Since the call option pays in Canadian
-dollars, however, the index price process is represented with respect to the Canadian risk
-neutral probability measure by means of a quanto adjustment. 
-			</font></p>							
+In the second format, maturity dates of the market default swaps are provided.  We first copy all the payment dates of the target default swap to the payment dates used for calibration.  If the target default swap is forward starting, quarterly calibration payment dates will be generated from the first payment date of the target default swap backward to the value date.  If the target default swap finishes before the last maturity date in the term structure file, quarterly calibration payment dates will be generated from the maturity date of the target default swap forward to the last maturity date in the term structure file.  The payment dates used for calibration are therefore built.
+  			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Observe that the basket price process does not follow geometric Brownian motion with drift; furthermore, the arithmetic average of basket values is not lognormally distributed. We approximate the basket price process, based on an analytical moment matching technique consistent with [Levy, 1992], using a single geometric Brownian motion with drift. Relevant defining drift and volatility values for this single geometric Brownian motion are computed.
-			</font></p>							
+We require that each of these maturity dates in the term structure file match one of the generated calibration payment dates.  If one of these maturity dates cannot match any payment date of the target default swap, this maturity date will be replaced by the closest calibration payment date with the corresponding spread unchanged.
+  			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The arithmetic average of the resulting approximate basket price process is further approximated, based on a different analytical moment matching technique, using a shifted lognormal random variable. The call option price is then computed as a discounted expected value of the maximum of zero and the shifted lognormal random variable value less the fixed strike. Here, relevant defining parameters for the shifted, lognormal random variable are computed.
+It can be seen that if the second format is provided, calibration is dependent on the target default swap.  Regardless which format is provided, we will assume those market default swaps have the same contract specifications as the target default swap, where payment is made at the payment date when default occurs and no accrued fee is allowed in the current model.
+  			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+The value of the default swap to the buyer, if payment is made at the payment date when default occurs and no accrued fee is allowed
 			</font></p>							
 			<br>
 
@@ -193,14 +194,14 @@ The arithmetic average of the resulting approximate basket price process is furt
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Mortgage Swap</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>CDS Spread Term Structure</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/337310447_Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment">ResearchGate swap</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/337310447_Bilateral_Defaultable_Financial_Derivatives_Pricing_and_Credit_Valuation_Adjustment/links/6429ddc4a1b72772e4463169/Bilateral-Defaultable-Financial-Derivatives-Pricing-and-Credit-Valuation-Adjustment.pdf">ResearchGate swap pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/tg2yj/download">osf collateral</a></li>				
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/mcSen">github mc</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/cdsBasisAdjustment">github cds</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/publication/337684918_The_Valuation_of_Credit_Default_Swap_with_Counterparty_Risk_and_Collateralization">ResearchGate cds</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.researchgate.net/profile/Tim-Xiao/publication/337684918_The_Valuation_of_Credit_Default_Swap_with_Counterparty_Risk_and_Collateralization/links/64274784a1b72772e43efd95/The-Valuation-of-Credit-Default-Swap-with-Counterparty-Risk-and-Collateralization.pdf">ResearchGate cds pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/agyhf/download">osf convertible</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/riskMeasureCdo">github cdo</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/indexRiskMeasure">github index</a></li>
 				</ul>				 
 
                </td>
