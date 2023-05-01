@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Bermudan Swaption </title>
+<title>Bermudan Swaption Introduciton</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/BermudanSwaption.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/bermudanSwaptionIntro.html" />
 
 <style>
 p {
@@ -160,61 +160,50 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Bermudan Swaption </font></I></p>
+               Bermudan Swaption Introduction</font></I></p>
 			   <br>
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The underlying security of a single currency Bermudan swaption is an interest-rate swap, which is specified by respective payer and receiver legs.  Each of the legs above can pay a fixed rate, Libor or CMS rate.  The owner of the Bermudan swaption can choose to enter into the swap above at certain pre-defined exercise times
+The general structure of the pricing Bermudan swaption is split into the following sections: collection of attribute information, calculating exercise tree levels and valuation information corresponding to those levels, and calculation of the derivative with a binomial lattice.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-The pricing method is based on Jamshidian’s Libor rate model (i.e., where Libor rates are modeled simultaneously under the spot Libor measure).  Furthermore, we value a Bermudan swaption based on the Monte Carlo technique presented by Longstaff and Schwartz towards American style pricing.
+The underlying variable as mentioned above is a portfolio of portfolios. For each exercise date the swap that can be entered is represented as a fixed and floating leg. Each pair of fixed and floating legs is contained in a separate portfolio. Each of these portfolios is contained in a master portfolio. This master portfolio entered as the “underlying” attribute.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We consider an interest-rate swap consisting of respective receiver and payer legs.  Here the payer leg is specified by
+The exercise dates of the Bermudan option will in general not fall exactly on the nodes of the binomial tree. As such, the exercise dates must be adjusted to the closest node on the tree. These exercisable node levels are recorded in the vector exercise dates.  By construction the last exercise date will correspond with the end of the lattice. Each exercise date is labelled with an exercise flag. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-Here R  can be a fixed rate, a Libor or a CMS rate.  In the case of an  n-period Libor rate, 
+Once the information in the previous section is calculated and recorded in the appropriate vectors the valuation using a binomial lattice is straight forward. The only difficulty is that the valuation input vectors are in general a different size than the number of tree steps and rolling back through the tree and rolling back through the valuation vectors must be carefully observed and implemented.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-We price a Bermudan style swaption using a Monte Carlo technique, which is based on the approach proposed by Longstaff and Schwartz towards American style pricing using simulation.  In particular, at every exercise time, we must solve a linear least squares problem, and then decide whether to exercise the option.
+We calibrate the Jamshidian model parameters based on a portfolio of European CMS rate options.  Here we calculate corresponding prices from a benchmark HW short-rate trinomial tree
 			</font></p>							
 			<br>
 
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-
-In the above trades off accuracy for efficiency in calculation speed; we investigate, numerically, the accuracy of the approximation above with respect to European swaption pricing 
-			</font></p>							
-			<br>
 
 
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Bermudan Swaption</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Bermudan Swaption Introduction</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia601404.us.archive.org/17/items/bermudan-swaption/BermudanSwaption.pdf">Archive bermudan pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://finwhite.gitbook.io/forwardstarting/">gitbook forward</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/timxiao1203/ExtendableSwap">github three</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/download/288179622.pdf">core lmm pdf</a></li>				
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://core.ac.uk/works/10287558">core lmm</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7884336/files/BermudanSwaption.pdf">Zenodo bermudan</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903402.us.archive.org/15/items/eq-quanto-14/EqQuanto-archive.pdf">archive quanto</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/gav3c/download">osf capVol</a></li>				
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/timxiao1203/bermudanSwaption">github bermudan</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/marketModel">github index</a></li>
 				</ul>				 
 
-
-
-			  
                </td>
           </tr>
         </table>
