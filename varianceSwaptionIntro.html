@@ -13,9 +13,9 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Bermudan Swaption Introduciton</title>
+<title>Variance Swap Introduciton</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/bermudanSwaptionIntro.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/varianceSwapIntro.html" />
 
 <style>
 p {
@@ -160,32 +160,37 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Bermudan Swaption Introduction</font></I></p>
+               Variance Swap Introduction</font></I></p>
 			   <br>
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The general structure of the pricing Bermudan swaption is split into the following sections: collection of attribute information, calculating exercise tree levels and valuation information corresponding to those levels, and calculation of the derivative with a binomial lattice.
+A variance swap is a forward contract on annualized variance, the square of the realized volatility.  The holder of a variance swap at expiration receives a notional amount of dollar for every point by which the stock’s realized variance has exceeded the variance delivery price.  
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The underlying variable as mentioned above is a portfolio of portfolios. For each exercise date the swap that can be entered is represented as a fixed and floating leg. Each pair of fixed and floating legs is contained in a separate portfolio. Each of these portfolios is contained in a master portfolio. This master portfolio entered as the “underlying” attribute.
+Valuation of the swap involves decomposition of the contract into two periods, one that has become historical, and the other with stock prices still unknown.  The unknown variance from the value date to the swap maturity can be replicated by a portfolio of call and put options.  Volatility skew can be incorporated into pricing of these options through bi-linear interpolation.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The exercise dates of the Bermudan option will in general not fall exactly on the nodes of the binomial tree. As such, the exercise dates must be adjusted to the closest node on the tree. These exercisable node levels are recorded in the vector exercise dates.  By construction the last exercise date will correspond with the end of the lattice. Each exercise date is labelled with an exercise flag. 
+We developed pricing models for equity log forward contracts and variance swaps. The model for variance swaps can be used to calculate P&L and risk numbers.
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Once the information in the previous section is calculated and recorded in the appropriate vectors the valuation using a binomial lattice is straight forward. The only difficulty is that the valuation input vectors are in general a different size than the number of tree steps and rolling back through the tree and rolling back through the valuation vectors must be carefully observed and implemented.
+This future realized variance can be replicated by a portfolio of call and put options with appropriate weights
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We calibrate the Jamshidian model parameters based on a portfolio of European CMS rate options.  Here we calculate corresponding prices from a benchmark HW short-rate trinomial tree
+Weights of the portfolio can be determined by many approaches.  One such approach is called the slope method
+			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+If no reference strike price and option data are supplied, the model will use the strike that is closest to the base spot price in the volatility skew file corresponding to the closest time to maturity
 			</font></p>							
 			<br>
 
@@ -194,15 +199,14 @@ We calibrate the Jamshidian model parameters based on a portfolio of European CM
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Bermudan Swaption Introduction</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Variance Swap Introduction</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7884336/files/BermudanSwaption.pdf">Zenodo bermudan pdf</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7884336">Zenodo bermudan</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903402.us.archive.org/15/items/eq-quanto-14/EqQuanto-archive.pdf">archive quanto</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://osf.io/gav3c/download">osf capVol</a></li>				
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/timxiao1203/bermudanSwaption">github bermudan</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/marketModel">github index</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7886775/files/VarianceSwap.pdf">Zenodo variance pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7886775">Zenodo variance</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia903403.us.archive.org/16/items/fx-forward-19/FxForward-archive.pdf">archive forward</a></li>			
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/timxiao1203/varianceSwaption">github variance</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://github.com/cfrm17/localMarket">github local</a></li>
 				</ul>				 
 
                </td>
