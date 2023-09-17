@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Risk Measures for FNM and CDO</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/riskCdo.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Risk Measures for FNM and CDO</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The purpose of the submitted model is to calculate the risk measures for FirstNofM trade (FNM) trades and CDO2&3 trades. They are bucketed credit spread sensitivities for FNM trades; bucketed credit spread sensitivities for CDO2&3 trades; default sensitivities and correlation sensitivities for CDO2&3 trades. 
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The credit spread sensitivity is switched to a bucketed one (CSPDH). In the model, parallel shift credit spread sensitivity has been used for many years. However, recent development in the market, especially the popularity of longer term trades, makes this measure inaccurate.
+			</font></p>					
+			<br>
+			
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			A new method of computing the credit spread sensitivity, namely semi-analytic Monte Carlo (MC) sensitivity, is adopted in the submitted model. It applied to FNM trades and CDO2&3 trades. In the computation of risk, now it is known that a default event that passes across the maturity in the perturbed scenario has a large contribution. Using a usual bump/revaluation approach, it is very hard to model such an event if the perturbation is tiny in the case such as computing CSPDH. In the new model, a deterministic part is added to directly address this part of contribution to credit spread sensitivities; hence the computational efficiency and precision are greatly improved.  
+ 			</font></p>					
+			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The CSPDH of CDO2&3 trades is the most complicated model in the Oscar/Fritz credit library.  In the model, a CDO2&3 trade is flattened to a risk equivalent vanilla CDO trade (RE-CDO) and then valued within the base correlation framework. When the credit spread of an obligor is perturbed, the attachment point of the RE-CDO trade is changed, which can be found through a re-flattening process. Using the analytical sensitivity approach as discussed in Refs. [1, 4, 5], the computation of CSPDH for a CDO2&3 trade is decomposed into two parts. One is CSPDH for RE-CDO, which is the same as that of a bespoke trade. The other part is CSPDH attributed to change of the attachment of RE-CDO. This part is calculated via a Jacobian of the attachment point to the credit spread change, in which the analytical MC sensitivity is employed. The first part of CSPDH can be tested straightforwardly by switching off re-flattening option and benchmarking against the approved bespoke CDO pricing template.  We focus on the second part of CSPDH for CDO2&3 trades. 
+			</font></p>					
+			<br>			
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The default sensitivity model of CDO2&3 trades in the model is basically an internal bump/revaluation approach. Compared to the ones for bespoke trades [6], the only difference is that the attachment point of RE-CDO is re-flattened in the perturbed scenario for CDO2&3 trades. Note that in the old risk measure, there are no re-flattening of the RE-CDO and re-mapping of the base correlations in the perturbed scenario. The new method enables us to capture the underlying risks more accurately.
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The correlation sensitivities of CDO2&3 trades is the same as the ones with bespoke CDO trades, because a perturbation of the base correlation does not have any effect on the attachment of RE-CDO. 
+			</font></p>					
+			<br>	
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The implementation of the MC risk model was first verified by a full bump and revaluation approach using the model and an independent test model. The CSPDH of FNM trades is also tested against the semi-closed form valuation model, in the case of the homogeneous loss given defaults (LGD). The CSPDH of CDO2&3 trades was tested against an independent test model and a full bump/revaluation approach using the model.  The default sensitivity and correlation sensitivity for CDO2&3 trades were verified by replicating them using the bespoke CDO template.
+			</font></p>	
+			<br>
+
+               <font face="Arial, Helvetica, sans-serif"><b>References:</b></font>
+			   <br>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://authors.repec.org/pro/pwh61/">risk papers</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="http://citec.repec.org/p/w/pwh61.html">credit articles</a></li>
+				  </ul>
+					<br>				 
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
