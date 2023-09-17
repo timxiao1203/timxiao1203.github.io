@@ -13,9 +13,9 @@
 
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
-<title>Credit Risk Simulator</title>
+<title>Stable Value Wrap Model</title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/creditSimulator.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/stableModel.html" />
 
 <style>
 p {
@@ -160,58 +160,51 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 
 			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-                Credit Default Simulator</font></I></p>
+                Stable Value Wrap Model</font></I></p>
 			
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The credit default simulator is based on a simplified version credit risk methodology, extended to multiple periods.  Beginning with a portfolio of assets, which are assumed to be in one-to-one correspondence with names, the model simulates a change in the value of the name for each period.  
+			The Insurance and Pension Solutions Group (IPS) stable value fund wrap model is presented. The modeling approach is to be used for several two basic contract types involving stable value protection on Bank Owned Life Insurance funds (BOLI), and Company Owned Life Insurance funds (COLI).  These products are fundamentally the same but differ with respect to tax treatment and/or the specific details regarding the redemption of the funds or portions thereof.
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Given a matrix of ratings transition probabilities, the changes in the valuations of each name are mapped into the matrix, which result in a simulated rating for each name in each period.  Those names that default in period are identified, and the default loss for each period is computed according to the recovery rate assumptions.			</font></p>					
+The model as tested, does not perform pricing, but rather makes an estimate of losses.  The other side of the pricing equation, namely the estimation of received fees, is not treated in the model, although the loss estimation appears to be, for the most part, consistent with the detailed structure of these contracts. Certain simplifications have, however, been made to facilitate the modeling process.  These simplifications do not appear to lead to major errors in loss estimation.  
+			</font></p>					
 			<br>
 			
 		
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The extension to multiple periods is accomplished simply by generating a fresh value of   from equation (1) for each name in each period.  Of course, each name is mapped into the transition matrix using the rating with which it begins the period in question.  However, a modification of equation (1) occurs for multiple periods if a feature of the model, known as the economic cycle, is activated. 			</font></p>					
+The stable value model is aimed at estimating the value of providing protection on a portfolio consisting of fixed income and equity instruments.  The fund upon which stable value protection is provided is assumed to be under active management and thus to have a constant duration for the purposes of modeling.  The protection provided by the stable value contract is written on any shortfall between the market value of the fund and a defined “book value” which exists when redemptions of the fund are made.
+ 			</font></p>					
 			<br>					
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			In this paper, we present generic models for valuing defaultable financial derivatives. For completeness, our study covers various cases: 
-			unilateral and bilateral, single payment and multiple payments, positive and negative payoffs. Although a couple of simple cases have been 
-			studied before by other authors, e.g. Duffie and Singleton (1999), Duffie and Huang (1996), who only provide heuristic derivations in a 
-			non-rigorous manner; analytic work on the other cases is novel. In contrast with the current recursive integral solution (see Duffie and 
-			Huang (1996)), our theory shows that the valuation of defaultable derivatives in most situations requires a backward induction procedure. 
+The book value of the fund is computed as a function of the “crediting rate”, which itself is a function of previous market and book values as well as the equity and/or fixed income indices that indicate the market value of the fund.
 			</font></p>					
 			<br>			
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Economic cycles are activated by specifying that a given value of   is to be obtained over a user-input number   of consecutive modeling periods.  In the  th period of an economic cycle, the value return is calculated according to
+In reality, a two-tiered strategy is used to accelerate the convergence of the market value toward book value in the event that certain exposure limits are breached.  When the book value exceeds market value by 10%, the portfolio must be reallocated to reduce the duration.  If the book and market values continue to diverge, when the book value exceeds market value by 20%, the portfolio is reallocated to strictly money-market instruments, and therefore has a duration of 0.25.  
 			</font></p>					
 			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The mapping of the value returns into the transition matrix is accomplished.  Briefly, it consists of mapping the transition probabilities of the matrix into return value Z-score boundaries.  If the simulated value return of a name crosses one of these Z-scores, a simulated transition event is generated.  Let us consider a transition matrix  , with   different ratings.  Then the probability of a name initially rated   making a transition to rating   is then given as
+Payouts under the contract occur only if redemptions of the protected fund are made by the policy holders.  Thus it is necessary to model the expected redemptions of the fund.  The model currently uses a probabilistic redemption model.  The redemption probability is given by specifying an annual redemption rate.  This annual redemption rate is then converted into a redemption probability for a time step 
 			</font></p>					
 			<br>	
-
+		
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The implied transitions feature of the model is assumed to be implemented in the following fashion.  Associated with each asset in the portfolio to be modeled there is a credit spread.  This credit spread is converted into a default probability according to the formula
-			</font></p>			
-			<br>
-			
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The model is designed to take into account credit enhancements in several forms.  The first such form of enhancement is a subordinated tranche, which can be set to an arbitrary percentage of the total face value of the asset pool.  The second type of enhancement is the excess spread.  This is effectively a coupon on the remaining total face value of the pool which is paid into an account.  The balance of this account is deducted from the total default losses in each period, and the excess spread account balance is reset.  The third enhancement is the reserve account, which functions identically to the excess spread, except that payments to the reserve account stop when a specified maximum value is reached.
+The model uses the redemption probability for a particular time step to make a random decision whether or not redemption occurs in that time step.  If the decision to redeem is made, then the model values the payout which must be made if the entire protected fund is liquidated.  Under this scheme, partial surrenders of the fund never occur.
 			</font></p>	
 			<br>
 
                <font face="Arial, Helvetica, sans-serif"><b>References:</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://vixra.org/abs/2306.0163">Equity Linked</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://vixra.org/pdf/2306.0163v1.pdf">Equity Linked pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://hal.science/hal-03749503">Cancellable</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://hal.science/hal-03749503/document">Cancellable pdf</a></li>
 				  </ul>
 					<br>				 
 
