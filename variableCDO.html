@@ -9,9 +9,13 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Credit Risk Modeling</title>
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
 
-<link rel="canonical" href="https://timxiao1203.github.io/creditModel.html" />
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Variable Maturity CDO Pricing</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/variableCDO.html" />
 
 <style>
 p {
@@ -25,10 +29,6 @@ ul {
 }
 </style>
 
-
-<META name="description" content="Credit Risk Modeling">
-
-<META name="keywords" content="security, derivatives">
 
 
 <SCRIPT>
@@ -99,7 +99,7 @@ function MM_swapImage() { //v3.0
 </SCRIPT>
 
 </HEAD>
-<BODY text=#000000 bgColor=#FFFFFF 
+<BODY text=#000000  bgColor=#FFFFFF 
 leftMargin=0 topMargin=0 
 marginwidth="0" marginheight="0">
 <!-- ImageReady Slices (navigation.psd) -->
@@ -147,10 +147,10 @@ marginwidth="0" marginheight="0">
       <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
     </tr>
     <tr> 
-      <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="images/tool.jpg" 
-	  Alt="data knowledge" width="164" height="194" align="left" vspace="10" hspace="10"></div></td>
-      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/products.gif" 
-	  Alt="data tool" width="280" height="60"></td>
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
       <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
     </tr>
     <tr> 
@@ -160,76 +160,58 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 
 			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-                Equity Product</font></I></p>
-				
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			</font></p>		
-
-			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Credit Risk Modeling</b></font>
-				<ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://derivatives.hcommons.org/credit-derivatives/">Credit Derivatives</a></li>
-				</ul>
+                Pricnig Variable Maturity CDO </font></I></p>
 			
 			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Credit Default Simulator</b></font>	
-	
-				<p>The credit default simulator is based on a simplified version credit risk methodology, extended to multiple periods.  Beginning with a portfolio of assets, which are assumed to be in one-to-one correspondence with names, the model simulates a change in the value of the name for each period. </p>
-				
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The model serves the purpose of pricing a non-vanilla synthetic CDO trade, where the maturities of the underlying synthetic assets in the collateral pool can be different from the trade maturity. 
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The asset substitution option is implemented. If an asset matures before both the trade maturity and the substitution termination date, it is substituted by an appropriate asset.
+			<br>
+			
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The model is implemented upon the Oscar/Fritz credit library platform, which is more computational efficient.
+ 			</font></p>					
+			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The sensitivity computation via Weighted Monte Carlo (WMC) approximation is replaced by a direct full Monte Carlo simulation of the perturbed scenarios. The new method is in line with the outstanding one for vanilla CDO trades.
+			</font></p>					
+			<br>			
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			To our best knowledge to date, there is no generally accepted methodology of modelling the asset substitution option. The choice of substitution asset has to follow the contractual portfolio management guideline, which is contingent upon the outcome of various portfolio statistics performed at the maturity of the substituted asset. From a mathematical modelling viewpoint, the value of this option cannot be fully determined unless a dynamic process of the portfolio is modelled. Furthermore, it is almost impossible to get the pertinent market information to calibrate such a process. 
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Instead of attempting to solve this complicated modelling problem, a simple and flexible approach is adopted in the submitted model. Although it is unpredictable how the portfolio will evolve over time and what the substitution asset would be, it is expected that the substitution asset should have certain probability of default before the trade maturity.  In a MC scenario in which the substituted asset survives beyond its maturity, a default time of the substitution asset is then simulated by assuming that it is forward starting at the time of substitution. The uncertainty in modelling the asset substitution is cushioned by an appropriate model risk reserve
+			</font></p>					
+			<br>	
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			An upgraded version of variable maturity synthetic CDO (VMS-CDO) trade valuation is presented. A VMS-CDO trade has a non-vanilla structure, in which the maturities of the underlying obligors could be different from that of the CDO trade. 
+			</font></p>	
+			<br>
+
+               <font face="Arial, Helvetica, sans-serif"><b>References:</b></font>
+			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="creditSimulator.html">Credit Simulation</a></li>
-				 </ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/show/new-model-pricing-collateralized-financial-derivatives-da938750">credit risk collateral</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/download/da93875046d24a89c4e7acd2eb90e21d/8483de8f779fee2b4dadf7eb9f89c55d">credit risk collateral pdf</a></li>
+				  </ul>
+					<br>				 
 
-
-			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Stable Value Wrap Model</b></font>	
-	
-				<p>The Insurance and Pension Solutions Group (IPS) stable value fund wrap model is presented. The modeling approach is to be used for several two basic contract types involving stable value protection on Bank Owned Life Insurance funds (BOLI), and Company Owned Life Insurance funds (COLI).  These products are fundamentally the same but differ with respect to tax treatment and/or the specific details regarding the redemption of the funds or portions thereof.</p>				
-                  
-				  <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="stableModel.html">Stable Model</a></li>
-				 </ul>
-
-
-			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Risk Measure for FNM and CDO</b></font>	
-	
-				<p>The purpose of the submitted model is to calculate the risk measures for FirstNofM trade (FNM) trades and CDO2&3 trades. They are bucketed credit spread sensitivities for FNM trades; bucketed credit spread sensitivities for CDO2&3 trades; default sensitivities and correlation sensitivities for CDO2&3 trades.
-				</p>
-				
-				  <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="riskCdo.html">CDO Risk Measure</a></li>
-				 </ul>
-
-
-			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Variable Maturity Giant First Loss </b></font>	
-	
-				<p>A variable maturity GiantFirstLoss trade has a non-vanilla collateral debt obligation (CDO) structure, in which the maturities of the obligors in the underlying collateral pool can be different from the trade maturity.
-				</p>
-				
-				  <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="variableFirstLoss.html">First Loss</a></li>
-				 </ul>	
-
-
-			<br>
-				<font face="Arial, Helvetica, sans-serif"><b>Variable Maturity CDO </b></font>	
-	
-				<p>An upgraded version of variable maturity synthetic CDO (VMS-CDO) trade valuation is presented. A VMS-CDO trade has a non-vanilla structure, in which the maturities of the underlying obligors could be different from that of the CDO trade. 
-				</p>
-				
-				  <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="variableCDO.html">First Loss</a></li>
-				 </ul>					 
-					 
-				 
-              </td>
+			  
+               </td>
           </tr>
-        </table></td>
-      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+        </table>
+	  </td>
     </tr>
 
   </tbody>
