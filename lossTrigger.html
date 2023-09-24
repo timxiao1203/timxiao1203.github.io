@@ -13,9 +13,9 @@
 
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
-<title>Variable Maturity CDO Pricing</title>
+<title>Loss Trigger Leveraged Super Senior Tranche </title>
 
-<link rel="canonical" href="https://timxiao1203.github.io/variableCDO.html" />
+<link rel="canonical" href="https://timxiao1203.github.io/lossTrigger.html" />
 
 <style>
 p {
@@ -160,51 +160,51 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 
 			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-                Pricnig Variable Maturity CDO </font></I></p>
+                Loss Trigger Leveraged Super Senior Tranche  </font></I></p>
 			
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The model serves the purpose of pricing a non-vanilla synthetic CDO trade, where the maturities of the underlying synthetic assets in the collateral pool can be different from the trade maturity. 
+The loss trigger leveraged super senior tranche (LT-LSS) valuation model is presented. A leveraged super senior tranche trade is a credit linked note, which provides investors with a leveraged exposure to the super senior tranche in a synthetic CDO transaction. The note holder earns the risk premium associated with selling protection on the entire senior exposure when the protection it provides is limited to only the funded principal amount which is just a fraction of the entire exposure. 
 			</font></p>							
 			<br>
 			
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The asset substitution option is implemented. If an asset matures before both the trade maturity and the substitution termination date, it is substituted by an appropriate asset.
+There are a series of time varying loss triggers built in the trade. If at any time before the trade maturity the accumulated loss amount of the entire collateral pool reaches a predefined level, the trade terminates and is settled on the mark-to-market (MTM) of the underlying super senior tranche or the funded amount, whichever is less.
 			</font></p>
 			<br>
 			
 		
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The model is implemented upon the Oscar/Fritz credit library platform, which is more computational efficient.
+The valuation of LT-LSS trades has been a challenging task in both the industry and academia. LSS trades are essentially exotic options on the forward starting super senior tranche conditional on the trigger breach, which depends on the way how the correlated default events, credit spread of each reference obligor, and market implied correlations evolve over time. The exercise of a LSS trade is contingent on the trigger breach, which can happen at any time before the trade maturity. The value of the trade cannot be fully determined unless a dynamic process of the portfolio is modeled. Furthermore, compared with other triggers, the LT-LSS is the most complicated because it directly links the credit spread and the implied correlation movements to the default events of the collateral pool. It is almost impossible to get pertinent market information to calibrate such a conditional loss process, even if we can somehow model one. 
  			</font></p>					
 			<br>					
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			The sensitivity computation via Weighted Monte Carlo (WMC) approximation is replaced by a direct full Monte Carlo simulation of the perturbed scenarios. The new method is in line with the outstanding one for vanilla CDO trades.
+The model does not attempt to dynamically model the forward starting super senior tranche value conditional on trigger breach. Instead, it makes the assumption that, upon the loss trigger breach, the settlement is always the funded amount which is the maximum payoff of the trade. This assumption enables us to model the LT-LSS trade as a digital trigger option, which can be solved via our recently developed weighted Monte Carlo (WMC) method for the forward starting CDO (FSCDO) trade
 			</font></p>					
 			<br>			
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			To our best knowledge to date, there is no generally accepted methodology of modelling the asset substitution option. The choice of substitution asset has to follow the contractual portfolio management guideline, which is contingent upon the outcome of various portfolio statistics performed at the maturity of the substituted asset. From a mathematical modelling viewpoint, the value of this option cannot be fully determined unless a dynamic process of the portfolio is modelled. Furthermore, it is almost impossible to get the pertinent market information to calibrate such a process. 
+For a trade in the sold protection position, the MTM calculated by the LT-LSS model is always conservative. For a trade in the bought protection position, the model is acceptable when an additional model risk reserve is set up. 
 			</font></p>					
 			<br>	
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			Instead of attempting to solve this complicated modelling problem, a simple and flexible approach is adopted in the submitted model. Although it is unpredictable how the portfolio will evolve over time and what the substitution asset would be, it is expected that the substitution asset should have certain probability of default before the trade maturity.  In a MC scenario in which the substituted asset survives beyond its maturity, a default time of the substitution asset is then simulated by assuming that it is forward starting at the time of substitution. The uncertainty in modelling the asset substitution is cushioned by an appropriate model risk reserve
+The LT-LSS model and the FSCDO model share the same model template and the same WMC model. The model risk reserve methodology to address the uncertainties in the WMC method for the FSCDO model applies to the LT-LSS trade. The limitations and restrictions for the LT-LSS model are directly inferred from that of the FSCDO model, except for the choice of calibrating instruments. Compared with the FSCDO model, more spot tranches are needed in the calibration of the LT-LSS model hence it is more difficult to successfully calibrate the model. 
 			</font></p>					
 			<br>	
 		
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-			An upgraded version of variable maturity synthetic CDO (VMS-CDO) trade valuation is presented. A VMS-CDO trade has a non-vanilla structure, in which the maturities of the underlying obligors could be different from that of the CDO trade. 
+A leveraged super senior tranche (LSS) trade is a credit linked note, which provides investors with a leveraged exposure to the super senior tranche in a synthetic CDO transaction.   The note holder earns the risk premium associated with selling protection on the entire senior exposure when the protection it provides is limited to only the principal amount that is funded, which is just a fraction of the entire exposure. 
 			</font></p>	
 			<br>
 
                <font face="Arial, Helvetica, sans-serif"><b>References:</b></font>
 			   <br>
                   <ul>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/show/new-model-pricing-collateralized-financial-derivatives-da938750">credit risk collateral</a></li>
-					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/download/da93875046d24a89c4e7acd2eb90e21d/8483de8f779fee2b4dadf7eb9f89c55d">credit risk collateral pdf</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/show/simple-precise-method-pricing-convertible-bond-credit-risk-b39f29e6">convertible</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/download/b39f29e6dfe62ebd814a1c173e0f16b2/1e05f261b8783697c4d85232556e1294">convertible pdf</a></li>
 				  </ul>
 					<br>				 
 
