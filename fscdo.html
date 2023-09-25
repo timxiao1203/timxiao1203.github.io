@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+
+<META name="description" content="Financial knowledge is vital for participants to be successful in financial markets.">
+
+<META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
+
+<title>Forward Starting CDO Valuation</title>
+
+<link rel="canonical" href="https://timxiao1203.github.io/fscdo.html" />
+
+<style>
+p {
+    line-height: 1.7;
+	font-size: 16px;
+}
+
+ul {
+    line-height: 2.2;
+	font-size: 16px;
+}
+</style>
+
+
+
+<SCRIPT>
+<!--
+// SCRIPT FOR POPUP POLL WINDOW
+
+var isNav4, isIE4
+
+if( parseInt(navigator.appVersion) >= 4)
+
+{
+
+  isNav4 = (navigator.appName == "Netscape");
+
+  isIE4 = (navigator.appName.indexOf("Microsoft") != -1);
+
+}
+
+
+
+function NewWindow(url)
+
+{
+
+  if( isNav4)
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","width=220,height=300,toolbar=no,resizable=yes,scrollable=yes");
+
+  }
+
+  else
+
+  {
+
+    var hWnd = window.open( url,"HelpWindow","widht=220,height=300,toolbar=no,resizable=no,scrollbars=yes");
+
+  }
+
+  self.focus();
+
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</SCRIPT>
+
+</HEAD>
+<BODY text=#000000  bgColor=#FFFFFF 
+leftMargin=0 topMargin=0 
+marginwidth="0" marginheight="0">
+<!-- ImageReady Slices (navigation.psd) -->
+<!-- End ImageReady Slices -->
+<table cellspacing=0 cellpadding=0 border=0 width="100%" height="100%">
+  <tbody>
+    <tr bgcolor=#000000> 
+      <td colspan=3> <table cellspacing=0 cellpadding=10 width="100%" border=0>
+          <tbody>
+            <tr> 
+			  <td align="left" valign="middle" height="10" width="50" nowrap></td>
+			  <td align="left" valign="middle" height="50" width="420"><B class="Title"><font color=#ffffff size="4" face="Arial, Helvetica, sans-serif">Investment Knowledge </font></a></B></td>
+			</tr>
+          </tbody>
+        </table></td>
+    </tr>
+    <tr valign="top" bgcolor=#999999> 
+      <td height=20 colspan=3>
+        <TABLE WIDTH=750 BORDER=0 CELLPADDING=0 CELLSPACING=0>
+          <TR> 
+		  
+            <TD> <A HREF="index.html"
+				ONMOUSEOVER="MM_swapImage('navigation_01','','/images/navigation_01-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_01','','/images/navigation_01.gif',1)"> 
+              <IMG NAME="navigation_01" SRC="images/navigation_01.gif" Alt="home index" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="productList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_03','','/images/navigation_03-over.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_03','','/images/navigation_03.gif',1)"> 
+              <IMG NAME="navigation_03" SRC="images/navigation_03.gif" Alt="product knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD>
+			<TD> <A HREF="curveVolList.html"
+				ONMOUSEOVER="MM_swapImage('tools','','/images/tools.gif',1)"
+				ONMOUSEOUT="MM_swapImage('tools','','/images/tools.gif',1)"> 
+              <IMG NAME="tools" SRC="/images/tools.gif" Alt="market data analytics" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 			  
+			  
+			<TD> <A HREF="paperList.html"
+				ONMOUSEOVER="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"
+				ONMOUSEOUT="MM_swapImage('navigation_05','','/images/knowledge.gif',1)"> 
+              <IMG NAME="navigation_05" SRC="/images/knowledge.gif" Alt="risk management knowledge" WIDTH=100 HEIGHT=20 BORDER=0></A></TD> 
+
+          
+	</TR>
+        </TABLE></td>
+    </tr>
+    <tr> 
+      <td colspan="3" bgcolor=#ffffff valign="top"> <div align="center">&nbsp;</div></td>
+    </tr>
+    <tr> 
+	  <td bgcolor=#ffffff valign="top" rowspan=2 width=106> <div align="center"><img src="/images/discuss.jpg" width="110" 
+	  Alt="knowledge discuss" height="147" align="left" vspace="10" hspace="10"></div></td>
+      <td bgcolor=#ffffff valign="top" width=700 height=60><img src="/images/knowledge1.gif" Alt="discuss"
+	  width="280" height="60"></td>
+      <td bgcolor=#ffffff valign="top" width="35">&nbsp;</td>
+    </tr>
+    <tr> 
+      <td bgcolor=#ffffff valign="top"> <table width="95%" border="0" cellspacing="1" cellpadding="5" height="95%" align="center">
+          <tr> 
+			
+            <td bgcolor="#FFFFFF" valign="top"> 
+
+			<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
+                Forward Starting CDO Valuation</font></I></p>
+			
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The forward starting CDO (FSCDO) valuation model serves the purpose of pricing a forward starting CDO (FSCDO) tranche. An FSCDO trade is defined as an agreement to enter into a CDO trade at some time in the future. Unlike a usual forward starting instrument in the interest rate world, the obligors in the collateral pool of the FSCDO may default before the forward starting date, which makes the pricing of such trades complicated. Furthermore, the FSCDO involves the forward start date and the trade maturity
+			</font></p>							
+			<br>
+			
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			In the past three years the structured credit derivative modeling has witnessed the emergence of the vanilla CDO trades pricing using market implied correlation information, and the standardization of the normal copula model within the base correlation framework.  The occurrence of the more complicated structure, such as the FSCDO trade discussed in this report, leads to alternative ways of explaining the correlation information implied by the market standard iTraxx and CDX indices.  In the initial modeling approach, a copula is normally assumed first, for example normal copula, t copula, etc. The random factor loading approach relaxes this assumption to some extent by assuming the factor as a function of the latent variable hence the joint marginal distribution is no longer normal. The latest development moves even further. As proposed by several authors, a non-parametric modeling framework is employed to match the market information. For example, in the perfect copula model, the assumption of any copula form is dropped, and the copula function itself is implied by the market information. In the Gaussian mixture model, three correlation values and their corresponding weights are found to match five market quotations of an iTraxx or CDX index.
+			</font></p>
+			<br>
+			
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The FSCDO model belongs to the non-parametric category.  In order to price the FSCDO with the market implied information of different terms, the model employs a WMC method. The following procedures are involves
+ 			</font></p>					
+			<br>					
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			By using the normal copula MC simulation model, the prior correlated default scenarios of the obligor in the collateral pool are simulated with a set of correlation parameters. Currently we choose five correlation values 0, 0.2, 0.4, 0.6, and 0.95, with the minimum number of simulation associated with each correlation being 100,000.  The correlated default times of obligors in each MC scenario are recorded. 
+			</font></p>					
+			<br>			
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			The path weight of each MC scenario is optimized such that both the unconditional default probabilities of the obligors and the spot market implied correlation information can be reproduced. The least set of constraints in the optimization includes two subsets. One is the spot unconditional default probabilities of each reference name with a full term structure between the forward starting date and maturity; the other subset is the spot tranche expected losses at the forward starting date and maturity, normalized by the corresponding expected losses of the collateral pool. The choices of the number of tranches and corresponding tranching position are determined on a trade by trade basis. 
+			</font></p>					
+			<br>	
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			There are two advantages of the model. First, like other non-parametric modeling approaches, the model ensures an arbitrage free pricing model once successfully calibrated. Moreover, as shown in the next section, the model can be calibrated to the market information with at least two different maturities, which can be viewed as a progress of the non-parametric modeling. As far as we know, all the other non-parametric modeling can only be calibration to market data with one maturity.
+			</font></p>					
+			<br>	
+		
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+			Each prior MC scenario has to be generated with a given correlation value.  Due to the existence of market implied correlation skew, in practical the MC scenario generated by any single correlation value won’t be able to calibrate to the market, hence a set of correlation values has to be selected. Two different choices of the correlation set would generate different sets of correlated default scenarios hence predict different value of the FSCDO, even if both can be calibrated the same spot tranche values quite satisfactorily. 
+			</font></p>	
+			<br>
+
+               <font face="Arial, Helvetica, sans-serif"><b>References:</b></font>
+			   <br>
+                  <ul>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/show/pricing-defaultable-collateralized-derivatives-6735b6ec">defaultable product</a></li>
+					<li style="line-height: 1.8em; font-size:18px"><a href="https://www.mysciencework.com/publication/download/pricing-defaultable-collateralized-derivatives-6735b6ec/5b4bf831c5ba85cc649ce0fa002af32a">defaultable product pdf</a></li>
+				  </ul>
+					<br>				 
+
+			  
+               </td>
+          </tr>
+        </table>
+	  </td>
+    </tr>
+
+  </tbody>
+</table>
+</BODY>
+</HTML>
+
+
+<html><script language="JavaScript">                                                                  </script></html>
