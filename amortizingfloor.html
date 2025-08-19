@@ -13,7 +13,7 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Amortizing Floor Option </title>
+<title>Greek generation </title>
 
 <link rel="canonical" href="https://timxiao1203.github.io/amortizingfloor.html" />
 
@@ -160,36 +160,34 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Amortizing Floor Option </font></I></p>
+               Geek generation </font></I></p>
 			   <br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-An amortizing floor option consists of 12 floorlets, or put options, on the arithmetic average of the daily 12-month Pibor rate fixings over respective windows of approximately 30 calendar days.  Furthermore the notional amount corresponding to each floorlet is specified by an amortization schedule.
+Sensitivities to risk factors (Greeks) and delta-gamma-vega (DGV) P&L are computed with respect to zero rates for fixed income instruments, 
+while in the VaR system, the computation will be performed with respect to STUB and Swap (constant maturity swap) instrument curves. 
+The all-in zero curves will be constructed using government (GOVT) zero curves and corporate/agency credit spreads, and using Front 
+Ofice system, will be transformed to STUB and Swap instrument rates, from which the Greeks will be generated. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We consider a floor option consisting of a series of floorlets as follows.  Here each floorlet is specified by
-			</font></p>							
+We have investigated the effects on the DGV P&L distribution due to the transformation of Monte Carlo scenarios from zero rates to STUB 
+and Swap rates, and the generation of Greeks with respect to the STUB and Swap time bucket curves. A comparison of the P&L distributions
+generated using scenarios and sensitivities generated with respect to the Zero, STUB, and Swap curves was performed for a US agency bond.			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Consider a floorlet with associated Pibor rate averaging window, and let  T denote the corresponding settlement date.  We assume that, for each reset in this window, the associated 12-month forward Pibor rate, L , satisfies an SDE, of the form
-			</font></p>							
+The zero rates for the agency bond were transformed to rates with USD STUB time bucketing and rates with Swap time bucketing. The delta and 
+gamma sensitivities with respect to each point on the three curves were generated, and 20,000 scenarios of the zero rates were generated
+and then transformed to rates on the STUB time bucket curve and rates on the Swap time bucket curve. Using the sensitivities and scenarios, 
+the DGV P&L distributions with respect to each of the three time bucket spaces (Zero, STUB, and Swap) were constructed, with the P&L 
+for each scenario.			</font></p>							
 			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We note that, mathematically, the Pibor rates above cannot simultaneously be martingales under the common  T-forward probability measure; moreover, in order to simultaneously express the Pibor rates above under this same measure, the SDE above requires a drift correction term.
-			</font></p>							
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Here the forward Pibor rate volatility,  , is taken from a corresponding Euro forward swap rate volatility curve.  Furthermore Pibor forward rates are calculated from a curve sheet of EURIBOR discount factors 
-			</font></p>							
-			<br>
+						
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Amortizing Floor Option</b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>References</b></font>
 			   <br>
                   <ul>
 					<li style="line-height: 1.8em; font-size:18px"><a href="https://ia601505.us.archive.org/7/items/amortizing-floor-option/AmortizingFloorOption.pdf">Archive floor pdf</a></li>
