@@ -13,7 +13,7 @@
 <META name="keywords" content="bond, forward, future, option, swap, cap, floor, callable, cancellable, swaption, fra, European option, American option, Asian option, Bermudan option">
 
 
-<title>Giant First Loss </title>
+<title>Greek Test </title>
 
 <link rel="canonical" href="https://timxiao1203.github.io/firstLoss.html" />
 
@@ -160,18 +160,23 @@ marginwidth="0" marginheight="0">
             <td bgcolor="#FFFFFF" valign="top"> 
 			
 						<p align="center"><I><font color="#0000cc" size="4" face="Arial, Helvetica, sans-serif">
-               Giant First Loss </font></I></p>
+               Greek Test </font></I></p>
 			   <br>
 
 
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-Compared to the standard first loss model with the same collateral pool and tranche structure, the new model predicts smaller B/E spreads for each tranche. Further, it is more sensible to the interest rate and the sensitivity to the interest rate term structure changes dramatically. The B/E spreads for each tranche calculated by both models converge when the hazard rates of the obligors become very small.
+The P&L distributions and VaR values were compared for two cases, with the instrument rates coming from dierent sources in each case. 
+In the first case, the rates were sourced from the USD GOVT curve and the USD AGY credit spread for the bond, which were obtained from the
+VaR system. The GOVT curve and the AGY credit spread were added together to give the all-in zero curve. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-The new Giant First Loss model is a first loss trade structure in which all losses to the structure are held until the maturity of the trade. In this model, the amount of the principal for the tranches, upon which the coupons are paid, are fixed for the duration of the structure, rather than being modified as losses occur for the standard first loss model. The value of protection is calculated by solely using the discount factor at maturity of the trade, because all losses are settled at maturity.
+Since the term structure of the GOVT curve (which contains 13 tenor points) is different from that of the AGY credit spread curve (which 
+contains 15 tenor points), the GOVT rates were interpolated to the points on the AGY curve. A set of 20,000 scenarios was then generated 
+with respect to the all-in zero curve, and the base rates and scenarios were transformed to rates on the USD STUB time bucket curve 
+(which contains 27 tenor points) and rates on the Swap time bucket curve (which contains 31 tenor points). 
 			</font></p>							
 			<br>
 
@@ -181,30 +186,35 @@ Within the existing modeling framework, the trade is implemented by resetting ge
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-First, the sensitivity to the interest rate for the new model and the standard first loss model is compared. The results are shown in Table 2 with the detail results listed in Appendix II. Delta with 5bps parallel shift is calculated by giving a 5bps parallel up shift to the interest rate. Delta with 5bps tilt is computed by giving a 5bps tilt to the interest rate (clockwise tilt within 5 years).
+The delta and gamma sensitivities were generated with respect to each of the three curves. The base rates and sensitivities with respect to 
+the Zero, STUB, and Swap time bucket spaces are shown.			</font></p>							
+			<br>
+
+			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
+In the second case, the instrument rates were sourced from the Bloomberg curve YCCF0084 and transformed to all-in zero rates. The zero rates 
+were then transformed to rates on the USD STUB and Swap time bucket curves, and the delta and gamma sensitivities were generated with respect
+to each curve. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-We can find two trends. First, the new model is more sensitive. Given the same amount of perturbation to the interest rate, the change of present value (PV) for the new model is much larger than that of the standard model. Second, the sensitivity to term structure changes dramatically. For the standard first loss model, the Delta change between the parallel shift and the tilt is small while the change is very large for the new model. 
+We note here that the 20,000 scenarios were not generated for the zero curve at this stage, but the zero curve was decomposed into a GOVT curve 
+and an AGY credit spread curve, which was then re-combined back into an all-in zero curve in the same manner described previously for the first 
+case. 
 			</font></p>							
 			<br>
 
 			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-These two trends meet our expectation of the change of the model, because in the new model all losses are accrued to the maturity and discounted with only one discount factor, which is the one at maturity. The discount factor at maturity has maximum sensitivity to the interest rate shift and tilt.
-			</font></p>							
-			<br>
-
-			<p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">
-In the standard first loss model, the mean default time becomes larger if the hazard rate decreases. So the B/E spreads for two models should converge to zero if the hazard rate becomes smaller. To test this effect, we change the hazard rate of each obligor for the test trade 1 from 0.01bps to 500bps with correlation being 0.3 for the test deal. 
-			</font></p>							
+The 20,000 scenarios were then generated for the reconstituted all-in zero curve, and were transformed to scenarios for the USD STUB and Swap 
+time bucket curves. (N.B. There is no significant difference in the rates on the reconstituted zero curve and those on the zero curve
+directly transformed from the source YCCF0084 curve.)			</font></p>							
 			<br>
 
 
 
 <p class="subheader"><font color="#0000cc" size="3"  face="Arial, Helvetica, sans-serif">	
 			<br>				 
-               <font face="Arial, Helvetica, sans-serif"><b>Giant First Loss </b></font>
+               <font face="Arial, Helvetica, sans-serif"><b>Greek Test </b></font>
 			   <br>
                   <ul>
 					<li style="line-height: 1.8em; font-size:18px"><a href="https://zenodo.org/record/7386972/files/PayEndGiantFirstLoss.pdf">zenodo pdf</a></li>
